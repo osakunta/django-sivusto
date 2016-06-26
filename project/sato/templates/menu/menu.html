@@ -1,0 +1,72 @@
+{% load cms_tags i18n menu_tags cache %}
+
+<div class="navbar navbar-default" role="navigation">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="/">SatO</a>
+		</div>
+		<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav navbar-right">
+				{% for child in children %}
+				<li class="{% if child.ancestor %}ancestor{% endif %}
+					{% if child.selected %} active{% endif %}
+					{% if child.children %} dropdown{% endif %}">
+					{% if child.children %}
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+						{{ child.get_menu_title }} <span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu">
+						{% show_menu from_level to_level extra_inactive extra_active template "" "" child %}
+					</ul>
+					{% else %}
+					<a href="{{ child.get_absolute_url }}"><span>{{ child.get_menu_title }}</span></a>
+					{% endif %}
+				</li>
+				{% if class and forloop.last and not forloop.parentloop %}{% endif %}
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+</div>
+
+<!--<div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium">
+<div class="title-bar-title"><a href="/">Satakuntalainen Osakunta</a></div>
+<button class="menu-icon float-right" type="button" data-toggle></button>
+</div>
+
+<div class="top-bar" id="main-menu">
+<div class="row">
+<div class="top-bar-left show-for-medium">
+<ul class="menu" data-menu>
+<li class="menu-text"><a href="/">Satakuntalainen Osakunta</a></li>
+</ul>
+</div>
+
+<div class="top-bar-right">
+<ul class="vertical medium-horizontal menu"
+data-responsive-menu="accordion medium-dropdown"
+data-disable-hover="true"
+data-click-open="true">
+
+{% for child in children %}
+<li class="child{% if child.selected %} selected{% endif %}{% if child.ancestor %} ancestor{% endif %}{% if child.sibling %} sibling{% endif %}{% if child.descendant %} descendant{% endif %}{% if child.children %} has-submenu{% endif %}">
+<a{% if not child.children %} href="{{ child.attr.redirect_url|default:child.get_absolute_url }}"{% endif %}>{{ child.get_menu_title }}</a>
+{% if child.children %}
+<ul class="vertical submenu menu" data-submenu>
+{% for child in child.children %}
+<li><a href="{{ child.attr.redirect_url|default:child.get_absolute_url }}">{{ child.get_menu_title }}</a></li>
+{% endfor %}
+</ul>
+{% endif %}
+</li>
+{% endfor %}
+</ul>
+</div>
+</div>
+</div>-->
