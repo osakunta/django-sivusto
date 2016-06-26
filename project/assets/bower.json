@@ -1,0 +1,15 @@
+{
+    "name": "sato",
+    "homepage": "http://satakuntalainenosakunta.fi",
+    "authors": [
+        "Ville Kopio"
+    ],
+    "description": "Satakuntalaisen Osakunnan verkkosivujen ulkoasu.",
+    "license": "MIT",
+    "dependencies": {
+        "jquery": "2.x",
+        "bootstrap-sass": "~3.3.6",
+        "fullcalendar": "~2.8.0"
+    },
+    "version": "0.0.0"
+}
