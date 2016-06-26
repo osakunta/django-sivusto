@@ -152,7 +152,8 @@ INSTALLED_APPS = [
     'djangocms_link',
     'reversion',
     'sato',
-    'image_gallery'
+    'image_gallery',
+    'aldryn_bootstrap3'
 ]
 
 LANGUAGES = (
@@ -181,6 +182,7 @@ CMS_LANGUAGES = {
 CMS_TEMPLATES = (
     ## Customize this
     ('page.html', 'Page'),
+    ('page_bare.html', 'Page without content wrapper'),
     ('feature.html', 'Page with Feature'),
     ('calendar.html', 'Kalenterin pohja'),
     ('gallery_list.html', 'List galleries')

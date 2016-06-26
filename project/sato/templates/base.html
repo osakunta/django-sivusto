@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>{% block title %}This is my new project home page{% endblock title %}</title>
+        <title>Satakuntalainen Osakunta{% block title %}{% endblock title %}</title>
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <link rel="stylesheet" href="{% static "css/styles.css" %}" type="text/css" media="screen">
         {% render_block "css" %}
@@ -22,6 +22,9 @@
             {% block content %}{% endblock content %}
             {% block main %}{% endblock main %}
         </div>
+
+        {% block bare-content %}{% endblock bare-content %}
+
         <script src="{% static "js/app.js" %}"></script>
         {% render_block "js" %}
         {% block custom-js %}{% endblock custom-js %}

@@ -22,7 +22,9 @@
 						{{ child.get_menu_title }} <span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
-						{% show_menu from_level to_level extra_inactive extra_active template "" "" child %}
+						{% for child in child.children %}
+						<li><a href="{{ child.attr.redirect_url|default:child.get_absolute_url }}">{{ child.get_menu_title }}</a></li>
+						{% endfor %}
 					</ul>
 					{% else %}
 					<a href="{{ child.get_absolute_url }}"><span>{{ child.get_menu_title }}</span></a>
