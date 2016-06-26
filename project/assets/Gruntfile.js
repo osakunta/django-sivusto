@@ -47,6 +47,18 @@ module.exports = function (grunt) {
                 expand: true,
                 src: 'js/**',
                 dest: '../sato/static/',
+            },
+            fonts_devel: {
+                cwd: 'bower_components/font-awesome/',
+                expand: true,
+                src: 'fonts/**',
+                dest: 'output/'
+            },
+            fonts_prod: {
+                cwd: 'bower_components/font-awesome/',
+                expand: true,
+                src: 'fonts/**',
+                dest: '../sato/static/'
             }
         },
 
@@ -66,5 +78,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.registerTask('default', 'watch')
+    grunt.registerTask('default', 'watch');
+    grunt.registerTask('fonts', ['copy:fonts_devel', 'copy:fonts_prod']);
 };
