@@ -18,12 +18,12 @@
         {% cms_toolbar %}
         {% show_menu 0 1 100 100 "menu/menu.html" %}
 
-        <div class="container">
+        <div id="content">
             {% block content %}{% endblock content %}
             {% block main %}{% endblock main %}
         </div>
 
-        {% block bare-content %}{% endblock bare-content %}
+        {% include "footer.html" %}
 
         <script src="{% static "js/app.js" %}"></script>
         {% render_block "js" %}

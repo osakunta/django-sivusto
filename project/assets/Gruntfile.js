@@ -3,7 +3,8 @@ module.exports = function (grunt) {
         sass: {
             dev: {
                 options: {
-                    outputStyle: 'expanded'
+                    outputStyle: 'expanded',
+                    debugInfo: true
                 },
                 files: {
                     'output/css/styles.css': 'input/sass/styles.sass'
@@ -64,11 +65,11 @@ module.exports = function (grunt) {
 
         watch: {
             sass: {
-                files: ['input/sass/*'],
+                files: ['input/sass/**'],
                 tasks: ['sass:dev', 'copy:css']
             },
             scripts: {
-                files: ['input/js/*'],
+                files: ['input/js/**'],
                 tasks: ['concat', 'copy:js'],
             }
         }

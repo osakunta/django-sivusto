@@ -4,8 +4,11 @@
 {% block title %}{% page_attribute "page_title" %}{% endblock title %}
 
 {% block content %}
-    {% placeholder "content" %}
+<div class="container">
+    {% placeholder "Content" %}
     <div id="calendar"></div>
+    {% placeholder "Selite" %}
+</div>
 {% endblock content %}
 
 {% block custom-js %}

@@ -1,0 +1,58 @@
+{% load cms_tags staticfiles sekizai_tags %}
+<footer id="footer">
+    <div class="container">
+        <div class="row row-bot">
+            <div class="col-md-4">
+                {% static_placeholder 'footer-top-left' %}
+            </div>
+
+            <div class="col-md-4">
+                {% static_placeholder 'footer-top-center' %}
+            </div>
+
+            <div class="col-md-4">
+                {% static_placeholder 'footer-top-right' %}
+            </div>
+        </div>
+        <div class="row row-top">
+            <div class="col-md-4">
+                <h4>Asuntola</h4>
+            </div>
+
+            <div class="col-md-4">
+                <h4>Liity meihin</h4>
+            </div>
+
+            <div class="col-md-4">
+                <h4>Kaikki yhteystiedot</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="copyright">
+        <div class="container">
+            <div class="row">
+                <!--<div class="pull-right small-only-margin-bottom">
+                    <a class="button radius" href="https://www.facebook.com/osakunta/">
+                        <i class="fa fa-lg fa-facebook"></i>
+                    </a>
+
+                    <a class="button radius" href="https://twitter.com/satolaiset">
+                        <i class="fa fa-lg fa-twitter"></i>
+                    </a>
+
+                    <a class="button radius" href="https://www.instagram.com/satolaiset/">
+                        <i class="fa fa-lg fa-instagram"></i>
+                    </a>
+                </div>-->
+                <div class="pull-right text">
+                    <p>Privacy policy | Terms of service</p>
+                </div>
+                <div class="text small-only-center">
+                    <p>&copy; {% now "Y" %} Satakuntalainen Osakunta, kaikki oikeudet pidetään.</p>
+                    {% static_placeholder 'footer-address' %}
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

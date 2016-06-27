@@ -1,38 +1,143 @@
+// Global variables
+@import "components/variables"
+// Import custom Bootstrap variables
+@import "components/bootstrap-variables"
 // Import Bootstrap for Sass
 @import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap"
-// Import custom Bootstrap variables
-@import "bootstrap-variables"
+
 // Import Font Awesome css
 @import "../../bower_components/font-awesome/css/font-awesome"
 // Import Fullcalendar css
 @import "../../bower_components/fullcalendar/dist/fullcalendar"
+// Custom styles for Fullcalendar
+@import "components/calendar"
+// Navigation styling
+@import "components/nav"
 
+.red-bg
+    background: red
+
+// Django CMS deletes every empty tag so adding Font Awesome icons gets
+// complicated. This style allows usage of b-tags inside the icon tag as it wont
+// be displayed. Adding non breaking space inside the b-tag prevents the icon
+// from being deleted.
 .fa b
     display: none
 
-.fc-center h2
-    text-transform: capitalize
+#content
+    overflow: hidden
 
-.fc-day-header
-    text-transform: uppercase
+    .container
+        padding-top: 110px
+        padding-bottom: 100px
 
-.fc-event
-    border-radius: 0
-    border: none
-    padding: 3px
-    font-weight: bold
+//Footer
+//------------------------------
 
-.fc-unthemed .fc-today
-    background: #E0E0E0
+#footer
+    background-color: $d-blue3
 
-.gcal-sports
-    background: #05AA00
+    > .container > .row
+        padding: 50px 0
+        margin: 0 auto
+        text-transform: uppercase
+        font-weight: bold
 
-.gcal-events
-    background: #003BAA
+        .button
+            width: 20px
+            display: inline-block
+            text-align: center
+            vertical-align: text-top
 
-.gcal-reserves
-    background: #AA0000
+    .copyright
+        background: darken($d-blue3, 3)
+        color: $d-blue2
+        padding: 20px 0
+        text-transform: uppercase
+        font-weight: bold
 
-.gcal-service
-    background: #AA9F00
+        .button
+            background: darken($d-blue3, 5)
+            display: inline-block
+            text-align: center
+            margin: 0
+            padding: 10px
+            width: 40px
+            height: 40px
+
+        .text p
+            margin: 0
+            padding: 0
+            font-size: 80%
+            line-height: 40px
+
+    > .container > .row-bot
+        padding-bottom: 0
+
+    > .container > .row-top
+        padding-top: 0
+
+    ul
+        list-style-type: none
+        margin-left: 0
+        width: auto
+
+    p
+        margin-left: 15px
+
+    a, p, h1, h2, h3, h4, h5, h6
+        color: $gray2
+        font-weight: bold
+
+    .copyright
+        a, p, h1, h2, h3, h4, h5, h6
+            color: darken($gray2, 40)
+            margin: 0
+
+    a:hover
+        color: #ffffff
+        text-decoration: none
+
+
+//Colors
+//------------------------------
+
+.gray1
+    background-color: $gray1
+
+.gray2
+    background-color: $gray2
+
+.blue1
+    background-color: $blue1
+    color: white
+
+.blue2
+    background-color: $blue2
+    color: white
+
+.blue3
+    background-color: $blue3
+    color: white
+
+.yellow1
+    background-color: $yellow1
+    color: $d-blue3
+
+.yellow2
+    background-color: $yellow2
+    color: $d-blue3
+
+.yellow3
+    background-color: $yellow3
+    color: $d-blue3
+
+//Only text
+.text-blue1
+  color: $blue1
+
+.text-blue2
+  color: $blue2
+
+.text-blue3
+  color: $blue3
