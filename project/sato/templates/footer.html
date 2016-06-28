@@ -1,11 +1,20 @@
 {% load cms_tags menu_tags staticfiles sekizai_tags %}
 <footer id="footer">
     <div class="container">
+        {% if user.is_authenticated %}
+        <div class="row row-bot">
+            <div class="col-md-12">
+                <h4>Jäsenille</h4>
+                {% show_menu_below_id "jasenille" 0 100 100 100 "menu/menu_inline_list.html" %}
+            </div>
+        </div>
+        {% endif %}
+
         <div class="row">
             <div class="col-md-4">
                 <div class="footer-equalize">
                     <h4><a href="/">Osakunta</a></h4>
-                        {% show_menu_below_id "osakunta" 0 100 100 100 "menu/menu_simple.html" %}
+                        {% show_menu_below_id "osakunta" 0 100 100 100 "menu/menu_paragraph.html" %}
                 </div>
                 <h4><a href="{% page_url "asuntola" %}">Asuntola</a></h4>
             </div>

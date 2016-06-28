@@ -12028,7 +12028,7 @@ span.fc-event {
   width: auto;
 }
 
-#footer p {
+#footer p, #footer .list-inline {
   margin-left: 15px;
 }
 
