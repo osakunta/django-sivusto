@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load cms_tags %}
+
+{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+
+{% block content %}
+    {% placeholder "content" %}
+
+    {% if not user.is_authenticated %}
+    {% show_placeholder "content" "asuntolan-tiedot" %}
+    {% endif %}
+
+    {% if user.is_authenticated %}
+    {% show_placeholder "content" "asukkaille" %}
+    {% endif %}
+{% endblock content %}

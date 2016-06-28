@@ -11954,10 +11954,6 @@ span.fc-event {
   margin-bottom: -1px;
 }
 
-.red-bg {
-  background: red;
-}
-
 .fa b {
   display: none;
 }
@@ -11987,6 +11983,10 @@ span.fc-event {
   display: inline-block;
   text-align: center;
   vertical-align: text-top;
+}
+
+#footer > .container > .row .footer-equalize {
+  padding-bottom: 10px;
 }
 
 #footer .copyright {

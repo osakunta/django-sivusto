@@ -1,5 +1,6 @@
 import os
 gettext = lambda s: s
+_ = lambda s: s
 DATA_DIR = os.path.dirname(os.path.dirname(__file__))
 """
 Django settings for sato project.
@@ -32,35 +33,20 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
-
-
-
-
 ROOT_URLCONF = 'sato.urls'
-
-
-
 WSGI_APPLICATION = 'sato.wsgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
-
-
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
 LANGUAGE_CODE = 'fi'
-
 TIME_ZONE = 'Europe/Helsinki'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
 
@@ -184,8 +170,15 @@ CMS_TEMPLATES = (
     ('page.html', 'Page'),
     ('page_bare.html', 'Page without content wrapper'),
     ('feature.html', 'Page with Feature'),
+    ('asuntola.html', 'Asuntolan pohja'),
     ('calendar.html', 'Kalenterin pohja'),
     ('gallery_list.html', 'List galleries')
+)
+
+CMS_STYLE_NAMES = (
+    ('a', _("empty")),
+    ('container', _("container")),
+    ('row', _("row")),
 )
 
 CMS_PERMISSION = True

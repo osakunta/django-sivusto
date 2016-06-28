@@ -1,30 +1,46 @@
-{% load cms_tags staticfiles sekizai_tags %}
+{% load cms_tags menu_tags staticfiles sekizai_tags %}
 <footer id="footer">
     <div class="container">
-        <div class="row row-bot">
+        <div class="row">
             <div class="col-md-4">
-                {% static_placeholder 'footer-top-left' %}
+                <div class="footer-equalize">
+                    <h4><a href="/">Osakunta</a></h4>
+                        {% show_menu_below_id "osakunta" 0 100 100 100 "menu/menu_simple.html" %}
+                </div>
+                <h4><a href="{% page_url "asuntola" %}">Asuntola</a></h4>
             </div>
 
             <div class="col-md-4">
-                {% static_placeholder 'footer-top-center' %}
+                <div class="footer-equalize">
+                    <h4>Seuraa meitä</h4>
+
+                    <p>
+                        <a href="https://www.facebook.com/osakunta/">
+                            <span class="button"><i class="fa fa-lg fa-facebook"></i></span> Facebook
+                        </a>
+                    </p>
+
+                    <p>
+                        <a href="https://twitter.com/satolaiset">
+                            <span class="button"><i class="fa fa-lg fa-twitter"></i></span> Twitter
+                        </a>
+                    </p>
+
+                    <p>
+                        <a href="https://www.instagram.com/satolaiset/">
+                            <span class="button"><i class="fa fa-lg fa-instagram"></i></span> Instagram
+                        </a>
+                    </p>
+                </div>
+                <h4><a href="#">Liity meihin</a></h4>
+
             </div>
 
             <div class="col-md-4">
-                {% static_placeholder 'footer-top-right' %}
-            </div>
-        </div>
-        <div class="row row-top">
-            <div class="col-md-4">
-                <h4>Asuntola</h4>
-            </div>
-
-            <div class="col-md-4">
-                <h4>Liity meihin</h4>
-            </div>
-
-            <div class="col-md-4">
-                <h4>Kaikki yhteystiedot</h4>
+                <div class="footer-equalize">
+                    {% static_placeholder 'footer-top-right' %}
+                </div>
+                <h4><a href="{% page_url "yhteystiedot" %}">Kaikki yhteystiedot</a></h4>
             </div>
         </div>
     </div>
@@ -50,7 +66,6 @@
                 </div>
                 <div class="text small-only-center">
                     <p>&copy; {% now "Y" %} Satakuntalainen Osakunta, kaikki oikeudet pidetään.</p>
-                    {% static_placeholder 'footer-address' %}
                 </div>
             </div>
         </div>
