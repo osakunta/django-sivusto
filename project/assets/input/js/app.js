@@ -12,4 +12,5 @@ function equalHeight(className) {
     });
 }
 
-equalHeight(".footer-equalize");
+equalHeight(".equalize-footer");
+equalHeight(".equalize-featured");

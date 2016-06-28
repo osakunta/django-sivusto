@@ -1427,7 +1427,7 @@ img {
 }
 
 .img-rounded {
-  border-radius: 6px;
+  border-radius: 0px;
 }
 
 .img-thumbnail {
@@ -1895,7 +1895,7 @@ kbd {
   font-size: 90%;
   color: #fff;
   background-color: #333;
-  border-radius: 3px;
+  border-radius: 0px;
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
 
@@ -3248,7 +3248,7 @@ fieldset[disabled]
   padding: 5px 10px;
   font-size: 12px;
   line-height: 1.5;
-  border-radius: 3px;
+  border-radius: 0px;
 }
 
 select.input-sm, .input-group-sm > select.form-control,
@@ -3273,7 +3273,7 @@ select[multiple].input-sm,
   padding: 5px 10px;
   font-size: 12px;
   line-height: 1.5;
-  border-radius: 3px;
+  border-radius: 0px;
 }
 
 .form-group-sm select.form-control {
@@ -3301,7 +3301,7 @@ select[multiple].input-sm,
   padding: 10px 16px;
   font-size: 18px;
   line-height: 1.3333333;
-  border-radius: 6px;
+  border-radius: 0px;
 }
 
 select.input-lg, .input-group-lg > select.form-control,
@@ -3326,7 +3326,7 @@ select[multiple].input-lg,
   padding: 10px 16px;
   font-size: 18px;
   line-height: 1.3333333;
-  border-radius: 6px;
+  border-radius: 0px;
 }
 
 .form-group-lg select.form-control {
@@ -3720,27 +3720,27 @@ fieldset[disabled] .btn-default.focus {
 
 .btn-primary {
   color: #fff;
-  background-color: #337ab7;
-  border-color: #2e6da4;
+  background-color: #0f4f79;
+  border-color: transparent;
 }
 
 .btn-primary:focus, .btn-primary.focus {
   color: #fff;
-  background-color: #286090;
-  border-color: #122b40;
+  background-color: #09314c;
+  border-color: transparent;
 }
 
 .btn-primary:hover {
   color: #fff;
-  background-color: #286090;
-  border-color: #204d74;
+  background-color: #09314c;
+  border-color: transparent;
 }
 
 .btn-primary:active, .btn-primary.active,
 .open > .btn-primary.dropdown-toggle {
   color: #fff;
-  background-color: #286090;
-  border-color: #204d74;
+  background-color: #09314c;
+  border-color: transparent;
 }
 
 .btn-primary:active:hover, .btn-primary:active:focus, .btn-primary:active.focus, .btn-primary.active:hover, .btn-primary.active:focus, .btn-primary.active.focus,
@@ -3748,8 +3748,8 @@ fieldset[disabled] .btn-default.focus {
 .open > .btn-primary.dropdown-toggle:focus,
 .open > .btn-primary.dropdown-toggle.focus {
   color: #fff;
-  background-color: #204d74;
-  border-color: #122b40;
+  background-color: #051d2c;
+  border-color: transparent;
 }
 
 .btn-primary:active, .btn-primary.active,
@@ -3761,12 +3761,12 @@ fieldset[disabled] .btn-default.focus {
 fieldset[disabled] .btn-primary:hover,
 fieldset[disabled] .btn-primary:focus,
 fieldset[disabled] .btn-primary.focus {
-  background-color: #337ab7;
-  border-color: #2e6da4;
+  background-color: #0f4f79;
+  border-color: transparent;
 }
 
 .btn-primary .badge {
-  color: #337ab7;
+  color: #0f4f79;
   background-color: #fff;
 }
 
@@ -4012,21 +4012,21 @@ fieldset[disabled] .btn-link:focus {
   padding: 10px 16px;
   font-size: 18px;
   line-height: 1.3333333;
-  border-radius: 6px;
+  border-radius: 0px;
 }
 
 .btn-sm, .btn-group-sm > .btn {
   padding: 5px 10px;
   font-size: 12px;
   line-height: 1.5;
-  border-radius: 3px;
+  border-radius: 0px;
 }
 
 .btn-xs, .btn-group-xs > .btn {
   padding: 1px 5px;
   font-size: 12px;
   line-height: 1.5;
-  border-radius: 3px;
+  border-radius: 0px;
 }
 
 .btn-block {
@@ -4523,7 +4523,7 @@ tbody.collapse.in {
 .input-group-sm > .input-group-btn > .input-group-addon.btn {
   padding: 5px 10px;
   font-size: 12px;
-  border-radius: 3px;
+  border-radius: 0px;
 }
 
 .input-group-addon.input-lg,
@@ -4531,7 +4531,7 @@ tbody.collapse.in {
 .input-group-lg > .input-group-btn > .input-group-addon.btn {
   padding: 10px 16px;
   font-size: 18px;
-  border-radius: 6px;
+  border-radius: 0px;
 }
 
 .input-group-addon input[type="radio"],
@@ -5475,14 +5475,14 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 
 .pagination-lg > li:first-child > a,
 .pagination-lg > li:first-child > span {
-  border-bottom-left-radius: 6px;
-  border-top-left-radius: 6px;
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
 }
 
 .pagination-lg > li:last-child > a,
 .pagination-lg > li:last-child > span {
-  border-bottom-right-radius: 6px;
-  border-top-right-radius: 6px;
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
 }
 
 .pagination-sm > li > a,
@@ -5494,14 +5494,14 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 
 .pagination-sm > li:first-child > a,
 .pagination-sm > li:first-child > span {
-  border-bottom-left-radius: 3px;
-  border-top-left-radius: 3px;
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
 }
 
 .pagination-sm > li:last-child > a,
 .pagination-sm > li:last-child > span {
-  border-bottom-right-radius: 3px;
-  border-top-right-radius: 3px;
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
 }
 
 .pager {
@@ -5713,7 +5713,7 @@ a.badge:hover, a.badge:focus {
 
 .container .jumbotron,
 .container-fluid .jumbotron {
-  border-radius: 6px;
+  border-radius: 0px;
   padding-left: 15px;
   padding-right: 15px;
 }
@@ -6711,12 +6711,12 @@ button.list-group-item-danger.active:focus {
 
 .well-lg {
   padding: 24px;
-  border-radius: 6px;
+  border-radius: 0px;
 }
 
 .well-sm {
   padding: 9px;
-  border-radius: 3px;
+  border-radius: 0px;
 }
 
 .close {
@@ -6797,7 +6797,7 @@ button.close {
   background-color: #fff;
   border: 1px solid #999;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 6px;
+  border-radius: 0px;
   -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
   box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
   background-clip: padding-box;
@@ -7066,7 +7066,7 @@ button.close {
   background-clip: padding-box;
   border: 1px solid #ccc;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 6px;
+  border-radius: 0px;
   -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
@@ -7093,7 +7093,7 @@ button.close {
   font-size: 14px;
   background-color: #f7f7f7;
   border-bottom: 1px solid #ebebeb;
-  border-radius: 5px 5px 0 0;
+  border-radius: -1px -1px 0 0;
 }
 
 .popover-content {
@@ -11937,11 +11937,13 @@ span.fc-event {
   box-shadow: none;
   border: none;
   margin-top: 1px;
+  padding: 0;
 }
 
 .navbar-inverse .navbar-nav > li > .dropdown-menu a {
   color: #fff;
   font-weight: 700;
+  padding: 8px 20px;
 }
 
 .navbar-inverse .navbar-nav > li > .dropdown-menu a:hover {
@@ -11967,6 +11969,16 @@ span.fc-event {
   padding-bottom: 100px;
 }
 
+.btn.btn-primary {
+  padding: 15px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.btn.btn-primary:hover {
+  background: #216694;
+}
+
 #footer {
   background-color: #172432;
 }
@@ -11985,7 +11997,7 @@ span.fc-event {
   vertical-align: text-top;
 }
 
-#footer > .container > .row .footer-equalize {
+#footer > .container > .row .equalize-footer {
   padding-bottom: 10px;
 }
 
