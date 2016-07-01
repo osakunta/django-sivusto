@@ -11956,6 +11956,10 @@ span.fc-event {
   margin-bottom: -1px;
 }
 
+.navbar-inverse .navbar-nav > .active > a {
+  background: #0f4f79;
+}
+
 .fa b {
   display: none;
 }
@@ -11977,6 +11981,40 @@ span.fc-event {
 
 .btn.btn-primary:hover {
   background: #216694;
+}
+
+.media-left {
+  padding-top: 20px;
+}
+
+.filer_image_link {
+  position: relative;
+  display: inline-block;
+  margin: 5px;
+  transition: all 0.2s ease;
+}
+
+.filer_image_link .filer_image_info {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  text-shadow: 0px 2px 1px #000000;
+  transition: opacity 0.2s ease;
+}
+
+.filer_image_link:hover {
+  filter: contrast(1.5);
+}
+
+.filer_image_link:hover .filer_image_info {
+  opacity: 0;
 }
 
 #footer {
