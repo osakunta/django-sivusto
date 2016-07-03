@@ -25,6 +25,9 @@
 						{% for child in child.children %}
 						<li><a href="{{ child.attr.redirect_url|default:child.get_absolute_url }}">{{ child.get_menu_title }}</a></li>
 						{% endfor %}
+						{% if child.get_menu_title == "Jäsenille" %}
+						<li><a href="/logout">Kirjaudu ulos ({{ user.username }})</a></li>
+						{% endif %}
 					</ul>
 					{% else %}
 					<a href="{{ child.get_absolute_url }}"><span>{{ child.get_menu_title }}</span></a>
@@ -32,43 +35,10 @@
 				</li>
 				{% if class and forloop.last and not forloop.parentloop %}{% endif %}
 				{% endfor %}
+				{% if not user.is_authenticated %}
+					<li><a href="/login">Kirjaudu</a></li>
+				{% endif %}
 			</ul>
 		</div>
 	</div>
 </div>
-
-<!--<div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium">
-<div class="title-bar-title"><a href="/">Satakuntalainen Osakunta</a></div>
-<button class="menu-icon float-right" type="button" data-toggle></button>
-</div>
-
-<div class="top-bar" id="main-menu">
-<div class="row">
-<div class="top-bar-left show-for-medium">
-<ul class="menu" data-menu>
-<li class="menu-text"><a href="/">Satakuntalainen Osakunta</a></li>
-</ul>
-</div>
-
-<div class="top-bar-right">
-<ul class="vertical medium-horizontal menu"
-data-responsive-menu="accordion medium-dropdown"
-data-disable-hover="true"
-data-click-open="true">
-
-{% for child in children %}
-<li class="child{% if child.selected %} selected{% endif %}{% if child.ancestor %} ancestor{% endif %}{% if child.sibling %} sibling{% endif %}{% if child.descendant %} descendant{% endif %}{% if child.children %} has-submenu{% endif %}">
-<a{% if not child.children %} href="{{ child.attr.redirect_url|default:child.get_absolute_url }}"{% endif %}>{{ child.get_menu_title }}</a>
-{% if child.children %}
-<ul class="vertical submenu menu" data-submenu>
-{% for child in child.children %}
-<li><a href="{{ child.attr.redirect_url|default:child.get_absolute_url }}">{{ child.get_menu_title }}</a></li>
-{% endfor %}
-</ul>
-{% endif %}
-</li>
-{% endfor %}
-</ul>
-</div>
-</div>
-</div>-->

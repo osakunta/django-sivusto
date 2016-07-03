@@ -7,6 +7,8 @@ from django.conf.urls import *  # NOQA
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.contrib.auth import views as auth_views
+from . import views
 
 admin.autodiscover()
 
@@ -15,6 +17,9 @@ urlpatterns = i18n_patterns('',
     url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap',
         {'sitemaps': {'cmspages': CMSSitemap}}),
     url(r'^select2/', include('django_select2.urls')),
+    url(r'^login/$', auth_views.login, {'template_name': 'auth/login.html'} , name='login'),
+    url(r'^logout/$', views.logout_user),
+    url(r'^', include('django.contrib.auth.urls')),
     url(r'^', include('filer.server.urls')),
     url(r'^', include('cms.urls')),
 )
