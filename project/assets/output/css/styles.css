@@ -12189,11 +12189,11 @@ body:after {
 
 .gallery-list a:hover {
   text-decoration: none;
-  border-color: black;
+  border-color: #09314c;
 }
 
 .gallery-list a:hover span {
-  background: black;
+  background: #09314c;
 }
 
 .gallery-list > div {
@@ -12212,11 +12212,11 @@ body:after {
   text-transform: uppercase;
   font-weight: bold;
   display: block;
-  border: 7px solid rgba(0, 0, 0, 0.9);
+  border: 7px solid #111;
 }
 
 .gallery-list > div div a span {
-  background: rgba(0, 0, 0, 0.9);
+  background: #111;
   display: block;
   padding-top: 7px;
 }
