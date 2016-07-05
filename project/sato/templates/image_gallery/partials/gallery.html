@@ -1,12 +1,13 @@
 {% load i18n thumbnail cms_tags %}
 <div class="container gallery-list">
+    <h1>{{ gallery.title }}{% if gallery.date %} <small>{{ gallery.date|date:"d.m.y" }}</small>{% endif %}</h1>
+
     <ol class="breadcrumb">
         <li><a href="{% page_url "galleria" %}">Galleria</a></li>
-        <li><a href="{% page_url "galleria" %}#{{ gallery.category }}">{{ gallery.category }}</a></li>
+        <li>{{ gallery.category }}</li>
         <li class="active">{{ gallery.title }}</li>
     </ol>
 
-    <h1>{{ gallery.title }}{% if gallery.date %} <small>{{ gallery.date|date:"d.m.y" }}</small>{% endif %}</h1>
     <p>{% render_placeholder gallery.description "description" %}</p>
     <div>
         {% for image in gallery.get_folder_images %}

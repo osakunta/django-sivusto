@@ -12187,6 +12187,37 @@ body:after {
   background: #0f4f79;
 }
 
+#accordion.gallery.panel-group {
+  margin-bottom: 0;
+}
+
+#accordion.gallery.panel-group .panel {
+  border: none;
+  box-shadow: none;
+  margin-top: 0;
+}
+
+#accordion.gallery.panel-group .container {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+#accordion.gallery.panel-group .container > a {
+  outline: 0;
+  color: #0f4f79;
+}
+
+#accordion.gallery.panel-group .container > a:hover, #accordion.gallery.panel-group .container > a:active, #accordion.gallery.panel-group .container > a:focus {
+  text-decoration: none;
+  color: #216694;
+}
+
+#accordion.gallery.panel-group .container h2 {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 20px 0;
+}
+
 .gallery-list a:hover {
   text-decoration: none;
   border-color: #09314c;
