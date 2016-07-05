@@ -24,6 +24,7 @@ module.exports = function (grunt) {
                     'bower_components/fullcalendar/dist/fullcalendar.js',
                     'bower_components/fullcalendar/dist/gcal.js',
                     'bower_components/fullcalendar/dist/lang/fi.js',
+                    'bower_components/lightbox2/src/js/lightbox.js',
                     'input/js/**'
                 ],
                 dest: 'output/js/app.js',
@@ -60,6 +61,18 @@ module.exports = function (grunt) {
                 expand: true,
                 src: 'fonts/**',
                 dest: '../sato/static/'
+            },
+            lightbox_devel: {
+                cwd: 'bower_components/lightbox2/src/images',
+                expand: true,
+                src: '**',
+                dest: 'output/img/lightbox'
+            },
+            lightbox_prod: {
+                cwd: 'bower_components/lightbox2/src/images',
+                expand: true,
+                src: '**',
+                dest: '../sato/static/img/lightbox/'
             }
         },
 
@@ -81,4 +94,5 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.registerTask('default', 'watch');
     grunt.registerTask('fonts', ['copy:fonts_devel', 'copy:fonts_prod']);
+    grunt.registerTask('lightbox', ['copy:lightbox_devel', 'copy:lightbox_prod']);
 };

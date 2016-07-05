@@ -4,21 +4,26 @@
 {% block main %}
 {% regroup gallery_list by category as category_list %}
 
-{% for category in category_list %}
-<h1>{{ category.grouper }}</h1>
+<div class="container gallery-list">
+    {% for category in category_list %}
+    <div>
+        <h1><strong>{{ category.grouper }}</strong></h1>
 
-    {% for gallery in category.list %}
-        <div style="text-align:center;width:150px;">
-            {% if gallery.get_folder_images.all %}
-                <img src="{% thumbnail gallery.get_folder_images.all.0.file 150x150 crop upscale %}" alt="" />
-            {% endif %}
-            <h3><a href="{% url "image_gallery_detail" pk=gallery.pk %}">{{ gallery.title }}</a></h3>
-            <span>{% if gallery.date %}{{ gallery.date|date }}, {% endif %}{{ gallery.location }}</span>
+        {% for gallery in category.list|dictsort:"date" %}
+        <div>
+            <a href="{% url "image_gallery_detail" pk=gallery.pk %}">
+                {% if gallery.get_folder_images.all %}
+                <img src="{% thumbnail gallery.get_folder_images.all.0.file 200x200 crop upscale %}" alt="" />
+                {% endif %}
+                <span>{{ gallery.title }}</span>
+            </a>
         </div>
+        {% endfor %}
+
+    </div>
     {% endfor %}
+</div>
 
-{% endfor %}
-
-<pre> {% filter force_escape %} {% debug %} {% endfilter %} </pre>
+<!--<pre> {% filter force_escape %} {% debug %} {% endfilter %} </pre>-->
 
 {% endblock %}
