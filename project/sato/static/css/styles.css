@@ -12151,7 +12151,21 @@ body:after {
 }
 
 .navbar-inverse .navbar-brand {
+  height: 100px;
+  padding: 0 15px;
+}
+
+.navbar-inverse .navbar-brand .navbar-logo {
+  background: url("../img/sato-logo.svg") center center no-repeat;
+  width: 80px;
+  height: 100px;
+  display: inline-block;
+}
+
+.navbar-inverse .navbar-brand .navbar-brand-text {
+  line-height: 100px;
   font-weight: bold;
+  vertical-align: top;
 }
 
 .navbar-inverse .navbar-nav > li > a {

@@ -4,7 +4,19 @@
 
 .navbar-inverse
     .navbar-brand
-        font-weight: bold
+        height: $navbar-height
+        padding: 0 15px
+
+        .navbar-logo
+            background: url('../img/sato-logo.svg') center center no-repeat
+            width: 80px
+            height: $navbar-height
+            display: inline-block
+
+        .navbar-brand-text
+            line-height: $navbar-height
+            font-weight: bold
+            vertical-align: top
 
     .navbar-nav > li
         > a
