@@ -20,3 +20,5 @@ html5lib
 Pillow>=2.3
 django-sekizai>=0.7
 six
+cmsplugin-image-gallery<0.8
+aldryn-bootstrap3<1.2
