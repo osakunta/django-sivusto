@@ -1,5 +1,5 @@
 // Takes a class name as a parameter and makes every container with said class
-// as tall as the one of them which has the longest height.
+// as tall as the tallest of them.
 function equalHeight(className) {
     var heights;
     

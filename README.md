@@ -8,11 +8,18 @@ Vaatimukset
 
 Kehitysserverin käynnistys
 --------------------------
-Varmista, että virtualenv on aktivoitu (repon juuressa):
+Luo Python 3.5 virtualenv haluamaasi hakemistoon (älä kuitenkaan repon sisälle).
+Seuraava komento luo virtualenvin sen hetkiseen hakemistoon:
 ```
-source env/bin/activate
+virtualenv -p /usr/bin/python3.5 [virtualenvin-nimi]
 ```
-Käynnistä serveri hakemistossa `project/`:
+
+Varmista, että virtualenv on aktivoitu:
+```
+source [virtualenvin-nimi]/bin/activate
+```
+
+Käynnistä serveri repon juuressa:
 ```
 python manage.py runserver
 ```
@@ -21,10 +28,13 @@ python manage.py runserver
 
 Front-endin muutokset
 ---------------------
-Vaatii node.js:n sekä npm:n ja versionhallintaa varten bowerin globaalisti
-asennettuna (`npm install -g bower`).
+Vaatii node.js:n ja npm:n sekä muutaman paketin globaalisti asennettuna.
+```
+npm install -g bower
+npm install -g grunt
+```
 
-Käytettävät frameworkit ovat hakemistossa `project/assets/`. Täällä
+Käytettävät frameworkit ovat hakemistossa `assets/`. Täällä
 `bower_components/` sisältää kaikki asennetut frameworkit. Älä muokkaa kyseisen
 hakemiston tiedostoja itse, sillä bower huolehtii niiden versionhallinnasta.
 
