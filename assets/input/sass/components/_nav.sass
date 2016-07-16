@@ -1,6 +1,7 @@
 
 .navbar
     margin-bottom: 0
+    border: none
 
 .navbar-inverse
     .navbar-brand
@@ -13,7 +14,7 @@
             width: 80px
             height: $navbar-height
             display: inline-block
-            
+
             > svg
             	vertical-align: bottom
 
@@ -32,7 +33,6 @@
             background: $blue2
             box-shadow: none
             border: none
-            margin-top: 1px
             padding: 0
 
             a
@@ -43,32 +43,36 @@
                 color: #fff
                 background: $blue3
 
-    .navbar-nav  .open > a, .nav .open > a:hover, .nav .open > a:focus
-        border-bottom: 1px solid $blue2
-        margin-bottom: -1px
+            .divider
+                margin: 0
+                background: darken($blue2, 3)
+
+            i
+                margin-right: 10px
+                margin-left: -10px
+
 
     .navbar-nav > .active > a
         background: $blue3
-        
+
 // Logo colors
 .logo-hilt, .logo-details, .logo-body, .logo-blade, .logo-crown
 	fill: #FFFFFF
 	transition: all 0.2s ease
-	
+
 .logo-eye
 	fill: $blue3
 	transition: all 0.2s ease
-	
+
 .navbar-brand:hover
 	.logo-body
 		fill: #2B2E34
-		
+
 	.logo-eye, .logo-details
 		fill: #ED463C
-		
+
 	.logo-crown, .logo-hilt
 		fill: #FEB432
-	
+
 	.logo-blade
 		fill: #D8D8DA
-
