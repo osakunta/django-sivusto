@@ -6,12 +6,16 @@
     .navbar-brand
         height: $navbar-height
         padding: 0 15px
+        transition: all 0.2s ease
 
         .navbar-logo
-            background: url('../img/sato-logo.svg') center center no-repeat
+            vertical-align: bottom
             width: 80px
             height: $navbar-height
             display: inline-block
+            
+            > svg
+            	vertical-align: bottom
 
         .navbar-brand-text
             line-height: $navbar-height
@@ -22,6 +26,7 @@
         > a
             font-weight: 700
             text-transform: uppercase
+            transition: all 0.2s ease
 
         > .dropdown-menu
             background: $blue2
@@ -44,3 +49,26 @@
 
     .navbar-nav > .active > a
         background: $blue3
+        
+// Logo colors
+.logo-hilt, .logo-details, .logo-body, .logo-blade, .logo-crown
+	fill: #FFFFFF
+	transition: all 0.2s ease
+	
+.logo-eye
+	fill: $blue3
+	transition: all 0.2s ease
+	
+.navbar-brand:hover
+	.logo-body
+		fill: #2B2E34
+		
+	.logo-eye, .logo-details
+		fill: #ED463C
+		
+	.logo-crown, .logo-hilt
+		fill: #FEB432
+	
+	.logo-blade
+		fill: #D8D8DA
+

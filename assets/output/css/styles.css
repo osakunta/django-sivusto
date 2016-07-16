@@ -12153,13 +12153,18 @@ body:after {
 .navbar-inverse .navbar-brand {
   height: 100px;
   padding: 0 15px;
+  transition: all 0.2s ease;
 }
 
 .navbar-inverse .navbar-brand .navbar-logo {
-  background: url("../img/sato-logo.svg") center center no-repeat;
+  vertical-align: bottom;
   width: 80px;
   height: 100px;
   display: inline-block;
+}
+
+.navbar-inverse .navbar-brand .navbar-logo > svg {
+  vertical-align: bottom;
 }
 
 .navbar-inverse .navbar-brand .navbar-brand-text {
@@ -12171,6 +12176,7 @@ body:after {
 .navbar-inverse .navbar-nav > li > a {
   font-weight: 700;
   text-transform: uppercase;
+  transition: all 0.2s ease;
 }
 
 .navbar-inverse .navbar-nav > li > .dropdown-menu {
@@ -12199,6 +12205,32 @@ body:after {
 
 .navbar-inverse .navbar-nav > .active > a {
   background: #0f4f79;
+}
+
+.logo-hilt, .logo-details, .logo-body, .logo-blade, .logo-crown {
+  fill: #FFFFFF;
+  transition: all 0.2s ease;
+}
+
+.logo-eye {
+  fill: #0f4f79;
+  transition: all 0.2s ease;
+}
+
+.navbar-brand:hover .logo-body {
+  fill: #2B2E34;
+}
+
+.navbar-brand:hover .logo-eye, .navbar-brand:hover .logo-details {
+  fill: #ED463C;
+}
+
+.navbar-brand:hover .logo-crown, .navbar-brand:hover .logo-hilt {
+  fill: #FEB432;
+}
+
+.navbar-brand:hover .logo-blade {
+  fill: #D8D8DA;
 }
 
 #accordion.gallery.panel-group {
