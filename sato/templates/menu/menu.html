@@ -9,37 +9,55 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
+
 			<a class="navbar-brand" href="/">
 				<span class="navbar-logo">{% include "menu/sato-logo.svg" %}</span>
-				<span class="navbar-brand-text">Satakuntalainen Osakunta</span></a>
+				<span class="navbar-brand-text">Satakuntalainen Osakunta</span>
+			</a>
 		</div>
+
 		<div class="navbar-collapse collapse">
 			<ul class="nav navbar-nav navbar-right">
+
 				{% for child in children %}
 				<li class="{% if child.ancestor %}ancestor{% endif %}
 					{% if child.selected %} active{% endif %}
 					{% if child.children %} dropdown{% endif %}">
+
 					{% if child.children %}
 					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
 						{{ child.get_menu_title }} <span class="caret"></span>
 					</a>
+
 					<ul class="dropdown-menu">
 						{% for child in child.children %}
 						<li><a href="{{ child.attr.redirect_url|default:child.get_absolute_url }}">{{ child.get_menu_title }}</a></li>
 						{% endfor %}
-						{% if child.get_menu_title == "Jäsenille" %}
-						<li><a href="/logout">Kirjaudu ulos ({{ user.username }})</a></li>
-						{% endif %}
 					</ul>
+
 					{% else %}
 					<a href="{{ child.get_absolute_url }}"><span>{{ child.get_menu_title }}</span></a>
 					{% endif %}
 				</li>
-				{% if class and forloop.last and not forloop.parentloop %}{% endif %}
 				{% endfor %}
-				{% if not user.is_authenticated %}
-					<li><a href="/login">Kirjaudu</a></li>
+
+				{% if user.is_authenticated %}
+				<li class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+						<i class="fa fa-user" aria-hidden="true"></i> {{ user.username }} <span class="caret"></span>
+					</a>
+
+					<ul class="dropdown-menu">
+						<li><a href="/admin"><i class="fa fa-cog" aria-hidden="true"></i>Hallintapaneeli</a></li>
+						<li><a href="?toolbar_off"><i class="fa fa-ban" aria-hidden="true"></i>Sulje työkalupall</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a href="/logout"><i class="fa fa-times" aria-hidden="true"></i>Kirjaudu ulos</a></li>
+					</ul>
+				</li>
+				{% else %}
+				<li><a href="/login">Kirjaudu</a></li>
 				{% endif %}
+
 			</ul>
 		</div>
 	</div>

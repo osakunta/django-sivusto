@@ -2,13 +2,13 @@
 // as tall as the tallest of them.
 function equalHeight(className) {
     var heights;
-    
+
     $(className).removeAttr("style");
 
     heights = $(className).map(function() {
         return $(this).height();
     }).get(),
-        
+
     maxHeight = Math.max.apply(null, heights);
 
     $(className).height(maxHeight);
@@ -19,11 +19,12 @@ function equalHeight(className) {
 function autoHeight() {
     $('#content').css('min-height', 0);
     $('#content').css('min-height', (
-        $(document).height() 
-        - $('#header').outerHeight() 
+        $(document).height()
+        - $('#header').outerHeight()
         - $('#footer').outerHeight()
+        - $('#cms-top .cms-toolbar').outerHeight()
     ));
-    
+
 }
 
 // onDocumentReady function bind
@@ -39,4 +40,3 @@ $(window).resize(function() {
     equalHeight(".equalize-footer");
     equalHeight(".equalize-featured");
 });
-

@@ -12148,6 +12148,7 @@ body:after {
 
 .navbar {
   margin-bottom: 0;
+  border: none;
 }
 
 .navbar-inverse .navbar-brand {
@@ -12183,7 +12184,6 @@ body:after {
   background: #216694;
   box-shadow: none;
   border: none;
-  margin-top: 1px;
   padding: 0;
 }
 
@@ -12198,9 +12198,14 @@ body:after {
   background: #0f4f79;
 }
 
-.navbar-inverse .navbar-nav .open > a, .navbar-inverse .nav .open > a:hover, .navbar-inverse .nav .open > a:focus {
-  border-bottom: 1px solid #216694;
-  margin-bottom: -1px;
+.navbar-inverse .navbar-nav > li > .dropdown-menu .divider {
+  margin: 0;
+  background: #1e5d87;
+}
+
+.navbar-inverse .navbar-nav > li > .dropdown-menu i {
+  margin-right: 10px;
+  margin-left: -10px;
 }
 
 .navbar-inverse .navbar-nav > .active > a {
