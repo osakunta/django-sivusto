@@ -12429,10 +12429,6 @@ h1, h2, h3, h4 {
   width: auto;
 }
 
-#footer p, #footer .list-inline {
-  margin-left: 15px;
-}
-
 #footer a, #footer p, #footer h1, #footer h2, #footer h3, #footer h4, #footer h5, #footer h6 {
   color: #bdc3c7;
   font-weight: bold;
