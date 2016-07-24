@@ -12051,9 +12051,11 @@ be a descendant of the grid when it is being dragged.
   overflow: hidden;
 }
 
-#content .container {
-  padding-top: 110px;
-  padding-bottom: 100px;
+@media only screen and (min-width: 1200px) {
+  #content .container {
+    padding-top: 110px;
+    padding-bottom: 100px;
+  }
 }
 
 #content {
