@@ -15,13 +15,14 @@
 @import "components/lightbox"
 @import "components/nav"
 @import "components/gallery"
+@import "components/backgrounds"
 
 
 // Django CMS deletes every empty tag so adding Font Awesome icons gets
 // complicated. This style allows usage of b-tags inside the icon tag as it wont
 // be displayed. Adding non breaking space inside the b-tag prevents the icon
 // from being deleted.
-.fa b
+i b
     display: none
 
 #content
@@ -74,6 +75,21 @@ h1, h2, h3, h4
 
 #content
         font-size: 16px
+
+.panel
+    margin-top: 60px
+
+    .panel-heading
+
+.nav-4-elem
+    table-layout: fixed
+    display: table
+    width: 100%
+
+    li
+        display: table-cell
+        padding: 5px
+        width: 100%
 
 
 //Footer

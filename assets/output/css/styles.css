@@ -12303,7 +12303,27 @@ body:after {
   padding-top: 7px;
 }
 
-.fa b {
+.bg-asuntola {
+  background: #333 url("../img/bg/bg-asuntola.jpg") center top;
+  text-shadow: 0px 2px 0px #000;
+  font-weight: bold;
+  color: #FFF;
+}
+
+.bg-asuntola .btn {
+  background: none;
+  border: 3px solid #AAA;
+}
+
+.bg-asuntola .btn i {
+  margin-bottom: 5px;
+}
+
+.bg-asuntola .btn.btn-primary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+i b {
   display: none;
 }
 
@@ -12366,6 +12386,22 @@ h1, h2, h3, h4 {
 
 #content {
   font-size: 16px;
+}
+
+.panel {
+  margin-top: 60px;
+}
+
+.nav-4-elem {
+  table-layout: fixed;
+  display: table;
+  width: 100%;
+}
+
+.nav-4-elem li {
+  display: table-cell;
+  padding: 5px;
+  width: 100%;
 }
 
 #footer {
