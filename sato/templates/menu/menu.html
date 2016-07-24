@@ -12,7 +12,9 @@
 
 			<a class="navbar-brand" href="/">
 				<span class="navbar-logo">{% include "menu/sato-logo.svg" %}</span>
-				<span class="navbar-brand-text">Satakuntalainen Osakunta</span>
+				<span class="navbar-brand-text">
+					Sat<span class="hidden-xs hidden-sm">akuntalainen </span>O<span class="hidden-xs hidden-sm">sakunta</span>
+				</span>
 			</a>
 		</div>
 
@@ -44,7 +46,9 @@
 				{% if user.is_authenticated %}
 				<li class="dropdown">
 					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-						<i class="fa fa-user" aria-hidden="true"></i> {{ user.username }} <span class="caret"></span>
+						<i class="fa fa-user" aria-hidden="true"></i>
+						<span class="hidden-sm hidden-md"> {{ user.username }}</span>
+						<span class="caret"></span>
 					</a>
 
 					<ul class="dropdown-menu">
