@@ -1,0 +1,58 @@
+// Titles
+// ======
+
+h1, h2, h3, h4
+        font-weight: bold
+
+
+// Buttons
+// =======
+
+.btn.btn-primary
+    padding: 15px
+    text-transform: uppercase
+    font-weight: bold
+
+    &:hover
+        background: $blue2
+
+// Styles for kk thumbnails
+.filer_image_link
+    position: relative
+    display: inline-block
+    margin: 5px
+    transition: all 0.2s ease
+
+    .filer_image_info
+        background-color: rgba(0, 0, 0, 0.6)
+        position: absolute
+        left: 0
+        top: 50%
+        transform: translate(0, -50%)
+        width: 100%
+        text-align: center
+        color: #fff
+        font-size: 40px
+        font-weight: bold
+        text-shadow: 0px 2px 1px #000000
+        transition: opacity 0.2s ease
+
+    &:hover
+        filter: contrast(1.5)
+
+        .filer_image_info
+            opacity: 0
+
+
+// Images
+// ======
+
+.media-left
+    padding-top: 20px
+
+// Django CMS deletes every empty tag so adding Font Awesome icons gets
+// complicated. This style allows usage of b-tags inside the icon tag as it wont
+// be displayed. Adding non breaking space inside the b-tag prevents the icon
+// from being deleted.
+i b
+    display: none
