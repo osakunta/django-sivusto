@@ -11982,14 +11982,32 @@ be a descendant of the grid when it is being dragged.
   font-weight: bold;
 }
 
-#footer > .container > .row .button {
+@media only screen and (max-width: 991px) {
+  #footer > .container > .row {
+    padding: 0;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  #footer > .container > .row > div {
+    margin: 10px 0 30px 0;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  #footer > .container > .row-bot {
+    padding: 30px 0 0 0;
+  }
+}
+
+#footer > .container > .row-bot .button {
   width: 20px;
   display: inline-block;
   text-align: center;
   vertical-align: text-top;
 }
 
-#footer > .container > .row .equalize-footer {
+#footer > .container > .row-bot .equalize-footer {
   padding-bottom: 10px;
 }
 
@@ -12011,11 +12029,21 @@ be a descendant of the grid when it is being dragged.
   height: 40px;
 }
 
-#footer .copyright .text p {
+#footer .copyright .lg-right p {
+  text-align: right;
+}
+
+#footer .copyright > div > div > div p {
   margin: 0;
   padding: 0;
   font-size: 80%;
   line-height: 40px;
+}
+
+@media only screen and (max-width: 991px) {
+  #footer .copyright > div > div > div p {
+    text-align: center !important;
+  }
 }
 
 #footer > .container > .row-bot {
@@ -12055,6 +12083,27 @@ be a descendant of the grid when it is being dragged.
   #content .container {
     padding-top: 110px;
     padding-bottom: 100px;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  #content .container {
+    padding-top: 80px;
+    padding-bottom: 70px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  #content .container {
+    padding-top: 60px;
+    padding-bottom: 50px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  #content .container {
+    padding-top: 40px;
+    padding-bottom: 30px;
   }
 }
 
