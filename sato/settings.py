@@ -139,7 +139,7 @@ INSTALLED_APPS = [
     'reversion',
     'sato',
     'image_gallery',
-    'aldryn_bootstrap3'
+    'aldryn_bootstrap3',
 ]
 
 LANGUAGES = (
