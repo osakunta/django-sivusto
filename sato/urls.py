@@ -19,8 +19,6 @@ urlpatterns = i18n_patterns('',
     url(r'^select2/', include('django_select2.urls')),
     url(r'^login/$', auth_views.login, {'template_name': 'auth/login.html'} , name='login'),
     url(r'^logout/$', views.logout_user),
-    url(r'^weblog/', include('zinnia.urls')), # Zinnia
-    url(r'^comments/', include('django_comments.urls')), # Zinnia
     url(r'^', include('django.contrib.auth.urls')),
     url(r'^', include('filer.server.urls')),
     url(r'^', include('cms.urls')),
