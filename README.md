@@ -28,7 +28,7 @@ source [virtualenvin-nimi]/bin/activate
 ```
 
 Asenna kaikki tarvittavat Python-paketit, jotka on listattuna tiedostossa
-requirements.txt. Huomaa, että asentamiseen tarvitaan nimenomaan pip3:a:
+requirements.txt. Huomaa, että asentamiseen tarvitaan nimenomaan pip3:a\:
 ```
 pip3 install -r requirements.txt
 ```
