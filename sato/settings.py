@@ -81,7 +81,8 @@ TEMPLATES = [
                 'django.core.context_processors.tz',
                 'sekizai.context_processors.sekizai',
                 'django.core.context_processors.static',
-                'cms.context_processors.cms_settings'
+                'cms.context_processors.cms_settings',
+                'zinnia.context_processors.version',  # Optional
             ],
             'loaders': [
                 'django.template.loaders.filesystem.Loader',
@@ -140,6 +141,11 @@ INSTALLED_APPS = [
     'sato',
     'image_gallery',
     'aldryn_bootstrap3',
+    # Following apps added for Zinnia
+    'django_comments',
+    'mptt',
+    'tagging',
+    'zinnia'
 ]
 
 LANGUAGES = (
