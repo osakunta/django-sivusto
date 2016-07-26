@@ -33,6 +33,14 @@ requirements.txt. Huomaa, että asentamiseen tarvitaan nimenomaan pip3:a.
 pip3 install -r requirements.txt
 ```
 
+Mikäli pakettien asennus ei onnistu, ja saat tällaisen ilmoituksen:
+> Could not find function xmlCheckVersion in library libxml2. Is libxml2 installed?
+
+Varmista, että seuraavassa komennossa olevat paketit on asennettu:
+```
+sudo apt-get install -y python-lxml libxml2-dev libxslt1-dev
+```
+
 Jos haluat päivittää paketteja, jotta ne ovat ajan tasalla requirements.txt:n
 kanssa, lisää `-U`-switch.
 ```
