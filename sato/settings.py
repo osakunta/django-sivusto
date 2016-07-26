@@ -82,12 +82,13 @@ TEMPLATES = [
                 'sekizai.context_processors.sekizai',
                 'django.core.context_processors.static',
                 'cms.context_processors.cms_settings',
-                'zinnia.context_processors.version',  # Optional
+                'aldryn_boilerplates.context_processors.boilerplate', # For Aldryn blog
             ],
             'loaders': [
                 'django.template.loaders.filesystem.Loader',
                 'django.template.loaders.app_directories.Loader',
-                'django.template.loaders.eggs.Loader'
+                'django.template.loaders.eggs.Loader',
+                'aldryn_boilerplates.template_loaders.AppDirectoriesLoader', # For Aldryn blog
             ],
         },
     },
@@ -141,11 +142,18 @@ INSTALLED_APPS = [
     'sato',
     'image_gallery',
     'aldryn_bootstrap3',
-    # Following apps added for Zinnia
-    'django_comments',
-    'mptt',
-    'tagging',
-    'zinnia'
+
+    # For Aldryn blog
+    'aldryn_apphooks_config',
+    'aldryn_boilerplates',
+    'aldryn_categories',
+    'aldryn_common',
+    'aldryn_newsblog',
+    'aldryn_people',
+    'aldryn_reversion',
+    'parler',
+    'sortedm2m',
+    'taggit',
 ]
 
 LANGUAGES = (
@@ -178,7 +186,8 @@ CMS_TEMPLATES = (
     ('feature.html', 'Page with Feature'),
     ('asuntola.html', 'Asuntolan pohja'),
     ('calendar.html', 'Kalenterin pohja'),
-    ('gallery_list.html', 'List galleries')
+    ('gallery_list.html', 'List galleries'),
+    ('pages/ajankohtaista.html', 'Template uutisille'),
 )
 
 CMS_STYLE_NAMES = (
@@ -214,6 +223,16 @@ THUMBNAIL_PROCESSORS = (
     'easy_thumbnails.processors.filters'
 )
 
+# For Aldryn blog
+STATICFILES_FINDERS = [
+     'django.contrib.staticfiles.finders.FileSystemFinder',
+     'aldryn_boilerplates.staticfile_finders.AppDirectoriesFinder',
+     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+ ]
+
 FILER_ENABLE_PERMISSIONS= True
 
 LOGIN_REDIRECT_URL = '/'
+
+# For Aldryn blog
+ALDRYN_BOILERPLATE_NAME='bootstrap3'
