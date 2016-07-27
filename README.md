@@ -16,6 +16,9 @@ Vaatimukset
 
 Kehitysserverin käynnistys
 --------------------------
+
+### Virtualenv
+
 Luo Python 3.5 virtualenv haluamaasi hakemistoon (älä kuitenkaan repon sisälle).
 Seuraava komento luo virtualenvin sen hetkiseen hakemistoon:
 ```
@@ -26,6 +29,7 @@ Varmista, että virtualenv on aktivoitu:
 ```
 source [virtualenvin-nimi]/bin/activate
 ```
+### Riippuvuudet
 
 Asenna kaikki tarvittavat Python-paketit, jotka on listattuna tiedostossa
 requirements.txt. Huomaa, että asentamiseen tarvitaan nimenomaan pip3:a.
@@ -46,6 +50,7 @@ kanssa, lisää `-U`-switch.
 ```
 pip3 install -U -r requirements.txt
 ```
+### Käynnistys
 
 Käynnistä serveri repon juuressa:
 ```
