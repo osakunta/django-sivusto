@@ -140,6 +140,7 @@ INSTALLED_APPS = [
     'sato',
     'image_gallery',
     'aldryn_bootstrap3',
+    'django-ilmo-app.ilmo'
 ]
 
 LANGUAGES = (
