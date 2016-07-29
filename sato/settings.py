@@ -185,10 +185,10 @@ CMS_TEMPLATES = (
     ('page.html', 'Page'),
     ('page_bare.html', 'Page without content wrapper'),
     ('feature.html', 'Page with Feature'),
-    ('asuntola.html', 'Asuntolan pohja'),
-    ('calendar.html', 'Kalenterin pohja'),
     ('gallery_list.html', 'List galleries'),
-    ('pages/ajankohtaista.html', 'Template uutisille'),
+    ('specific-pages/homepage.html', 'Etusivun pohja'),
+    ('specific-pages/calendar.html', 'Kalenterin pohja'),
+    ('specific-pages/ajankohtaista.html', 'Artikkelipohja'),
 )
 
 CMS_STYLE_NAMES = (
