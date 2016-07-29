@@ -2,3 +2,4 @@
 django-ilmo-app/
 
 sato/__pycache__/
+project.db
