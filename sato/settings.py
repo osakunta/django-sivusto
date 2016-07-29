@@ -142,9 +142,7 @@ INSTALLED_APPS = [
     'sato',
     'image_gallery',
     'aldryn_bootstrap3',
-<<<<<<< HEAD
-    'django-ilmo-app.ilmo'
-=======
+    'django-ilmo-app.ilmo',
 
     # For Aldryn blog
     'aldryn_apphooks_config',
@@ -157,7 +155,6 @@ INSTALLED_APPS = [
     'parler',
     'sortedm2m',
     'taggit',
->>>>>>> blogi
 ]
 
 LANGUAGES = (
