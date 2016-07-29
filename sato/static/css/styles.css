@@ -12580,3 +12580,30 @@ span.fc-event {
   display: block;
   padding-top: 7px;
 }
+
+.article {
+  margin: 30px 0;
+}
+
+.article h2 a, .article h3 a {
+  color: #333;
+}
+
+.article h2 a:hover, .article h3 a:hover {
+  text-decoration: none;
+  color: #555;
+}
+
+.article.latest h3, .article.latest p, .article.latest .panel {
+  margin: 0;
+}
+
+.article.latest .panel .panel-footer {
+  border-top: none;
+  font-size: 12px;
+  color: #999;
+}
+
+.article.latest .panel .panel-footer a {
+  font-weight: bold;
+}
