@@ -12504,6 +12504,11 @@ body:after {
   color: #444;
 }
 
+.fc-event .fc-time {
+  font-size: 10px;
+  color: #555;
+}
+
 span.fc-event {
   width: 150px;
   display: inline-block;
