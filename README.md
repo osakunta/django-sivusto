@@ -6,7 +6,6 @@ Sisällysluettelo
 - Vaatimukset
 - Kehitysserverin käynnistys
 - Front-endin muutokset
-- TODO
 
 Vaatimukset
 -----------
@@ -81,13 +80,3 @@ Nyt kun teet muutoksia input-hakemiston tiedostoihin, Grunt huomaa muutokset
 automaattisesti ja esimerkiksi sass-tiedostoja muuttaessa parsii ne yhdeksi
 css-tiedostoksi, joka kopioidaan Djangon staattisiin tiedostoihin hakemistosta
 `output/`.
-
-TODO
-----
-
-### Backend
-- Automaattinen kirjautuminen
-    - Autentikointi kuitenkin ensimmäistä kertaa adminpaneeliin mennessä
-
-### Frontend
-- Varmista footerin ja navigaation responsiivisuus
