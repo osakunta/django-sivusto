@@ -12201,6 +12201,10 @@ h1, h2, h3, h4 {
   font-weight: bold;
 }
 
+h1 {
+  margin-top: 0;
+}
+
 .btn.btn-primary {
   padding: 15px;
   text-transform: uppercase;
@@ -12481,14 +12485,19 @@ body:after {
 }
 
 .fc-day-header {
+  background: #222;
+  color: white;
   text-transform: uppercase;
 }
 
 .fc-event {
+  background: #DDD;
   border-radius: 0;
   border: none;
-  padding: 3px;
-  font-weight: bold;
+  border-bottom: 4px solid;
+  padding: 8px 3px;
+  color: #222;
+  font-size: 12px;
 }
 
 span.fc-event {
@@ -12497,23 +12506,63 @@ span.fc-event {
 }
 
 .fc-unthemed .fc-today {
-  background: #E0E0E0;
+  background: #EEE;
 }
 
 .gcal-sports {
-  background: #05AA00;
+  border-color: #05AA00;
 }
 
 .gcal-events {
-  background: #003BAA;
+  border-color: #003BAA;
 }
 
 .gcal-reserves {
-  background: #AA0000;
+  border-color: #AA0000;
 }
 
 .gcal-service {
-  background: #AA9F00;
+  border-color: #AA9F00;
+}
+
+.fc-day-grid-event .fc-content {
+  white-space: normal;
+}
+
+.fc .fc-basicWeek-view table {
+  border-collapse: separate;
+}
+
+.fc .fc-basicWeek-view td, .fc .fc-basicWeek-view th {
+  border: solid transparent;
+  border-width: 0 2px 0 2px;
+}
+
+.fc .fc-basicWeek-view th {
+  border-color: #333;
+  padding: 5px;
+}
+
+.fc .fc-basicWeek-view .fc-head-container, .fc .fc-basicWeek-view .fc-widget-content {
+  border: none;
+}
+
+.fc .fc-basicWeek-view .fc-today {
+  outline: 2px solid #333;
+  border: 2px solid #333;
+  border-width: 0 2px 4px 2px;
+}
+
+.fc .fc-basicWeek-view .fc-day-grid-event {
+  margin: 1px 1px 4px 1px;
+}
+
+.fc .fc-basicWeek-view .fc-content-skeleton {
+  padding-bottom: 2px;
+}
+
+.fc .fc-basicWeek-view .fc-day-header::after {
+  content: '.';
 }
 
 #accordion.gallery.panel-group {
