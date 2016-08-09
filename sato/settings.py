@@ -142,7 +142,6 @@ INSTALLED_APPS = [
     'sato',
     'image_gallery',
     'aldryn_bootstrap3',
-    'django-ilmo-app.ilmo',
 
     # For Aldryn blog
     'aldryn_apphooks_config',
@@ -192,7 +191,7 @@ CMS_TEMPLATES = (
 )
 
 CMS_STYLE_NAMES = (
-    ('a', _("empty")),
+    ('content-bg', _("content-bg")),
     ('container', _("container")),
     ('row', _("row")),
 )
