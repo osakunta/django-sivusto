@@ -12075,40 +12075,40 @@ be a descendant of the grid when it is being dragged.
   text-decoration: none;
 }
 
-#content {
-  overflow: hidden;
+body {
+  overflow-x: hidden;
+}
+
+#content > div {
+  font-size: 16px;
 }
 
 @media only screen and (min-width: 1200px) {
-  #content .container {
+  #content > div {
     padding-top: 110px;
     padding-bottom: 100px;
   }
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
-  #content .container {
+  #content > div {
     padding-top: 80px;
     padding-bottom: 70px;
   }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-  #content .container {
+  #content > div {
     padding-top: 60px;
     padding-bottom: 50px;
   }
 }
 
 @media only screen and (max-width: 767px) {
-  #content .container {
+  #content > div {
     padding-top: 40px;
     padding-bottom: 30px;
   }
-}
-
-#content {
-  font-size: 16px;
 }
 
 .panel {
@@ -12127,8 +12127,23 @@ be a descendant of the grid when it is being dragged.
   width: 100%;
 }
 
-.gray1 {
-  background-color: #ecf0f1;
+.content-bg {
+  position: relative;
+}
+
+.content-bg::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(50% - 50vw);
+  right: calc(50% - 50vw);
+  z-index: -1;
+}
+
+.gray1::before {
+  background: #ecf0f1;
 }
 
 .gray2 {

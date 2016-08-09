@@ -1,7 +1,8 @@
-#content
-    overflow: hidden
+body
+        overflow-x: hidden
 
-    .container
+#content
+    > div
         +media(lg)
                 padding-top: 110px
                 padding-bottom: 100px
@@ -18,7 +19,6 @@
                 padding-top: 40px
                 padding-bottom: 30px
 
-#content
         font-size: 16px
 
 .panel
@@ -40,8 +40,21 @@
 // Backgrounds
 // ===========
 
-.gray1
-    background-color: $gray1
+.content-bg
+        position: relative
+
+        &::before
+                content: ""
+                display: block
+                position: absolute
+                top: 0
+                bottom: 0
+                left: calc(50% - 50vw)
+                right: calc(50% - 50vw)
+                z-index: -1
+
+.gray1::before
+        background: $gray1
 
 .gray2
     background-color: $gray2
