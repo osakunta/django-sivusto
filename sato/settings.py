@@ -24,15 +24,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'pnuj(ac1h-gmpde#*j2H)=&/(&98g89%&/)/)Hg9f486dtw)8pb9)s7^d_j4hs5ee4u29@i44mn'
+SECRET_KEY = 'pnuj(ac1h-gmpde#*j2dtw)8pb9)s7^d_j4hs5ee4u29@i44mn'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = [
-	'localhost',
-	'.satakuntatalo.fi'
-]
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -206,12 +203,12 @@ CMS_PLACEHOLDER_CONF = {}
 DATABASES = {
     'default': {
         'CONN_MAX_AGE': 0,
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.sqlite3',
         'HOST': 'localhost',
-        'NAME': 'django',
-        'PASSWORD': 'Django-SivustonPostgreSQLTietokanta',
+        'NAME': 'project.db',
+        'PASSWORD': '',
         'PORT': '',
-        'USER': 'django'
+        'USER': ''
     }
 }
 
