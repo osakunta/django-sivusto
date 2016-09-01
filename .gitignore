@@ -1,5 +1,6 @@
 # Ilmo-app has its own repository
 django-ilmo-app/
+static/
 
 *.pyc
 *.db
