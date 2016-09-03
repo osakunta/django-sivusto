@@ -188,6 +188,7 @@ CMS_TEMPLATES = (
     ('specific-pages/homepage.html', 'Etusivun pohja'),
     ('specific-pages/calendar.html', 'Kalenterin pohja'),
     ('specific-pages/ajankohtaista.html', 'Artikkelipohja'),
+    ('specific-pages/yhteystiedot.html', 'Yhteystietojen pohja'),
 )
 
 CMS_STYLE_NAMES = (

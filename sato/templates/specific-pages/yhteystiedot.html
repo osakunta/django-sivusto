@@ -1,0 +1,8 @@
+{% extends "page.html" %}
+{% load cms_tags %}
+
+{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+
+{% block custom-js %}
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuhvXi1mdy5o2qDkYXlSZAd9nbXatQ8GI&callback=initMap" async defer></script>
+{% endblock custom-js %}
