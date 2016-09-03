@@ -11,10 +11,21 @@ function initMap() {
         zoom: 13
     });
 
-    var marker = new google.maps.Marker({
-        position: coords,
-        map: map,
-        title: 'SatO'
-      });
+    var geocoder = new google.maps.Geocoder();
+    var address = "Lapinrinne 1 A, Helsinki";
+
+    geocoder.geocode({'address': address}, function(results, status) {
+        if (status === 'OK') {
+            resultsMap.setCenter(results[0].geometry.location);
+
+            var marker = new google.maps.Marker({
+                map: resultsMap,
+                position: results[0].geometry.location
+            });
+        } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+        }
+    });
+
 
 }
