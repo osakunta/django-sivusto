@@ -30,13 +30,11 @@ function autoHeight() {
 // onDocumentReady function bind
 $(document).ready(function() {
     autoHeight();
-    equalHeight(".equalize-footer");
     equalHeight(".equalize-featured");
 });
 
 // onResize bind of the function
 $(window).resize(function() {
     autoHeight();
-    equalHeight(".equalize-footer");
     equalHeight(".equalize-featured");
 });

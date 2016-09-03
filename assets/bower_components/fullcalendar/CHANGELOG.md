@@ -1,4 +1,24 @@
 
+v2.9.1 (2016-7-31)
+------------------
+
+- multiple definitions for businessHours (#2686)
+- businessHours for single day doesn't display weekends (#2944)
+- height/contentHeight can accept a function or 'parent' for dynamic value (#3271)
+- fix +more popover clipped by overflow (#3232)
+- fix +more popover positioned incorrectly when scrolled (#3137)
+- Norwegian Nynorsk translation (#3246)
+- fix isAnimating JS error (#3285)
+
+
+v2.9.0 (2016-07-10)
+-------------------
+
+- Setters for (almost) all options (#564).
+  See [docs](http://fullcalendar.io/docs/utilities/dynamic_options/) for more info.
+- Travis CI improvements (#3266)
+
+
 v2.8.0 (2016-06-19)
 -------------------
 

@@ -10,7 +10,7 @@
     "jquery": "2.x",
     "bootstrap-sass": "~3.3.6",
     "font-awesome": "~4.6.3",
-    "fullcalendar": "~2.8.0",
+    "fullcalendar": "~2.9.0",
     "lightbox2": "^2.8.2"
   },
   "version": "0.0.0"

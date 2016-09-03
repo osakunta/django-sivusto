@@ -6,40 +6,18 @@
 {% block content %}
 <div class="container">
     {% placeholder "Content" %}
-    {% placeholder "Selite" %}
+
     <div id="calendar"></div>
+
+    {% include "specific-pages/calendar-modal.html" %}
 </div>
 {% endblock content %}
 
 {% block custom-js %}
 <script type='text/javascript'>
-$(document).ready(function() {
-    $('#calendar').fullCalendar({
-        googleCalendarApiKey: 'AIzaSyDrE8zbaHSOjVVcoOPe00n7pSEYLv_ZKQM',
-        eventSources: [
-            {
-                googleCalendarId: 'tqbg6bgc6r00hbs4p3bt6h1p4g@group.calendar.google.com',
-                className: 'gcal-sports'
-            }, {
-                googleCalendarId: 'c3f5fekmh2qfloegr4okfghk5k@group.calendar.google.com',
-                className: 'gcal-service'
-            }, {
-                googleCalendarId: 'boecmjgkjsuibnnj2op4c94ags@group.calendar.google.com',
-                className: 'gcal-events'
-            }, {
-                googleCalendarId: 'r151te2dmi4sfp130iahaj2vro@group.calendar.google.com',
-                className: 'gcal-reserves'
-            },
-        ],
-        firstDay: 1,
-        timeFormat: 'HH:mm',
-        displayEventEnd: true,
-        header: {
-            left:   'prev,next today',
-            center: 'title',
-            right:  'basicWeek month'
-        }
+    // Kalenterin asetukset tiedostossa assets/input/js/calendar.js
+    $(document).ready(function() {
+        $('#calendar').fullCalendar(calendarOptions);
     });
-});
 </script>
 {% endblock custom-js %}
