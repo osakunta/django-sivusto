@@ -14,7 +14,6 @@ function equalHeight(className) {
     $(className).height(maxHeight);
 }
 
-
 // function to set the height on fly
 function autoHeight() {
     $('#content').css('min-height', 0);
@@ -24,7 +23,6 @@ function autoHeight() {
         - $('#footer').outerHeight()
         - $('#cms-top .cms-toolbar').outerHeight()
     ));
-
 }
 
 // onDocumentReady function bind

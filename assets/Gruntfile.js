@@ -3,8 +3,9 @@ module.exports = function (grunt) {
         sass: {
             dev: {
                 options: {
-                    outputStyle: 'expanded',
-                    debugInfo: true
+                    outputStyle: 'compressed',
+                    sourcemap: 'none',
+                    debugInfo: false
                 },
                 files: {
                     'output/css/styles.css': 'input/sass/styles.sass'
@@ -29,6 +30,23 @@ module.exports = function (grunt) {
                 ],
                 dest: 'output/js/app.js',
             },
+        },
+
+        uglify: {
+            my_target: {
+                files: {
+                    'output/js/app.js': [
+                        'bower_components/jquery/dist/jquery.js',
+                        'bower_components/bootstrap-sass/assets/javascripts/bootstrap.js',
+                        'bower_components/moment/moment.js',
+                        'bower_components/fullcalendar/dist/fullcalendar.js',
+                        'bower_components/fullcalendar/dist/gcal.js',
+                        'bower_components/fullcalendar/dist/lang/fi.js',
+                        'bower_components/lightbox2/src/js/lightbox.js',
+                        'input/js/*.js'
+                    ]
+                }
+            }
         },
 
         copy: {
@@ -83,13 +101,14 @@ module.exports = function (grunt) {
             },
             scripts: {
                 files: ['input/js/**'],
-                tasks: ['concat', 'copy:js'],
+                tasks: ['uglify', 'copy:js'],
             }
         }
     });
 
     grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.registerTask('default', 'watch');

@@ -7,11 +7,12 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "grunt": "latest",
-    "grunt-sass": "latest",
-    "grunt-contrib-watch": "latest",
+    "grunt": "^1.0.1",
     "grunt-contrib-concat": "latest",
     "grunt-contrib-copy": "latest",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-watch": "latest",
+    "grunt-sass": "latest",
     "node-sass": "latest"
   }
 }
