@@ -12318,6 +12318,11 @@ i b {
   vertical-align: middle;
 }
 
+#map {
+  height: 200px;
+  max-width: 300px;
+}
+
 /* Preload images */
 body:after {
   content: url(../images/close.png) url(../images/loading.gif) url(../images/prev.png) url(../images/next.png);
