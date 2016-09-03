@@ -30332,7 +30332,7 @@ function initMap() {
 
     geocoder.geocode({'address': address}, function(results, status) {
         if (status === 'OK') {
-            resultsMap.setCenter(results[0].geometry.location);
+            map.setCenter(results[0].geometry.location);
 
             var marker = new google.maps.Marker({
                 map: resultsMap,
