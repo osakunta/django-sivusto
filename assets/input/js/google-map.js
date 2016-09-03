@@ -7,8 +7,7 @@ function initMap() {
     };
 
     map = new google.maps.Map(document.getElementById('map'), {
-        center: coords,
-        zoom: 13
+        zoom: 15
     });
 
     var geocoder = new google.maps.Geocoder();
