@@ -11,12 +11,17 @@
 
         .navbar-logo
             vertical-align: bottom
-            width: 80px
+            width: 60px
             height: $navbar-height
             display: inline-block
+            position: relative
 
             > svg
-            	vertical-align: bottom
+                position: absolute
+                top: 50%
+                -webkit-transform: translateY(-50%)
+                -ms-transform: translateY(-50%)
+                transform: translateY(-50%)
 
         .navbar-brand-text
             line-height: $navbar-height

@@ -1,4 +1,16 @@
 @charset "UTF-8";
+@font-face {
+  font-family: montserrat;
+  src: url(../fonts/montserrat-regular.ttf);
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: montserrat;
+  src: url(../fonts/montserrat-bold.ttf);
+  font-weight: bold;
+}
+
 /*!
  * Bootstrap v3.3.6 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
@@ -1380,7 +1392,7 @@ html {
 }
 
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.428571429;
   color: #333333;
@@ -5271,8 +5283,8 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 }
 
 .navbar-inverse {
-  background-color: #216694;
-  border-color: #18496a;
+  background-color: #0f4f79;
+  border-color: #09314c;
 }
 
 .navbar-inverse .navbar-brand {
@@ -5281,7 +5293,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 
 .navbar-inverse .navbar-brand:hover, .navbar-inverse .navbar-brand:focus {
   color: #fff;
-  background-color: #0f4f79;
+  background-color: #216694;
 }
 
 .navbar-inverse .navbar-text {
@@ -5294,12 +5306,12 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 
 .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
   color: #fff;
-  background-color: #0f4f79;
+  background-color: #216694;
 }
 
 .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
   color: #fff;
-  background-color: #0f4f79;
+  background-color: #216694;
 }
 
 .navbar-inverse .navbar-nav > .disabled > a, .navbar-inverse .navbar-nav > .disabled > a:hover, .navbar-inverse .navbar-nav > .disabled > a:focus {
@@ -5312,7 +5324,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 }
 
 .navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
-  background-color: #0f4f79;
+  background-color: #216694;
 }
 
 .navbar-inverse .navbar-toggle .icon-bar {
@@ -5321,31 +5333,31 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 
 .navbar-inverse .navbar-collapse,
 .navbar-inverse .navbar-form {
-  border-color: #1a5277;
+  border-color: #0b3a59;
 }
 
 .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
-  background-color: #0f4f79;
+  background-color: #216694;
   color: #fff;
 }
 
 @media (max-width: 767px) {
   .navbar-inverse .navbar-nav .open .dropdown-menu > .dropdown-header {
-    border-color: #18496a;
+    border-color: #09314c;
   }
   .navbar-inverse .navbar-nav .open .dropdown-menu .divider {
-    background-color: #18496a;
+    background-color: #09314c;
   }
   .navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
     color: #fff;
   }
   .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:focus {
     color: #fff;
-    background-color: #0f4f79;
+    background-color: #216694;
   }
   .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a, .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:focus {
     color: #fff;
-    background-color: #0f4f79;
+    background-color: #216694;
   }
   .navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a, .navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a:hover, .navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a:focus {
     color: #444;
@@ -6912,7 +6924,7 @@ button.close {
   position: absolute;
   z-index: 1070;
   display: block;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
@@ -7046,7 +7058,7 @@ button.close {
   display: none;
   max-width: 276px;
   padding: 1px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
@@ -11892,13 +11904,18 @@ be a descendant of the grid when it is being dragged.
 
 .navbar-inverse .navbar-brand .navbar-logo {
   vertical-align: bottom;
-  width: 80px;
+  width: 60px;
   height: 100px;
   display: inline-block;
+  position: relative;
 }
 
 .navbar-inverse .navbar-brand .navbar-logo > svg {
-  vertical-align: bottom;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
 .navbar-inverse .navbar-brand .navbar-brand-text {
@@ -11914,7 +11931,7 @@ be a descendant of the grid when it is being dragged.
 }
 
 .navbar-inverse .navbar-nav > li > .dropdown-menu {
-  background: #0f4f79;
+  background: #216694;
   box-shadow: none;
   border: none;
   padding: 0;
@@ -11928,12 +11945,12 @@ be a descendant of the grid when it is being dragged.
 
 .navbar-inverse .navbar-nav > li > .dropdown-menu a:hover {
   color: #fff;
-  background: #216694;
+  background: #0f4f79;
 }
 
 .navbar-inverse .navbar-nav > li > .dropdown-menu .divider {
   margin: 0;
-  background: #0d466b;
+  background: #1e5d87;
 }
 
 .navbar-inverse .navbar-nav > li > .dropdown-menu i {
@@ -11942,7 +11959,7 @@ be a descendant of the grid when it is being dragged.
 }
 
 .navbar-inverse .navbar-nav > .active > a {
-  background: #216694;
+  background: #0f4f79;
 }
 
 .navbar-brand:hover .logo-hilt, .navbar-brand:hover .logo-details, .navbar-brand:hover .logo-body, .navbar-brand:hover .logo-blade, .navbar-brand:hover .logo-crown {
@@ -11994,6 +12011,18 @@ be a descendant of the grid when it is being dragged.
   }
 }
 
+#footer > .container > .row > .clearfix {
+  margin: 0;
+}
+
+#footer > .container .row-top {
+  padding-top: 10px;
+}
+
+#footer > .container > .row-bot {
+  padding-bottom: 0;
+}
+
 @media only screen and (max-width: 991px) {
   #footer > .container > .row-bot {
     padding: 30px 0 0 0;
@@ -12007,26 +12036,12 @@ be a descendant of the grid when it is being dragged.
   vertical-align: text-top;
 }
 
-#footer > .container > .row-bot .equalize-footer {
-  padding-bottom: 10px;
-}
-
 #footer .copyright {
   background: #121c28;
   color: #233240;
   padding: 20px 0;
   text-transform: uppercase;
   font-weight: bold;
-}
-
-#footer .copyright .button {
-  background: #0f1721;
-  display: inline-block;
-  text-align: center;
-  margin: 0;
-  padding: 10px;
-  width: 40px;
-  height: 40px;
 }
 
 #footer .copyright .lg-right p {
@@ -12040,18 +12055,10 @@ be a descendant of the grid when it is being dragged.
   line-height: 40px;
 }
 
-@media only screen and (max-width: 991px) {
+@media only screen and (max-width: 767px) {
   #footer .copyright > div > div > div p {
     text-align: center !important;
   }
-}
-
-#footer > .container > .row-bot {
-  padding-bottom: 0;
-}
-
-#footer > .container > .row-top {
-  padding-top: 0;
 }
 
 #footer ul {
@@ -12068,6 +12075,25 @@ be a descendant of the grid when it is being dragged.
 #footer .copyright a, #footer .copyright p, #footer .copyright h1, #footer .copyright h2, #footer .copyright h3, #footer .copyright h4, #footer .copyright h5, #footer .copyright h6 {
   color: #545e64;
   margin: 0;
+}
+
+#footer .copyright .footer-logo {
+  height: 40px;
+  overflow: hidden;
+}
+
+#footer .copyright svg {
+  height: 40px;
+}
+
+#footer .copyright svg .logo-hilt, #footer .copyright svg .logo-details, #footer .copyright svg .logo-body, #footer .copyright svg .logo-blade, #footer .copyright svg .logo-crown {
+  fill: #545e64;
+  transition: all 0.2s ease;
+}
+
+#footer .copyright svg .logo-eye {
+  fill: #121c28;
+  transition: all 0.2s ease;
 }
 
 #footer a:hover {
