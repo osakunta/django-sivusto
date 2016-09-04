@@ -2,24 +2,41 @@ body
         overflow-x: hidden
 
 #content
-    > div
+    > div, > .cms-plugin > div
         +media(lg)
-                padding-top: 110px
-                padding-bottom: 100px
+            padding-top: 110px
+            padding-bottom: 100px
 
         +media(md)
-                padding-top: 80px
-                padding-bottom: 70px
+            padding-top: 80px
+            padding-bottom: 70px
 
         +media(sm)
-                padding-top: 60px
-                padding-bottom: 50px
+            padding-top: 60px
+            padding-bottom: 50px
 
         +media(xs)
-                padding-top: 40px
-                padding-bottom: 30px
+            padding-top: 40px
+            padding-bottom: 30px
 
         font-size: 16px
+
+    .anchor-point
+        display: block
+        position: relative
+        visibility: hidden
+
+        +media(lg)
+            top: -170px
+
+        +media(md)
+            top: -140px
+
+        +media(sm)
+            top: -120px
+
+        +media(xs)
+            top: -100px
 
 .panel
     margin-top: 60px
