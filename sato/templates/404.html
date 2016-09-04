@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load cms_tags %}
+
+{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+
+{% block content %}
+    <div class="content-bg gray1 text-center">
+        <h1>Sivua ei löytynyt!</h1>
+
+        <img src="{% static %}/bear/404-bear.png" alt="404-karhu" />
+    </div>
+{% endblock content %}
