@@ -2,7 +2,7 @@
 ./django-ilmo-app/
 ./static/
 
-./sato/settings.py
+sato/settings.py
 
 *.pyc
 *.db
