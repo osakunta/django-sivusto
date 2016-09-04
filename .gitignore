@@ -1,6 +1,6 @@
 # Ilmo-app has its own repository
-./django-ilmo-app/
-./static/
+django-ilmo-app/
+static/
 
 sato/settings.py
 
