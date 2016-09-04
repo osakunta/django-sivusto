@@ -20,7 +20,19 @@ h1
         background: $blue2
 
 // Styles for kk thumbnails
-.filer_image_link
+.kk table
+    +media(xs)
+        td:nth-child(3)
+            display: block
+            clear: left
+
+        tr, td
+            float: left
+
+        td
+            width: 50%
+
+.kk .filer_image_link
     position: relative
     display: inline-block
     margin: 5px
@@ -41,7 +53,7 @@ h1
         transition: opacity 0.2s ease
 
     &:hover
-        filter: contrast(1.5)
+        filter: contrast(1.4)
 
         .filer_image_info
             opacity: 0
