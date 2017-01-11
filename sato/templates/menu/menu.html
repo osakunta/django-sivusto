@@ -22,6 +22,7 @@
 			<ul class="nav navbar-nav navbar-right">
 
 				{% for child in children %}
+				{% if child.id != 25 or user.is_authenticated %}
 				<li class="{% if child.ancestor %}ancestor{% endif %}
 					{% if child.selected %} active{% endif %}
 					{% if child.children %} dropdown{% endif %}">
@@ -41,6 +42,7 @@
 					<a href="{{ child.get_absolute_url }}"><span>{{ child.get_menu_title }}</span></a>
 					{% endif %}
 				</li>
+				{% endif %}
 				{% endfor %}
 
 				{% if user.is_authenticated %}
@@ -52,14 +54,16 @@
 					</a>
 
 					<ul class="dropdown-menu">
+						{% if request.user.is_staff %}
 						<li><a href="/admin"><i class="fa fa-cog" aria-hidden="true"></i>Hallintapaneeli</a></li>
 						<li><a href="?toolbar_off"><i class="fa fa-ban" aria-hidden="true"></i>Sulje työkalupalkki</a></li>
-						<li role="separator" class="divider"></li>
+						{% endif %}
+						<li><a href="/password_change"><i class="fa fa-refresh" aria-hidden="true"></i>Vaihda salasana</a></li>
 						<li><a href="/logout"><i class="fa fa-times" aria-hidden="true"></i>Kirjaudu ulos</a></li>
 					</ul>
 				</li>
 				{% else %}
-				<li><a href="/login">Kirjaudu</a></li>
+				<li><a href="/login">Kirjaudu sisään</a></li>
 				{% endif %}
 
 			</ul>

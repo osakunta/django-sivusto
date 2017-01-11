@@ -11,3 +11,4 @@ djangocms-link<1.9
 djangocms-style<1.8
 gunicorn
 psycopg2
+sentry

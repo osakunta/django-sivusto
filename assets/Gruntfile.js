@@ -26,6 +26,7 @@ module.exports = function (grunt) {
                     'bower_components/fullcalendar/dist/gcal.js',
                     'bower_components/fullcalendar/dist/lang/fi.js',
                     'bower_components/lightbox2/src/js/lightbox.js',
+                    'bower_components/instafeed.js/instafeed.js',
                     'input/js/**'
                 ],
                 dest: 'output/js/app.js',
@@ -41,8 +42,9 @@ module.exports = function (grunt) {
                         'bower_components/moment/moment.js',
                         'bower_components/fullcalendar/dist/fullcalendar.js',
                         'bower_components/fullcalendar/dist/gcal.js',
-                        'bower_components/fullcalendar/dist/lang/fi.js',
+                        'bower_components/fullcalendar/dist/locale/fi.js',
                         'bower_components/lightbox2/src/js/lightbox.js',
+                        'bower_components/instafeed.js/instafeed.js',
                         'input/js/*.js'
                     ]
                 }

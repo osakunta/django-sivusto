@@ -11,7 +11,7 @@ function initMap() {
     });
 
     var geocoder = new google.maps.Geocoder();
-    var address = "Lapinrinne 1 A, Helsinki";
+    var address = "Lapinrinne 1 A 8, Helsinki";
 
     geocoder.geocode({'address': address}, function(results, status) {
         if (status === 'OK') {

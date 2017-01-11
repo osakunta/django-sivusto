@@ -1,6 +1,7 @@
 # Ilmo-app has its own repository
 django-ilmo-app/
 
+assets/bower_components/
 media/
 smedia/
 static/

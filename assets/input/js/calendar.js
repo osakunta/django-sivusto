@@ -13,8 +13,12 @@ var calendarOptions = {
         }, {
             googleCalendarId: 'r151te2dmi4sfp130iahaj2vro@group.calendar.google.com',
             className: 'gcal-reserves'
-        },
+        }, {
+            googleCalendarId: 'aojklsb36n1vpmesl2tqv1gp6o@group.calendar.google.com',
+            className: 'gcal-meetings'
+        }
     ],
+    locale: 'fi',
     firstDay: 1,
     timeFormat: 'HH:mm',
     displayEventEnd: true,
@@ -25,16 +29,19 @@ var calendarOptions = {
         center: '',
         right:  'prev,next today'
     },
+
     // Estää tapahtumaa klikatessa Google-kalenterin aukeamisen ja näyttää tapahtuman
     // Bootstrap 3 modalissa. Modalin template on sato/templates/specific-pages/calendar-modal.html
     eventClick: function(event, jsEvent, view) {
-        var formatedDate = moment(event.start).format('DD.MM.') + " klo " + moment(event.start).format('HH:mm');
+        var start        = moment(event.start),
+            end          = moment(event.end),
+            formatedDate = start.format('DD.MM.') + " klo " + start.format('HH:mm');
 
         // Erilainen formaatti, jos päättymispäivä on sama kuin alkamispäivä.
-        if (parseInt(moment(event.start).format('DDMMYYYY')) == parseInt(moment(event.end).format('DDMMYYYY'))) {
-            formatedDate += "–" + moment(event.end).format('HH:mm');
-        } else{
-            formatedDate += " – " + moment(event.end).format('DD.MM.') + " klo " + moment(event.end).format('HH:mm');
+        if (start.format('DDMMYYYY') === end.format('DDMMYYYY')) {
+            formatedDate += "–" + end.format('HH:mm');
+        } else if (end.format('DDMMYYYY') !== 'Invalid date') {
+            formatedDate += " – " + end.format('DD.MM.') + " klo " + end.format('HH:mm');
         }
 
         // Lisätään tiedot Bootstrap 3 modaliin
@@ -44,6 +51,19 @@ var calendarOptions = {
         $('#fc-event-date').html(formatedDate);
         $('#fullCalModal').modal();
         return false;
+    },
+
+    windowResize: function(view) {
+        var ww = $(window).width(),
+            view = $('#calendar').fullCalendar('getView');
+
+        if (ww <= 768 && view.title !== 'listMonth'){
+            $('#calendar').fullCalendar('changeView', 'listMonth');
+        }
+
+        if (ww > 768 && view.title !== 'month'){
+            $('#calendar').fullCalendar('changeView', 'month');
+        }
     }
 };
 
@@ -57,3 +77,4 @@ $(document).ready(function() {
         $('#fc-event-tile').removeAttr('href');
     });
 });
+

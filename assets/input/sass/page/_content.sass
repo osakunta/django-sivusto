@@ -1,5 +1,5 @@
 body
-        overflow-x: hidden
+    overflow-x: hidden
 
 #content
     > div, > .cms-plugin > div
@@ -20,6 +20,9 @@ body
             padding-bottom: 30px
 
         font-size: 16px
+
+    .jumbo, > .cms-plugin .jumbo
+        font-size: 140%
 
     .anchor-point
         display: block
@@ -129,3 +132,18 @@ body
 
     .btn.btn-primary:hover
         background-color: rgba(255, 255, 255, 0.1)
+
+.bg-banner
+    background-image: url('../img/bg/banner.jpg')
+    background-position: right bottom
+    background-repeat: no-repeat
+
+    +media(lg)
+
+    +media(md)
+
+    +media(sm)
+        background-size: 100%
+
+    +media(xs)
+        background-image: none

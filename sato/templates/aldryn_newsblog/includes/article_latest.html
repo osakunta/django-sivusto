@@ -17,7 +17,7 @@
 
         <div class="panel-footer">
             <p>
-                <span class="pull-right">{{ article.publishing_date|date:"d.m.Y" }}</span>
+                <span>{{ article.publishing_date|date:"d.m.Y" }}</span>
 
                 {% if article.categories.exists %}
                 {% for category in article.categories.all %}

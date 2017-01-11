@@ -1,20 +1,4 @@
-// Takes a class name as a parameter and makes every container with said class
-// as tall as the tallest of them.
-function equalHeight(className) {
-    var heights;
-
-    $(className).removeAttr("style");
-
-    heights = $(className).map(function() {
-        return $(this).height();
-    }).get(),
-
-    maxHeight = Math.max.apply(null, heights);
-
-    $(className).height(maxHeight);
-}
-
-// function to set the height on fly
+// function to set the height on fly so footer stays on the bottom of the page.
 function autoHeight() {
     $('#content').css('min-height', 0);
     $('#content').css('min-height', (
@@ -28,11 +12,18 @@ function autoHeight() {
 // onDocumentReady function bind
 $(document).ready(function() {
     autoHeight();
-    equalHeight(".equalize-featured");
 });
 
 // onResize bind of the function
 $(window).resize(function() {
     autoHeight();
-    equalHeight(".equalize-featured");
+});
+
+// Settings for Instafeed.js
+var satoInstafeed = new Instafeed({
+    get: 'user',
+    userId: '1500056937',
+    clientId: '26baf6a598e64f5e86bf6369e849f3eb',
+    accessToken: '1500056937.1677ed0.9dc272018f224b0fa4cf75dc26209c49',
+    limit: 6
 });
