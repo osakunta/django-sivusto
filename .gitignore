@@ -6,6 +6,7 @@ media/
 smedia/
 static/
 
+requirements-backup.txt
 sato/settings.py
 
 *.pyc
