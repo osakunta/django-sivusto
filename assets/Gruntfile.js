@@ -64,11 +64,23 @@ module.exports = function (grunt) {
                 src: 'css/**',
                 dest: '../sato/static/',
             },
+            css_prod: {
+                cwd: 'output',
+                expand: true,
+                src: 'css/**',
+                dest: '../static/',
+            },
             js: {
                 cwd: 'output',
                 expand: true,
                 src: 'js/**',
                 dest: '../sato/static/',
+            },
+            js_prod: {
+                cwd: 'output',
+                expand: true,
+                src: 'js/**',
+                dest: '../static/',
             },
             fonts_devel: {
                 cwd: 'bower_components/font-awesome/',
@@ -99,11 +111,11 @@ module.exports = function (grunt) {
         watch: {
             sass: {
                 files: ['input/sass/**'],
-                tasks: ['sass:dev', 'copy:css']
+                tasks: ['sass:dev', 'copy:css', 'copy:css_prod']
             },
             scripts: {
                 files: ['input/js/**'],
-                tasks: ['uglify', 'copy:js'],
+                tasks: ['uglify', 'copy:js', 'copy:js_prod'],
             }
         }
     });
