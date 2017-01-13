@@ -9,6 +9,7 @@ djangocms-googlemap<0.6
 djangocms-inherit<0.3
 djangocms-link<1.9
 djangocms-style<1.8
+django-registration<2.3
 gunicorn
 psycopg2
 sentry

@@ -5,8 +5,9 @@ assets/bower_components/
 media/
 smedia/
 static/
+tmp/
 
-requirements-backup.txt
+requirements-backup*.txt
 sato/settings.py
 
 *.pyc
