@@ -128,4 +128,10 @@ module.exports = function (grunt) {
     grunt.registerTask('default', 'watch');
     grunt.registerTask('fonts', ['copy:fonts_devel', 'copy:fonts_prod']);
     grunt.registerTask('lightbox', ['copy:lightbox_devel', 'copy:lightbox_prod']);
+    grunt.registerTask('build', [
+	  'sass:dev', 'copy:css', 'copy:css_prod', // sass
+	  'uglify', 'copy:js', 'copy:js_prod',     // js
+	  'fonts',
+	  'lightbox',
+	]);
 };

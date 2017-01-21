@@ -13,3 +13,6 @@ sato/settings.py
 
 *.pyc
 *.db
+db.sqlite3
+
+venv/
