@@ -1,0 +1,149 @@
+body
+    overflow-x: hidden
+
+#content
+    > div, > .cms-plugin > div
+        +media(lg)
+            padding-top: 110px
+            padding-bottom: 100px
+
+        +media(md)
+            padding-top: 80px
+            padding-bottom: 70px
+
+        +media(sm)
+            padding-top: 60px
+            padding-bottom: 50px
+
+        +media(xs)
+            padding-top: 40px
+            padding-bottom: 30px
+
+        font-size: 16px
+
+    .jumbo, > .cms-plugin .jumbo
+        font-size: 140%
+
+    .anchor-point
+        display: block
+        position: relative
+        visibility: hidden
+
+        +media(lg)
+            top: -170px
+
+        +media(md)
+            top: -140px
+
+        +media(sm)
+            top: -120px
+
+        +media(xs)
+            top: -100px
+
+.panel
+    margin-top: 60px
+
+    .panel-heading
+
+.nav-4-elem
+    table-layout: fixed
+    display: table
+    width: 100%
+
+    li
+        display: table-cell
+        padding: 5px
+        width: 100%
+
+
+// Backgrounds
+// ===========
+
+.content-bg
+        position: relative
+
+        &::before
+                content: ""
+                display: block
+                position: absolute
+                top: 0
+                bottom: 0
+                left: calc(50% - 50vw)
+                right: calc(50% - 50vw)
+                z-index: -1
+
+.gray1::before
+        background: $gray1
+
+.gray2
+    background-color: $gray2
+
+.blue1
+    background-color: $blue1
+    color: white
+
+.blue2
+    background-color: $blue2
+    color: white
+
+.blue3
+    background-color: $blue3
+    color: white
+
+.yellow1
+    background-color: $yellow1
+    color: $d-blue3
+
+.yellow2
+    background-color: $yellow2
+    color: $d-blue3
+
+.yellow3
+    background-color: $yellow3
+    color: $d-blue3
+
+//Only text
+.text-blue1
+  color: $blue1
+
+.text-blue2
+  color: $blue2
+
+.text-blue3
+  color: $blue3
+
+
+// Image backgrounds
+
+
+.bg-asuntola
+    background: #333 url('../img/bg/bg-asuntola.jpg') center top
+    text-shadow: 0px 2px 0px #000
+    font-weight: bold
+    color: #FFF
+
+    .btn
+        background: none
+        border: 3px solid #AAA
+
+        i
+            margin-bottom: 5px
+
+    .btn.btn-primary:hover
+        background-color: rgba(255, 255, 255, 0.1)
+
+.bg-banner
+    background-image: url('../img/bg/banner.jpg')
+    background-position: right bottom
+    background-repeat: no-repeat
+
+    +media(lg)
+
+    +media(md)
+
+    +media(sm)
+        background-size: 100%
+
+    +media(xs)
+        background-image: none

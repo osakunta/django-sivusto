@@ -1,0 +1,19 @@
+{
+  "name": "sato",
+  "version": "0.0.0",
+  "description": "Satakuntalaisen Osakunnan verkkosivujen ulkoasu.",
+  "contributors": [
+    "Ville Kopio"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "bower": "^1.8.0",
+    "grunt": "^1.0.1",
+    "grunt-contrib-concat": "latest",
+    "grunt-contrib-copy": "latest",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-watch": "latest",
+    "grunt-sass": "latest",
+    "node-sass": "latest"
+  }
+}

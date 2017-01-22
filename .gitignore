@@ -1,0 +1,18 @@
+# Ilmo-app has its own repository
+django-ilmo-app/
+
+assets/bower_components/
+assets/node_modules/
+media/
+smedia/
+static/
+tmp/
+
+requirements-backup*.txt
+sato/settings.py
+
+*.pyc
+*.db
+db.sqlite3
+
+venv/

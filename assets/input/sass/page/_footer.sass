@@ -1,0 +1,86 @@
+#footer
+    background-color: $d-blue3
+
+
+    > .container > .row
+        padding: 50px 0
+        margin: 0 auto
+        text-transform: uppercase
+        font-weight: bold
+        +media(sm-down)
+                padding: 0
+
+        > div
+            +media(sm-down)
+                    margin: 10px 0 30px 0
+
+        > .clearfix
+            margin: 0
+
+    > .container .row-top
+        padding-top: 10px
+
+    > .container > .row-bot
+        padding-bottom: 0
+        +media(sm-down)
+                padding: 30px 0 0 0
+
+        .button
+            width: 20px
+            display: inline-block
+            text-align: center
+            vertical-align: text-top
+
+    .copyright
+        background: darken($d-blue3, 3)
+        color: $d-blue2
+        padding: 20px 0
+        text-transform: uppercase
+        font-weight: bold
+
+        .lg-right p
+                text-align: right
+
+        > div > div > div p
+            margin: 0
+            padding: 0
+            font-size: 80%
+            line-height: 40px
+            +media(xs)
+                text-align: center !important
+
+    ul
+        list-style-type: none
+        margin-left: 0
+        width: auto
+
+    p, .list-inline
+        //margin-left: 15px
+
+    a, p, h1, h2, h3, h4, h5, h6
+        color: $gray2
+        font-weight: bold
+
+    .copyright
+        a, p, h1, h2, h3, h4, h5, h6
+            color: darken($gray2, 40)
+            margin: 0
+
+        .footer-logo
+            height: 40px
+            overflow: hidden
+
+        svg
+            height: 40px
+
+            .logo-hilt, .logo-details, .logo-body, .logo-blade, .logo-crown
+            	fill: darken($gray2, 40)
+            	transition: all 0.2s ease
+
+            .logo-eye
+            	fill: darken($d-blue3, 3)
+            	transition: all 0.2s ease
+
+    a:hover
+        color: #ffffff
+        text-decoration: none

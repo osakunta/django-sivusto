@@ -1,0 +1,15 @@
+aldryn-bootstrap3<1.2
+aldryn-newsblog<1.3
+cmsplugin-filer<1.2
+cmsplugin-image-gallery<0.8
+Django<1.10
+django-cms<3.4
+djangocms-column<1.7
+djangocms-googlemap<0.6
+djangocms-inherit<0.3
+djangocms-link<1.9
+djangocms-style<1.8
+django-registration<2.3
+gunicorn
+psycopg2
+sentry

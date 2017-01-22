@@ -1,0 +1,153 @@
+// Titles
+// ======
+
+h1, h2, h3, h4
+        font-weight: bold
+
+h1
+    margin-top: 0
+
+
+// Buttons
+// =======
+
+.btn-plain
+    background: none
+    border: none
+    color: #888
+
+    &:focus
+        color: #000
+        border: none
+        outline: none
+
+.btn.btn-primary
+    padding: 15px
+    text-transform: uppercase
+    font-weight: bold
+    transition: all 0.2s ease
+
+    &:hover
+        background: $blue2
+
+// Styles for kk thumbnails
+.kk table
+    +media(xs)
+        td:nth-child(3)
+            display: block
+            clear: left
+
+        tr, td
+            float: left
+
+        td
+            width: 50%
+
+.kk .filer_image_link, .promo-grid .filer_image_link
+    position: relative
+    display: inline-block
+    margin: 5px
+    transition: all 0.2s ease
+
+    .filer_image_info
+        background-color: rgba(0, 0, 0, 0.6)
+        position: absolute
+        left: 0
+        top: 50%
+        transform: translate(0, -50%)
+        width: 100%
+        text-align: center
+        color: #fff
+        font-size: 40px
+        font-weight: bold
+        text-shadow: 0px 2px 1px #000000
+        transition: all 0.2s ease
+
+.kk .filer_image_link:hover
+    filter: contrast(1.4)
+
+    .filer_image_info
+        opacity: 0
+
+.promo-grid .filer_image_link .filer_image_info
+    top: auto
+    bottom: 0
+    padding: 20px 10px
+    text-align: left
+    font-size: 16px
+    box-sizing: border-box
+    transform: translate(0, 0)
+    text-transform: uppercase
+
+.promo-grid .filer_image_link:hover
+    img
+        filter: contrast(1.1)
+
+    .filer_image_info
+        background-color: rgba(0, 0, 0, 0.8)
+
+// Promo grid
+.promo-grid
+    padding-left: 10px
+    padding-right: 10px
+
+    > div
+        padding: 0
+
+
+// Images
+// ======
+
+img
+    max-width: 100%
+
+.media-left
+    padding-top: 20px
+
+// Django CMS deletes every empty tag so adding Font Awesome icons gets
+// complicated. This style allows usage of b-tags inside the icon tag as it wont
+// be displayed. Adding non breaking space inside the b-tag prevents the icon
+// from being deleted.
+i b
+    display: none
+
+.testikuva
+    width: 300px
+    height: 300px
+    background: url('../img/bg/aito10.jpg') center center
+    background-size: 100% auto
+    display: block
+
+#instafeed img
+    margin: 5px
+    transition: all 0.2s ease
+
+    &:hover
+        filter: contrast(0.8)
+
+
+// Bootstrap 3 modal
+// =================
+
+.modal
+  text-align: center
+  padding: 0 !important
+
+.modal:before
+  content: ''
+  display: inline-block
+  height: 100%
+  vertical-align: middle
+  margin-right: -4px
+
+.modal-dialog
+  display: inline-block
+  text-align: left
+  vertical-align: middle
+
+// Google Maps
+// ===========
+
+#map
+    height: 200px
+    max-width: 300px

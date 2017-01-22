@@ -1,0 +1,59 @@
+//Position relative tarvitaan ulompaan elementtiin
+=align($top, $right, $bottom, $left)
+    margin: auto
+    overflow: hidden
+    position: absolute
+    top: $top
+    left: $left
+    bottom: $bottom
+    right: $right
+
+=valign($top, $bottom)
+    margin-top: auto
+    margin-bottom: auto
+    overflow: hidden
+    position: absolute
+    top: $top
+    bottom: $bottom
+
+=valign-middle
+    +valign(0, 0)
+
+=text-shadow($values)
+    text-shadow: #{$values}
+
+=transition($values)
+    transition: #{$values}
+    -webkit-transition: #{$values}
+    -moz-transition: #{$values}
+
+=transform($values)
+    transform: #{$values}
+    -webkit-transform: #{$values}
+    -moz-transform: #{$values}
+    -ms-transform: #{$values}
+
+=media($media)
+        @if $media == xs
+                @media only screen and (max-width: $screen-xs-max)
+                        @content
+
+        @else if $media == sm
+                @media only screen and (min-width: $screen-sm-min) and (max-width: $screen-sm-max)
+                        @content
+
+        @else if $media == md
+                @media only screen and (min-width: $screen-md-min) and (max-width: $screen-md-max)
+                        @content
+
+        @else if $media == lg
+                @media only screen and (min-width: $screen-lg)
+                        @content
+
+        @if $media == sm-down
+                @media only screen and (max-width: $screen-sm-max)
+                        @content
+
+        @if $media == md-down
+                @media only screen and (max-width: $screen-md-max)
+                        @content

@@ -1,0 +1,58 @@
+$gallery-border: #111
+$gallery-border-h: darken($blue3, 10)
+
+#accordion.gallery.panel-group
+    margin-bottom: 0
+
+    .panel
+        border: none
+        box-shadow: none
+        margin-top: 0
+
+    .container
+        padding-top: 0
+        padding-bottom: 0
+
+        > a
+            outline: 0
+            color: $blue3
+
+            &:hover, &:active, &:focus
+                text-decoration: none
+                color: $blue2
+
+        h2
+            margin-top: 0
+            margin-bottom: 0
+            padding: 20px 0
+
+.gallery-list
+    a:hover
+        text-decoration: none
+        border-color: $gallery-border-h
+
+        span
+            background: $gallery-border-h
+
+    > div
+        clear: both
+        margin-bottom: 10px
+
+        div
+            text-align: center
+            float: left
+            margin: 5px
+
+            a
+                color: #fff
+                text-transform: uppercase
+                font-weight: bold
+                display: block
+                border: 7px solid $gallery-border
+
+                img
+
+                span
+                    background: $gallery-border
+                    display: block
+                    padding-top: 7px

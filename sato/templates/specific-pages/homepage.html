@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load cms_tags %}
+
+{% block title %}{% endblock title %}
+
+{% block content %}
+
+    {% if not user.is_authenticated or request.toolbar.build_mode or request.toolbar.edit_mode %}
+        {% placeholder "guests" %}
+    {% endif %}
+
+    {% if user.is_authenticated %}
+        {% placeholder "authenticated" %}
+    {% endif %}
+
+    {% placeholder "content" %}
+
+    <div class="content-bg">
+        <h1>Osakunnan viikko</h1>
+
+        <div id="calendar"></div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <br><br>
+                <p>
+                    <a class="btn btn-primary btn-block" href="/osakunta/kalenteri">
+                        Tapahtumakalenteriin
+                    </a>
+                </p>
+            </div>
+        </div>
+
+        {% include "specific-pages/calendar-modal.html" %}
+    </div>
+
+    <div class="content-bg gray1">
+        <h1>SatO Instagramissa</h1>
+
+        <div id="instafeed"></div>
+    </div>
+{% endblock content %}
+
+{% block custom-js %}
+<script type='text/javascript'>
+    calendarOptions.defaultView = 'basicWeek';
+    calendarOptions.height = 'auto';
+    calendarOptions.header.left = '';
+    calendarOptions.header.right = '';
+
+    if ($(window).width() <= 768) {
+        calendarOptions.defaultView = 'listWeek';
+    }
+
+    calendarOptions.windowResize = function(view) {
+        var ww = $(window).width(),
+            view = $('#calendar').fullCalendar('getView');
+
+        if (ww <= 768 && view.title !== 'listWeek'){
+            $('#calendar').fullCalendar('changeView', 'listWeek');
+        }
+
+        if (ww > 768 && view.title !== 'basicWeek'){
+            $('#calendar').fullCalendar('changeView', 'basicWeek');
+        }
+    }
+
+    // Kalenterin asetukset tiedostossa assets/input/js/calendar.js
+    $(document).ready(function() {
+        $('#calendar').fullCalendar(calendarOptions);
+
+
+        satoInstafeed.run();
+    });
+</script>
+{% endblock custom-js %}

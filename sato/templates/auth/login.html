@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block main %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h1><strong>Kirjaudu sisään</strong></h1>
+
+            <p>
+                Osakunnan jäsenet saavat tälle sivustolle käyttäjätunnukset, joilla
+                pääsee käsiksi vain osakuntalaisille tarkoitettuun sisältöön.
+                Oman käyttäjätunnuksen saa liittymisen yhteydessä jäsensihteeriltä
+                tai jälkeenpäin verkkovastaavalta.
+            </p>
+
+            {% if form.errors %}
+            <p class="alert alert-danger">Käyttäjänimi ja salasana eivät täsmää.</p>
+            {% endif %}
+
+            {% if next %}
+            {% if user.is_authenticated %}
+            <p class="alert alert-danger">Sinulla ei ole oikeuksia tälle sivulle.</p>
+            {% else %}
+            <p class="alert alert-info">Kirjaudu sisään nähdäksesi sivun.</p>
+            {% endif %}
+            {% endif %}
+
+            <form method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                <p>
+                    {{ form.username.label_tag }}<br>
+                    {{ form.username }}
+                </p>
+
+                <p>
+                    {{ form.password.label_tag }}<br>
+                    {{ form.password }}
+                </p>
+
+                <p>
+                    <a href="/password_reset">Unohtuiko salasana?</a>
+                </p>
+
+                <input type="submit" value="Kirjaudu" />
+                <input type="hidden" name="next" value="{{ next }}" />
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

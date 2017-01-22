@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load cms_tags i18n thumbnail %}
+
+{% block main %}
+{% regroup gallery_list by category as category_list %}
+<div class="gray1">
+    <div class="container">
+            {% placeholder "content" %}
+    </div>
+</div>
+
+<div id="accordion" class="gallery panel-group">
+    {% for category in category_list %}
+    <div class="panel panel-default{% if forloop.counter|divisibleby:2 %} gray1{% endif %}">
+        <div class="container">
+
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse-{{ category.grouper }}">
+                    <h2><strong>{{ category.grouper }}</strong></h2>
+                </a>
+
+        </div>
+
+        <div id="collapse-{{ category.grouper }}" class="container gallery-list panel-collapse collapse{% if forloop.first or category.count == 1 %} in{% endif %}">
+            <div class="panel-body">
+                {% for gallery in category.list|dictsort:"date" %}
+                <div>
+                    <a href="{% url "image_gallery_detail" pk=gallery.pk %}">
+                        {% if gallery.get_folder_images.all %}
+                        <img src="{% thumbnail gallery.get_folder_images.all.0.file 200x200 crop upscale %}" alt="" />
+                        {% endif %}
+                        <span>{{ gallery.title }}</span>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+
+
+<!--<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    {% for category in category_list %}
+    <div class="panel{% if not forloop.counter|divisibleby:2 %} gray1{% endif %}" role="tab">
+        <div class="container gallery-list">
+            <div id="{{ category.grouper }}">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-{{ category.grouper }}" aria-expanded="{% if forloop.first or category.count == 1 %}true{% else %}false{% endif %}" aria-controls="collapse-{{ category.grouper }}">
+                    <h1><strong>{{ category.grouper }}</strong></h1>
+                </a>
+
+                <div class="collapse{% if forloop.first or category.count == 1 %} in{% endif %}" id="collapse-{{ category.grouper }}" role="tabpanel">
+                    {% for gallery in category.list|dictsort:"date" %}
+                    <div>
+                        <a href="{% url "image_gallery_detail" pk=gallery.pk %}">
+                            {% if gallery.get_folder_images.all %}
+                            <img src="{% thumbnail gallery.get_folder_images.all.0.file 200x200 crop upscale %}" alt="" />
+                            {% endif %}
+                            <span>{{ gallery.title }}</span>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+    {% endfor %}-->
+
+<!--<pre> {% filter force_escape %} {% debug %} {% endfilter %} </pre>-->
+
+{% endblock %}

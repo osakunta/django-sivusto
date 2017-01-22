@@ -1,0 +1,101 @@
+{% load cms_tags menu_tags staticfiles sekizai_tags %}
+<footer id="footer">
+    <div class="container">
+        <div class="row row-bot">
+            <div class="col-md-3 col-sm-6">
+                <h4>Jäsenille</h4>
+                {% show_menu_below_id "jasenille" 0 100 100 100 "menu/menu_paragraph.html" %}
+                <div class="visible-sm-block visible-xs-block row-top">{% include "footer/footer-asukkaille.html" %}</div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <h4>Osakunta</h4>
+                {% show_menu_below_id "osakunta" 0 100 100 100 "menu/menu_paragraph.html" %}
+                <div class="visible-sm-block visible-xs-block row-top">{% include "footer/footer-asuntola.html" %}</div>
+            </div>
+
+            <div class="clearfix visible-sm-block"></div>
+
+            <div class="col-md-3 col-sm-6">
+                <h4>Seuraa meitä</h4>
+
+                <p>
+                    <a href="https://www.facebook.com/osakunta/">
+                        <span class="button"><i class="fa fa-lg fa-facebook"></i></span> Facebook
+                    </a>
+                </p>
+
+                <p>
+                    <a href="https://twitter.com/satolaiset">
+                        <span class="button"><i class="fa fa-lg fa-twitter"></i></span> Twitter
+                    </a>
+                </p>
+
+                <p>
+                    <a href="https://www.instagram.com/satolaiset/">
+                        <span class="button"><i class="fa fa-lg fa-instagram"></i></span> Instagram
+                    </a>
+                </p>
+
+                <div class="visible-sm-block visible-xs-block row-top">{% include "footer/footer-liitymeihin.html" %}</div>
+            </div>
+
+            {% if not user.is_authenticated %}
+            <div class="clearfix visible-sm-block"></div>
+            {% endif %}
+
+            <div class="col-md-3 col-sm-6" itemscope itemtype="http://schema.org/LocalBusiness">
+                <h4 itemprop="name">Satakuntalainen Osakunta</h4>
+
+                <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                    <p itemprop="streetAddress">Lapinrinne 1 A 8</p>
+
+                    <p>
+                        <span itemprop="postalCode">00180</span>
+                        <span itemprop="addressLocality">Helsinki</span>
+                    </p>
+                    <meta itemprop="addressCountry" content="Suomi">
+                </div>
+
+                <p itemprop="email">sato@satakuntatalo.fi</p>
+                <meta itemprop="url" content="https://satakuntalainenosakunta.fi/">
+
+                <p>Y-tunnus: 2593042-3</p>
+
+                <div class="visible-sm-block visible-xs-block row-top">{% include "footer/footer-yhteystiedot.html" %}</div>
+            </div>
+        </div>
+
+        <div class="row row-top visible-md-block visible-lg-block">
+            <div class="col-md-3">
+                {% include "footer/footer-asukkaille.html" %}
+            </div>
+
+            <div class="col-md-3">
+                {% include "footer/footer-asuntola.html" %}
+            </div>
+
+            <div class="col-md-3">
+                {% include "footer/footer-liitymeihin.html" %}
+            </div>
+
+            <div class="col-md-3">
+                {% include "footer/footer-yhteystiedot.html" %}
+            </div>
+
+        </div>
+    </div>
+
+    <div class="copyright">
+        <div class="container">
+            <div class="row text">
+                <div class="col-sm-11">
+                        <p>&copy; 2015–{% now "Y" %} Helsingin yliopiston Satakuntalainen Osakunta</p>
+                </div>
+                <div class="col-sm-1 lg-right footer-logo">
+                        <p>{% include "svg/sato-logo.svg" %}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

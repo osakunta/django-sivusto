@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load cms_tags staticfiles %}
+
+{% block title %} – Sivua ei löytynyt!{% endblock title %}
+
+{% block content %}
+    <div class="content-bg gray1 text-center">
+        <h1>Sivua ei löytynyt!</h1>
+        <br /><br />
+        <img src="{% static "img/bear/404-bear.png" %}" alt="404-karhu" />
+    </div>
+{% endblock content %}

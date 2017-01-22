@@ -1,0 +1,31 @@
+@font-face
+    font-family: montserrat
+    src: url(../fonts/montserrat-regular.ttf)
+    font-weight: normal
+
+@font-face
+    font-family: montserrat
+    src: url(../fonts/montserrat-bold.ttf)
+    font-weight: bold
+
+// Variables
+@import "variables-global"
+@import "variables-bootstrap"
+@import "mixins"
+
+// Default styles of Bower components
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap"
+@import "../../bower_components/font-awesome/css/font-awesome"
+@import "../../bower_components/fullcalendar/dist/fullcalendar"
+
+// Styles for page structure
+@import "page/nav"
+@import "page/footer"
+@import "page/content"
+@import "page/misc"
+
+// Styles for site components
+@import "components/lightbox"
+@import "components/calendar"
+@import "components/gallery"
+@import "components/articles"
