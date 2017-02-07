@@ -7,6 +7,8 @@ import warnings
 from django.utils.deprecation import RemovedInDjango110Warning
 warnings.filterwarnings('always', category=RemovedInDjango110Warning)
 
+os.environ.setdefault("PYTHONIOENCODING","utf-8")
+
 if __name__ == "__main__":
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "sato.settings")
 
