@@ -26,12 +26,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'verisecriit'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
-  '127.0.0.1',
-	'localhost',
-	'.satakuntatalo.fi'
+    '127.0.0.1',
+    'localhost',
+    '.satakuntatalo.fi'
 ]
 
 
@@ -42,6 +42,13 @@ WSGI_APPLICATION = 'sato.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'developement.db',
+    }
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
@@ -62,13 +69,10 @@ MEDIA_ROOT = os.path.join(DATA_DIR, 'media')
 STATIC_ROOT = os.path.join(DATA_DIR, 'static')
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'sato', 'static'),
+	os.path.join(BASE_DIR, 'sato', 'static'),
 )
 
 SITE_ID = 1
-
-# Used by django-registration to determine for how long accounts can be activated.
-ACCOUNT_ACTIVATION_DAYS = 7
 
 
 TEMPLATES = [
@@ -245,22 +249,4 @@ LOGIN_REDIRECT_URL = '/'
 # For Aldryn blog
 ALDRYN_BOILERPLATE_NAME='bootstrap3'
 
-# Private filer files for Nginx
-FILER_SERVERS = {
-    'private': {
-        'main': {
-            'ENGINE': 'filer.server.backends.nginx.NginxXAccelRedirectServer',
-            'OPTIONS': {
-                'location': '/var/django/django-sivusto/smedia/filer',
-                'nginx_location': '/nginx_filer_private',
-            },
-        },
-        'thumbnails': {
-            'ENGINE': 'filer.server.backends.nginx.NginxXAccelRedirectServer',
-            'OPTIONS': {
-                'location': '/var/django/django-sivusto/smedia/filer_thumbnails',
-                'nginx_location': '/nginx_filer_private_thumbnails',
-            },
-        },
-    },
-}
+
