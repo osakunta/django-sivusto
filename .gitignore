@@ -6,6 +6,7 @@ smedia/
 static/
 tmp/
 ilmo-app/
+ilmo-repo/
 
 sato/settings.py
 
