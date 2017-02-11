@@ -3,7 +3,7 @@ assets/bower_components/
 assets/node_modules/
 media/
 smedia/
-static/
+./static/
 tmp/
 ilmo_app/
 
