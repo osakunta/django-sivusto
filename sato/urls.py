@@ -9,6 +9,7 @@ from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib.auth import views as auth_views
 from . import views
+import sato.settings
 
 admin.autodiscover()
 
@@ -19,12 +20,18 @@ urlpatterns = i18n_patterns('',
     url(r'^select2/', include('django_select2.urls')),
     url(r'^login/$', auth_views.login, {'template_name': 'auth/login.html'} , name='login'),
     url(r'^logout/$', views.logout_user),
-    url(r'^ilmo/', include('ilmo_app.urls')),
+    url(r'^hallituspalaute/', include('hallituspalaute.urls')),
     url(r'^', include('registration.backends.hmac.urls')),
     url(r'^', include('django.contrib.auth.urls')),
     url(r'^', include('filer.server.urls')),
     url(r'^', include('cms.urls')),
 )
+
+# If we have ilmo, add it
+if "ilmo_app" in sato.settings.INSTALLED_APPS:
+    urlpatterns = i18n_patterns('',
+        url(r'^ilmo/', include('ilmo_app.urls')),
+    ) + urlpatterns
 
 # This is only needed when using runserver.
 if settings.DEBUG:

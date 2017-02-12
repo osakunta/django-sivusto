@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}{% endblock title %}
+
+{% block content %}
+    <div class="container">
+	    <h2>Postia SatO:n hallitukselle</h2> 
+        <form action="" method ="POST">{% csrf_token %}
+
+        <p class="help">Voit lähettää viestin nimettömänä tai nimellisenä. Jos haluat vastauksen, jätä yhteystietosi. Huomio, että voit täyttää lomakkeesi ulsokirjautuneena.</p>
+
+        {% for field in form %}
+            {{ field.errors }}
+            <h3>{{ field.label_tag }}</h3>
+            <p>{{ field }}</p>
+            {% if field.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+            {% endif %}
+        {% endfor %}
+
+        {% if user.is_authenticated %}
+        {% else %}
+        <p>Kirjaudu sisään, jos haluat jättää kirjallisen aloitteen.</p>
+        {% endif %}
+
+        <input type="submit" class="btn btn-primary" value="Lähetä" />
+        </form>
+    </div>
+{% endblock content %}
