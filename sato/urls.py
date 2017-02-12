@@ -35,7 +35,7 @@ if "ilmo_app" in sato.settings.INSTALLED_APPS:
 
 # This is only needed when using runserver.
 if settings.DEBUG:
-    urlpatterns = patterns('',
+    urlpatterns = [
         url(r'^media/(?P<path>.*)$', 'django.views.static.serve',  # NOQA
             {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
-        ) + staticfiles_urlpatterns() + urlpatterns  # NOQA
+    ] + staticfiles_urlpatterns() + urlpatterns  # NOQA
