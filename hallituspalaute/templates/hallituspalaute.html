@@ -7,7 +7,7 @@
 	    <h2>Postia SatO:n hallitukselle</h2> 
         <form action="" method ="POST">{% csrf_token %}
 
-        <p class="help">Voit lähettää viestin nimettömänä tai nimellisenä. Jos haluat vastauksen, jätä yhteystietosi. Huomio, että voit täyttää lomakkeesi ulsokirjautuneena.</p>
+        <p class="help">Voit lähettää viestin nimettömänä tai nimellisenä. Jos haluat vastauksen, jätä yhteystietosi. Huomio, että voit täyttää lomakkeesi kirjautumattomana.</p>
 
         {% for field in form %}
             <h3>{{ field.label_tag }}</h3>
