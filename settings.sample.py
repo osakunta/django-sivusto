@@ -249,4 +249,9 @@ LOGIN_REDIRECT_URL = '/'
 # For Aldryn blog
 ALDRYN_BOILERPLATE_NAME='bootstrap3'
 
+HALLITUSPALAUTE_RECIPIENTS = [
+    'palaute@example.org',
+]
 
+# Instead of sending out real emails the console backend just writes the emails that would be sent to the standard output
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
