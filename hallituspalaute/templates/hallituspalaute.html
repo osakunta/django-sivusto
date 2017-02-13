@@ -4,10 +4,17 @@
 
 {% block content %}
     <div class="container">
-	    <h2>Postia SatOn hallitukselle</h2>
+        <h2>Postia SatOn hallitukselle</h2>
         <form action="" method ="POST">{% csrf_token %}
 
-        <p class="help">Voit lähettää viestin nimettömänä tai nimellisenä. Jos haluat vastauksen, jätä yhteystietosi. Huomioi, että voit täyttää lomakkeesi kirjautumattomana.</p>
+        <p class="help">
+        Voit lähettää viestin nimettömänä tai nimellisenä. Jos haluat vastauksen, jätä yhteystietosi.
+        {% if user.is_authenticated %}
+        Olet kirjautunut sisään. Avaa <a href="">tämä sivu</a> incognito/private-tilassa, jos haluat lähettää nimettömän viestin.
+        {% else %}
+        <a href="{% url 'django.contrib.auth.views.login' %}">Kirjaudu sisään</a>, jos haluat jättää kirjallisen aloitteen.
+        {% endif %}
+        </p>
 
         {% for field in form %}
             <h3>{{ field.label_tag }}</h3>
@@ -17,11 +24,6 @@
                 <p class="help">{{ field.help_text|safe }}</p>
             {% endif %}
         {% endfor %}
-
-        {% if user.is_authenticated %}
-        {% else %}
-        <p>Kirjaudu sisään, jos haluat jättää kirjallisen aloitteen.</p>
-        {% endif %}
 
         <input type="submit" class="btn btn-primary" value="Lähetä" />
         </form>
