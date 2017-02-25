@@ -249,6 +249,7 @@ LOGIN_REDIRECT_URL = '/'
 # For Aldryn blog
 ALDRYN_BOILERPLATE_NAME='bootstrap3'
 
+HALLITUSPALAUTE_SENDER = "from@example.org"
 HALLITUSPALAUTE_RECIPIENTS = [
     'palaute@example.org',
 ]

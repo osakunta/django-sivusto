@@ -1,7 +1,7 @@
 from django import forms
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from django.core.mail import send_mail
+from django.core.mail import EmailMessage
 # change to django.urls in django 1.10
 from django.core.urlresolvers import reverse
 from django.conf import settings
@@ -38,7 +38,16 @@ def index(request):
                 msg += form.fields[key].label + ':\n'
                 msg += data[key] + '\n\n'
 
-            send_mail('Postia SatO:n hallitukselle',  msg, sender, settings.HALLITUSPALAUTE_RECIPIENTS)
+            email = EmailMessage(
+                'Postia SatO:n hallitukselle',
+                msg,
+                settings.HALLITUSPALAUTE_SENDER,
+                settings.HALLITUSPALAUTE_RECIPIENTS,
+                [],
+                reply_to=[sender],
+            )
+            email.send()
+
             return HttpResponseRedirect(reverse(thanks))
     else:
         if user.is_authenticated():
