@@ -43,16 +43,16 @@
 
 {% block custom-js %}
 <script type='text/javascript'>
-    calendarOptions.defaultView = 'basicWeek';
-    calendarOptions.height = 'auto';
-    calendarOptions.header.left = '';
-    calendarOptions.header.right = '';
+    eventOptions.defaultView = 'basicWeek';
+    eventOptions.height = 'auto';
+    eventOptions.header.left = '';
+    eventOptions.header.right = '';
 
     if ($(window).width() <= 768) {
-        calendarOptions.defaultView = 'listWeek';
+        eventOptions.defaultView = 'listWeek';
     }
 
-    calendarOptions.windowResize = function(view) {
+    eventOptions.windowResize = function(view) {
         var ww = $(window).width(),
             view = $('#calendar').fullCalendar('getView');
 
@@ -67,7 +67,7 @@
 
     // Kalenterin asetukset tiedostossa assets/input/js/calendar.js
     $(document).ready(function() {
-        $('#calendar').fullCalendar(calendarOptions);
+        $('#calendar').fullCalendar(eventOptions);
 
 
         satoInstafeed.run();

@@ -5,12 +5,19 @@
 
 {% block content %}
 <div class="container">
-    {% placeholder "Content" %}
+    <h1>Tapahtumakalenteri</h1>
 
     <div id="calendar"></div>
-
-    {% include "specific-pages/calendar-modal.html" %}
 </div>
+
+<div class="container">
+    <h1>Kokouskalenteri</h1>
+
+    <div id="meetings"></div>
+</div>
+
+{% include "specific-pages/calendar-modal.html" %}
+
 {% endblock content %}
 
 {% block custom-js %}
@@ -21,7 +28,8 @@
 
     // Kalenterin asetukset tiedostossa assets/input/js/calendar.js
     $(document).ready(function() {
-        $('#calendar').fullCalendar(calendarOptions);
+        $('#calendar').fullCalendar(eventOptions);
+        $('#meetings').fullCalendar(meetingOptions);
     });
 </script>
 {% endblock custom-js %}
