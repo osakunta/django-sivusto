@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load staticfiles thumbnail %}
+
+{% block content %}
+        <div class="row">
+                <h1>Galleria</h1>
+
+                <ul class="breadcrumb">
+                        <li><a href="/gallery">Galleria</a></li>
+                        <li><a href="/gallery/{{ year }}">{{ year }}</a></li>
+                        <li class="active">{{ gallery }}</li>
+                </ul>
+
+                <h2>{{ gallery }} <span class="badge">{{ images|length }} <i class="fa fa-picture-o" aria-hidden="true"></i></span></h2>
+
+                {% for image in images %}
+                        {% with '..'|add:path|add:image as image_url %}
+                                {% thumbnail image_url 200x200 crop upscale as thumb %}
+                                <a href="{{ path }}{{ image }}" data-lightbox="gallery">
+                                        <img src="{{ thumb.url }}" alt="Kuva" class="thumbnail" style="display:inline-block;">
+                                </a>
+                        {% endwith %}
+                {% endfor %}
+        </div>
+{% endblock content %}

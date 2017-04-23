@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+        <div class="row">
+                <h1>Galleria</h1>
+
+                <ul class="breadcrumb">
+                        <li><a href="/gallery">Galleria</a></li>
+                        <li class="active">{{ year }}</li>
+                </ul>
+
+                <h2>{{ year }}</h2>
+
+                {% for gallery in galleries %}
+                        <h2><a href="./{{ gallery }}">{{ gallery }}</a></h2>
+                {% endfor %}
+        </div>
+{% endblock content %}
