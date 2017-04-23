@@ -28,5 +28,6 @@ def gallery_list(request, year=2017):
 @login_required
 def gallery(request, year, gallery):
     images = os.listdir(path + '/' + year + '/' + gallery)
+    images.sort()
     gallery_path = '/' + path + '/' + year + '/' + gallery + '/'
     return render(request, 'gallery.html', {'images': images, 'year': year, 'gallery': gallery, 'path': gallery_path})
