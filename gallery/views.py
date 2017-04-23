@@ -9,12 +9,14 @@ path="media/gallery-images"
 @login_required
 def years(request):
     year_list = os.listdir(path)
-    year_list.sort(reverse=True)
+    year_list.sort(reverse = True)
     return render(request, 'years.html', {'years': year_list})
 
 @login_required
 def gallery_list(request, year=2017):
-    galleries = os.listdir(path + '/' + year)
+    galleries_path = path + '/' + year
+    galleries = os.listdir(galleries_path)
+    galleries.sort(reverse = True, key = lambda x: os.path.getmtime(galleries_path + '/' + x))
     return render(request, 'galleries.html', {'galleries': galleries, 'year': year})
 
 @login_required
