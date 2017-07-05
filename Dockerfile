@@ -5,8 +5,8 @@ WORKDIR /usr/src/app/
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-ADD . .
+COPY . .
 
 EXPOSE 8010
 
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8010"]
+CMD ["./docker-entrypoint.sh"]
