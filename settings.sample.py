@@ -260,7 +260,6 @@ HALLITUSPALAUTE_RECIPIENTS = [
 ]
 
 # Instead of sending out real emails the console backend just writes the emails that would be sent to the standard output
-FILER_ENABLE_PERMISSIONS = True
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 FILER_ENABLE_PERMISSIONS = True
