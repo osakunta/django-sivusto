@@ -13,8 +13,31 @@ Vaatimukset
 - Pip3
 - Virtualenv asennettuna
 
-Kehitysserverin käynnistys
---------------------------
+TAI
+
+- Docker
+
+Ennen kehitysserverin käynnistystä
+----------------------------------
+
+Kopioi kehitysasetukset ja tietokanta
+
+```
+cp settings.sample.py sato/settings.py
+cp development.db.seed db.sqlite3
+```
+
+Kehitysserverin käynnistys Dockerilla
+-------------------------------------
+Aja seuraavat komennot repon hakemistossa:
+```
+sudo docker build -t sato-django .
+sudo docker run -it -p 8010:8010 -v `pwd`/:/usr/src/app --name django-dev sato-django
+```
+Nyt sinulla pitäisi olla Django-serveri pyörimässä Docker-kontissa, ja repon tiedostot synkronoituvat molempiin suuntiin, joten muutokset näkyvät serverillä.
+
+Kehitysserverin käynnistys perinteisesti
+----------------------------------------
 
 ### Virtualenv
 
@@ -49,15 +72,6 @@ Jos haluat päivittää paketteja, jotta ne ovat ajan tasalla requirements.txt:n
 kanssa, lisää `-U`-vipu.
 ```
 pip3 install -U -r requirements.txt
-```
-
-### Kehitysympäristö
-
-Kopioi kehitysasetukset ja tietokanta
-
-```
-cp settings.sample.py sato/settings.py
-cp db.sqlite3 development.db
 ```
 
 ### Käynnistys
