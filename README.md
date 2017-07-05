@@ -53,10 +53,11 @@ pip3 install -U -r requirements.txt
 
 ### Kehitysympäristö
 
-Kopioi kehitysasetukset
+Kopioi kehitysasetukset ja tietokanta
 
 ```
 cp settings.sample.py sato/settings.py
+cp db.sqlite3 development.db
 ```
 
 ### Käynnistys
