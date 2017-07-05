@@ -27,6 +27,7 @@ SECRET_KEY = 'verisecriit'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+THUMBNAIL_DEBUG = True
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
@@ -70,6 +71,7 @@ STATIC_ROOT = os.path.join(DATA_DIR, 'static')
 
 STATICFILES_DIRS = (
 	os.path.join(BASE_DIR, 'sato', 'static'),
+    ('gallery-images', '../gallery-images/')
 )
 
 SITE_ID = 1
@@ -78,7 +80,10 @@ SITE_ID = 1
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'sato', 'templates'),],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'sato', 'templates'),
+            os.path.join(BASE_DIR, 'gallery', 'templates'),
+        ],
         'OPTIONS': {
             'context_processors': [
                 'django.contrib.auth.context_processors.auth',
@@ -249,10 +254,18 @@ LOGIN_REDIRECT_URL = '/'
 # For Aldryn blog
 ALDRYN_BOILERPLATE_NAME='bootstrap3'
 
-HALLITUSPALAUTE_SENDER = "from@example.org"
-HALLITUSPALAUTE_RECIPIENTS = [
-    'palaute@example.org',
-]
 
-# Instead of sending out real emails the console backend just writes the emails that would be sent to the standard output
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+FILER_ENABLE_PERMISSIONS = True
+
+DEFAULT_FILER_SERVERS = {
+    'private': {
+        'main': {
+            'ENGINE': 'filer.server.backends.default.DefaultServer',
+        },
+        'thumbnails': {
+            'ENGINE': 'filer.server.backends.default.DefaultServer',
+        }
+    }
+}
+
+THUMBNAIL_BASEDIR = 'thumbs'
