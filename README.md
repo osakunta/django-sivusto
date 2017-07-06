@@ -20,10 +20,8 @@ TAI
 Ennen kehitysserverin käynnistystä
 ----------------------------------
 
-Kopioi kehitysasetukset ja tietokanta
-
+Kopioi kehitystietokanta
 ```
-cp settings.sample.py sato/settings.py
 cp development.db.seed db.sqlite3
 ```
 
