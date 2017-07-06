@@ -7,7 +7,6 @@ smedia/
 tmp/
 ilmo_app/
 
-sato/settings.py
 db.sqlite3
 
 *.pyc
