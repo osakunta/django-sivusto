@@ -3,16 +3,144 @@ import os
 gettext = lambda s: s
 _ = lambda s: s
 
+# Use production settings if the environment variable is set
+if 'DJANGO_PRODUCTION' in os.environ:
+    # SECURITY WARNING: keep the secret key used in production secret!
+    SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
+
+    # SECURITY WARNING: don't run with debug turned on in production!
+    DEBUG = False
+    THUMBNAIL_DEBUG = False
+
+    DATABASES = {
+        'default': {
+            'CONN_MAX_AGE': 0,
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'HOST': 'localhost',
+            'NAME': 'django',
+            'PASSWORD': os.environ['DJANGO_DB_PASSWORD'],
+            'PORT': '',
+            'USER': 'django'
+        }
+    }
+
+    # Private filer files for Nginx
+    FILER_SERVERS = {
+        'private': {
+            'main': {
+                'ENGINE': 'filer.server.backends.nginx.NginxXAccelRedirectServer',
+                'OPTIONS': {
+                    'location': '/var/django/django-sivusto/smedia/filer_private',
+                    'nginx_location': '/nginx_filer_private',
+                },
+            },
+            'thumbnails': {
+                'ENGINE': 'filer.server.backends.nginx.NginxXAccelRedirectServer',
+                'OPTIONS': {
+                    'location': '/var/django/django-sivusto/smedia/filer_thumbnails_private',
+                    'nginx_location': '/nginx_filer_private_thumbnails',
+                },
+            },
+        },
+    }
+
+    LOGGING = {
+        'version': 1,
+        'disable_existing_loggers': True,
+        'root': {
+            'level': 'WARNING',
+            'handlers': ['sentry'],
+        },
+        'formatters': {
+            'verbose': {
+                'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+            },
+            'generic': {
+                'format': '%(asctime)s [%(process)d] [%(levelname)s] %(message)s',
+                'datefmt': '%Y-%m-%d %H:%M:%S',
+                '()': 'logging.Formatter',
+            },
+        },
+        'handlers': {
+            'sentry': {
+                'level': 'ERROR',
+                'class': 'raven.contrib.django.handlers.SentryHandler',
+            },
+            'console': {
+                'level': 'DEBUG',
+                'class': 'logging.StreamHandler',
+                'formatter': 'verbose'
+            },
+            'error_file': {
+                'class': 'logging.FileHandler',
+                'formatter': 'generic',
+                'filename': '/var/log/gunicorn/error.log',
+            },
+            'access_file': {
+                'class': 'logging.FileHandler',
+                'formatter': 'generic',
+                'filename': '/var/log/gunicorn/access.log',
+            },
+        },
+        'loggers': {
+            'django.db.backends': {
+                'level': 'ERROR',
+                'handlers': ['console'],
+                'propagate': False,
+            },
+            'raven': {
+                'level': 'DEBUG',
+                'handlers': ['console'],
+                'propagate': False,
+            },
+            'sentry.errors': {
+                'level': 'DEBUG',
+                'handlers': ['console'],
+                'propagate': False,
+            },
+            'gunicorn.error': {
+                'level': 'INFO',
+                'handlers': ['error_file'],
+                'propagate': True,
+            },
+            'gunicorn.access': {
+                'level': 'INFO',
+                'handlers': ['access_file'],
+                'propagate': False,
+            },
+        },
+    }
+
+else: # Development settings
+    SECRET_KEY = 'verisecriit'
+    DEBUG = True
+    THUMBNAIL_DEBUG = True
+
+    # Database
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+
+    DEFAULT_FILER_SERVERS = {
+        'private': {
+            'main': {
+                'ENGINE': 'filer.server.backends.default.DefaultServer',
+            },
+            'thumbnails': {
+                'ENGINE': 'filer.server.backends.default.DefaultServer',
+            }
+        }
+    }
+
+# Common settings are defined bellow
+# ==================================
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 DATA_DIR = os.path.dirname(os.path.dirname(__file__))
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'verisecriit'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-THUMBNAIL_DEBUG = True
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
@@ -25,14 +153,8 @@ ROOT_URLCONF = 'sato.urls'
 WSGI_APPLICATION = 'sato.wsgi.application'
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
-
-# Database
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+# Used by django-registration to determine for how long accounts can be activated.
+ACCOUNT_ACTIVATION_DAYS = 7
 
 # Internationalization
 LANGUAGE_CODE = 'fi'
@@ -40,7 +162,6 @@ TIME_ZONE = 'Europe/Helsinki'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
@@ -203,6 +324,16 @@ CMS_PLACEHOLDER_CONF = {}
 
 MIGRATION_MODULES = {}
 
+CKEDITOR_SETTINGS = {
+    'language': '{{ language }}',
+    'toolbar_HTMLField': [
+        ['Undo', 'Redo'],
+        ['ShowBlocks'],
+        ['Format', 'Styles'],
+    ],
+    'skin': 'moono',
+}
+
 THUMBNAIL_BASEDIR = 'thumbs'
 THUMBNAIL_PROCESSORS = (
     'easy_thumbnails.processors.colorspace',
@@ -215,13 +346,9 @@ THUMBNAIL_PROCESSORS = (
 ALDRYN_BOILERPLATE_NAME='bootstrap3'
 
 FILER_ENABLE_PERMISSIONS = True
-DEFAULT_FILER_SERVERS = {
-    'private': {
-        'main': {
-            'ENGINE': 'filer.server.backends.default.DefaultServer',
-        },
-        'thumbnails': {
-            'ENGINE': 'filer.server.backends.default.DefaultServer',
-        }
-    }
-}
+
+# Hallituspalaute
+HALLITUSPALAUTE_SENDER = 'hallituspalaute@satakuntalalo.fi'
+HALLITUSPALAUTE_RECIPIENTS = [
+    'hallitus@satakuntatalo.fi',
+]
