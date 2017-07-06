@@ -3,6 +3,14 @@ import os
 gettext = lambda s: s
 _ = lambda s: s
 
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+DATA_DIR = os.path.dirname(os.path.dirname(__file__))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+
+# ENVIRONMENT SETTINGS
+# ====================
+
 # Use production settings if the environment variable is set
 if 'DJANGO_PRODUCTION' in os.environ:
     # SECURITY WARNING: keep the secret key used in production secret!
@@ -135,12 +143,8 @@ else: # Development settings
         }
     }
 
-# Common settings are defined bellow
-# ==================================
-
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-DATA_DIR = os.path.dirname(os.path.dirname(__file__))
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# COMMON SETTINGS
+# ===============
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
