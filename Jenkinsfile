@@ -1,7 +1,7 @@
+def DEPLOY_ENV = 'test'
+
 if (env.BRANCH_NAME == 'master') {
-    def DEPLOY_ENV = 'production'
-} else {
-    def DEPLOY_ENV = 'test'
+    EPLOY_ENV = 'production'
 }
 
 node {
