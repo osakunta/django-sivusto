@@ -1,3 +1,9 @@
+if (env.BRANCH_NAME == 'master') {
+    def DEPLOY_ENV = 'production'
+} else {
+    def DEPLOY_ENV = 'test'
+}
+
 node {
     try {
         stage('Checkout repository') {
@@ -9,7 +15,7 @@ node {
         }
 
         stage('Build container') {
-            sh "docker-compose build app"
+            sh "docker-compose build ${DEPLOY_ENV}"
         }
 
     } catch (err) {
