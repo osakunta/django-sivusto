@@ -24,7 +24,7 @@ if 'DJANGO_PRODUCTION' in os.environ:
         'default': {
             'CONN_MAX_AGE': 0,
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'HOST': 'localhost',
+            'HOST': '172.17.0.1',
             'NAME': 'django',
             'PASSWORD': os.environ['DJANGO_DB_PASSWORD'],
             'PORT': '',
