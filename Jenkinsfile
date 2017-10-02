@@ -1,9 +1,3 @@
-def DEPLOY_ENV = 'test'
-
-if (env.BRANCH_NAME == 'master') {
-    EPLOY_ENV = 'production'
-}
-
 node {
     try {
         stage('Checkout repository') {
@@ -14,8 +8,14 @@ node {
             sh "echo 'snake oil'"
         }
 
+        if (env.BRANCH_NAME == 'master') {
+            stage('Upgrade production container') {
+                sh "docker-compose build production"
+            }
+        }
+
         stage('Build container') {
-            sh "docker-compose build ${DEPLOY_ENV}"
+            sh "docker-compose build production"
         }
 
     } catch (err) {
