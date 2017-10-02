@@ -5,8 +5,8 @@ services:
         restart: always
         environment:
             DJANGO_PRODUCTION: 1
-            DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY}
-            DJANGO_DB_PASSWORD: ${DJANGO_DB_PASSWORD}
+            DJANGO_SECRET_KEY: "$DJANGO_SECRET_KEY"
+            DJANGO_DB_PASSWORD: "$DJANGO_DB_PASSWORD"
         build:
             context: .
             dockerfile: ./Dockerfile
