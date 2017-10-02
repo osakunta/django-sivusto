@@ -8,12 +8,6 @@ node {
             sh "echo 'snake oil'"
         }
 
-        if (env.BRANCH_NAME == 'master') {
-            stage('Upgrade production container') {
-                sh "docker-compose build production"
-            }
-        }
-
         stage('Build container') {
             sh "docker-compose build production"
         }
@@ -23,6 +17,7 @@ node {
         throw err
     } finally {
         stage('Shutdown') {
+            sh "echo 'Shutdown'"
         }
     }
 }
