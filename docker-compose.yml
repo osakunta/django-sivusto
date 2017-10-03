@@ -13,6 +13,8 @@ services:
         command: ./bin/production.sh
         ports:
             - "8010:8010"
+        volumes:
+            - /var/log/gunicorn:/var/log/gunicorn
 
     test:
         restart: always
