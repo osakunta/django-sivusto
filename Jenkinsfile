@@ -13,10 +13,9 @@ node {
                 sh "docker-compose down production"
             } catch (err) {
                 echo "Container was not up"
-            } finally {
-                sh "docker-compose up production"
             }
 
+            sh "docker-compose up production"
         }
 
     } catch (err) {
