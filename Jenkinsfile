@@ -1,8 +1,6 @@
 node {
     try {
-        stage('Checkout repository') {
-            checkout scm
-        }
+        checkout scm
 
         stage('Run tests') {
             sh "echo 'snake oil'"
@@ -10,8 +8,15 @@ node {
 
         stage('Build container') {
             sh "docker-compose build production"
-            sh "docker-compose down production"
-            sh "docker-compose up production"
+
+            try {
+                sh "docker-compose down production"
+            } catch {
+                echo "Container was not up"
+            } finally {
+                sh "docker-compose up production"
+            }
+
         }
 
     } catch (err) {
