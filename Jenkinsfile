@@ -9,7 +9,7 @@ node {
         }
 
         stage('Build container') {
-            sh "docker-compose build production"
+            sh "docker-compose -f docker-compose.yml build production"
         }
 
     } catch (err) {
