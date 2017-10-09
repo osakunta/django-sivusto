@@ -7,15 +7,7 @@ node {
         }
 
         stage('Build container') {
-            sh "docker-compose build production"
-
-            try {
-                sh "docker-compose down production"
-            } catch (err) {
-                echo "Container was not up"
-            }
-
-            sh "docker-compose up production"
+            sh "docker-compose up --build -d production"
         }
 
     } catch (err) {
