@@ -7,7 +7,7 @@ echo "Apply database migrations"
 python manage.py migrate
 
 echo "Collect static files to one location"
-python manage.py collectstatic
+python manage.py collectstatic --noinput
 
 echo "Starting Gunicorn"
 exec gunicorn sato.wsgi:application \
