@@ -2,6 +2,7 @@ version: '3'
 
 services:
     production:
+        container_name: django-production
         restart: always
         environment:
             DJANGO_PRODUCTION: 1
