@@ -16,6 +16,7 @@ services:
             - "8010:8010"
         volumes:
             - /var/log/gunicorn:/var/log/gunicorn
+            - /saappala/shares/gallery:/usr/src/gallery-images:ro
 
     test:
         restart: always
