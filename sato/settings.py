@@ -175,7 +175,7 @@ STATIC_ROOT = os.path.join(DATA_DIR, 'static')
 
 STATICFILES_DIRS = (
 	os.path.join(BASE_DIR, 'sato', 'static'),
-    ('gallery-images', '../gallery-images/')
+    #('gallery-images', '../gallery-images/')
 )
 
 STATICFILES_FINDERS = [
