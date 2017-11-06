@@ -5,7 +5,6 @@ media/
 smedia/
 /static/
 tmp/
-ilmo_app/
 
 db.sqlite3
 
