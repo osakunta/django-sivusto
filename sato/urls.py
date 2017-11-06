@@ -42,7 +42,7 @@ urlpatterns = protected_media + i18n_patterns('',
 # If we have ilmo, add it
 if "ilmo_app" in sato.settings.INSTALLED_APPS:
     urlpatterns = i18n_patterns('',
-        url(r'^ilmo/', include('ilmo_app.urls')),
+        url(r'^ilmo/', include('ilmo_app.ilmo_app.urls')),
     ) + urlpatterns
 
 # This is only needed when using runserver.
