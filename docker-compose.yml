@@ -18,6 +18,10 @@ services:
             - postgres:postgres
         volumes:
             - /var/log/gunicorn:/var/log/gunicorn
+            - /var/django/static:/usr/src/app/static
+            - /var/django/media:/usr/src/app/media
+            - /var/django/smedia/filer_private:/usr/src/app/smedia/filer_private
+            - /var/django/smedia/filer_private_thumbnails:/usr/src/app/smedia/filer_private_thumbnails
             - /saappala/shares/gallery:/usr/src/gallery-images:ro
 
     test:
