@@ -30,6 +30,7 @@ services:
             - "8011:8010"
 
     postgres:
+        container_name: django-postgres
         restart: always
         image: postgres:10-alpine
         environment:
