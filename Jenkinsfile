@@ -7,7 +7,12 @@ node {
         }
 
         stage('Build container') {
-            sh "docker-compose up --build -d production"
+            when {
+                branch "master"
+            }
+            steps {
+                sh "docker-compose up --build -d production"
+            }
         }
 
     } catch (err) {
