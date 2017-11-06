@@ -7,7 +7,7 @@ node {
         }
 
         stage('Build container') {
-            sh "docker-compose up --build -d production"
+            sh "docker-compose up --build --no-deps -d production"
         }
 
     } catch (err) {
