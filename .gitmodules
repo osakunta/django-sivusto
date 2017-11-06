@@ -1,0 +1,3 @@
+[submodule "ilmo_app"]
+	path = ilmo_app
+	url = https://github.com/osakunta/django-ilmo-app/
