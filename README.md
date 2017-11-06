@@ -113,3 +113,14 @@ css-tiedostoksi, joka kopioidaan Djangon staattisiin tiedostoihin hakemistosta
 `output/`.
 
 Jos et halua käyttää watch ominaisuutta, käytä `grunt build` komentoa.
+
+
+Docker-tunkkaus
+---------------
+
+Import dump:
+```
+sudo docker exec -i django-postgres pg_restore --clean -U django -d django < [dump-file]
+```
+
+
