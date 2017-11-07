@@ -71,6 +71,29 @@ kanssa, lisää `-U`-vipu.
 ```
 pip3 install -U -r requirements.txt
 ```
+#### Ilmo-applikaatio
+Repositorio sisältää django-ilmo-app Django-applikaation, joka on osana repositoriota submodulena.
+
+Submodule on checkoutattu johonkin tietyyn committiin. Kun submodulesta halutaan käyttää uutta committia sivuston tuotantoympäristössä, ajetaan komennot:
+```
+cd ilmo_app
+git fetch
+```
+
+Otetaan `production`-branchista tuorein version:
+```
+git checkout production
+git pull
+```
+
+Kun eri committiin on viittatattu, lisätään muuttunut submodulen committi haluttuun branchiin:
+```
+cd ..
+git add ilmo_app
+git commit -m "Bump ilmo app"
+```
+
+Tuoreimman `production`-commitin käyttö voidaan automatisoida yo. komennoilla, kun CI-serverillä on autentikoitu git-käyttäjä/-botti suorittaa komennot ja pushaa tuotantohaaraan
 
 ### Käynnistys
 
