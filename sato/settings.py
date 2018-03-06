@@ -269,6 +269,9 @@ INSTALLED_APPS = [
     'aldryn_bootstrap3',
 	#'django-registration', #(Should not be in installed apps if using HMAC, leaving for reminder)
 
+    # Raw HTML for quick fixes
+    'cmsplugin_raw_html',
+
     # For Aldryn blog
     'aldryn_apphooks_config',
     'aldryn_boilerplates',
