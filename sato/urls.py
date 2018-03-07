@@ -32,18 +32,13 @@ urlpatterns = protected_media + i18n_patterns('',
     url(r'^login/$', auth_views.login, {'template_name': 'auth/login.html'} , name='login'),
     url(r'^logout/$', views.logout_user),
     url(r'^hallituspalaute/', include('hallituspalaute.urls')),
+    url(r'^ilmo/', include('ilmo_app.urls')),
     url(r'^gallery/', include('gallery.urls')),
     url(r'^', include('registration.backends.hmac.urls')),
     url(r'^', include('django.contrib.auth.urls')),
     url(r'^', include('filer.server.urls')),
     url(r'^', include('cms.urls')),
 )
-
-# If we have ilmo, add it
-if "ilmo_app" in sato.settings.INSTALLED_APPS:
-    urlpatterns = i18n_patterns('',
-        url(r'^ilmo/', include('ilmo_app.ilmo_app.urls')),
-    ) + urlpatterns
 
 # This is only needed when using runserver.
 if settings.DEBUG:
