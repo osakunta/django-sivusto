@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import, print_function, unicode_literals
-
-from cms.sitemaps import CMSSitemap
 from django.conf import settings
 from django.conf.urls import include, url
 from django.conf.urls.i18n import i18n_patterns
@@ -26,9 +24,9 @@ protected_media = [
     url(r'^media/media/gallery-images/(?P<path>.*)$', protected_serve),
 ]
 
-urlpatterns = protected_media + i18n_patterns('',
-    url(r'^admin/', include(admin.site.urls)),  # NOQA
-    url(r'^login/$', auth_views.login, {'template_name': 'auth/login.html'} , name='login'),
+urlpatterns = protected_media + i18n_patterns(
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'^login/$', auth_views.login, {'template_name': 'auth/login.html'}, name='login'),
     url(r'^logout/$', views.logout_user),
     url(r'^hallituspalaute/', include('hallituspalaute.urls')),
     url(r'^ilmo/', include('ilmo_app.urls')),
@@ -42,6 +40,6 @@ urlpatterns = protected_media + i18n_patterns('',
 # This is only needed when using runserver.
 if settings.DEBUG:
     urlpatterns = protected_media + [
-         url(r'^media/(?P<path>.*)$', 'django.views.static.serve',  # NOQA
+         url(r'^media/(?P<path>.*)$', serve,
             {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
-    ] + staticfiles_urlpatterns() + urlpatterns  # NOQA
+    ] + staticfiles_urlpatterns() + urlpatterns
