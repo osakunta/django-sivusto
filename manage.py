@@ -2,11 +2,6 @@
 import os
 import sys
 
-# Added to filter out warnings for Django 2.0
-import warnings
-from django.utils.deprecation import RemovedInDjango110Warning
-warnings.filterwarnings('always', category=RemovedInDjango110Warning)
-
 os.environ.setdefault("PYTHONIOENCODING","utf-8")
 
 if __name__ == "__main__":
