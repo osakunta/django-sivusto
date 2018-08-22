@@ -70,10 +70,6 @@ if 'DJANGO_PRODUCTION' in os.environ:
             },
         },
         'handlers': {
-            'sentry': {
-                'level': 'ERROR',
-                'class': 'raven.contrib.django.handlers.SentryHandler',
-            },
             'console': {
                 'level': 'DEBUG',
                 'class': 'logging.StreamHandler',
@@ -119,7 +115,7 @@ if 'DJANGO_PRODUCTION' in os.environ:
         },
     }
 
-else: # Development settings
+else:  # Development settings
     SECRET_KEY = 'verisecriit'
     DEBUG = True
     THUMBNAIL_DEBUG = True
@@ -174,7 +170,7 @@ MEDIA_ROOT = os.path.join(DATA_DIR, 'media')
 STATIC_ROOT = os.path.join(DATA_DIR, 'static')
 
 STATICFILES_DIRS = (
-	os.path.join(BASE_DIR, 'sato', 'static'),
+    os.path.join(BASE_DIR, 'sato', 'static'),
     #('gallery-images', '../gallery-images/')
 )
 
@@ -186,7 +182,6 @@ STATICFILES_FINDERS = [
  ]
 
 SITE_ID = 1
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -204,20 +199,21 @@ TEMPLATES = [
                 'django.core.context_processors.media',
                 'django.core.context_processors.csrf',
                 'django.core.context_processors.tz',
-                'sekizai.context_processors.sekizai',
                 'django.core.context_processors.static',
+                'sekizai.context_processors.sekizai',
                 'cms.context_processors.cms_settings',
-                'aldryn_boilerplates.context_processors.boilerplate', # For Aldryn blog
+                'aldryn_boilerplates.context_processors.boilerplate',  # For Aldryn blog
             ],
             'loaders': [
                 'django.template.loaders.filesystem.Loader',
                 'django.template.loaders.app_directories.Loader',
                 'django.template.loaders.eggs.Loader',
-                'aldryn_boilerplates.template_loaders.AppDirectoriesLoader', # For Aldryn blog
+                'aldryn_boilerplates.template_loaders.AppDirectoriesLoader',  # For Aldryn blog
             ],
         },
     },
 ]
+
 
 MIDDLEWARE_CLASSES = [
     'cms.middleware.utils.ApphookReloadMiddleware',
@@ -232,7 +228,7 @@ MIDDLEWARE_CLASSES = [
     'cms.middleware.page.CurrentPageMiddleware',
     'cms.middleware.toolbar.ToolbarMiddleware',
     'cms.middleware.language.LanguageCookieMiddleware',
-	'django.contrib.auth.middleware.SessionAuthenticationMiddleware'
+    'django.contrib.auth.middleware.SessionAuthenticationMiddleware'
 ]
 
 INSTALLED_APPS = [
@@ -256,7 +252,7 @@ INSTALLED_APPS = [
     'easy_thumbnails',
     'sato',
     'aldryn_bootstrap3',
-	#'django-registration', #(Should not be in installed apps if using HMAC, leaving for reminder)
+    # 'django-registration', #(Should not be in installed apps if using HMAC, leaving for reminder)
 
     # Raw HTML for quick fixes
     'cmsplugin_raw_html',
@@ -272,8 +268,8 @@ INSTALLED_APPS = [
     'sortedm2m',
     'taggit',
 
-	# In-house-apps
-	# 'ilmo_app',
+    # In-house-apps
+    'ilmo_app',
 ]
 
 LANGUAGES = (
