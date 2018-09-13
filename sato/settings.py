@@ -329,7 +329,7 @@ ALDRYN_BOILERPLATE_NAME='bootstrap3'
 FILER_ENABLE_PERMISSIONS = True
 
 # Hallituspalaute
-HALLITUSPALAUTE_SENDER = 'hallituspalaute@satakuntalalo.fi'
+HALLITUSPALAUTE_SENDER = 'hallituspalaute@satakuntatalo.fi'
 HALLITUSPALAUTE_RECIPIENTS = [
     'hallitus@satakuntatalo.fi',
 ]
