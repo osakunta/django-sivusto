@@ -47,8 +47,13 @@ spec:
           volumeMounts:
             - name: postgres-volume-mount
               mountPath: /var/lib/busybox
+            - name: django-static-volume-mount
+              mountPath: /usr/src/app/sato/static
 
       volumes:
         - name: postgres-volume-mount
           persistentVolumeClaim:
             claimName: postgres-pvc
+        - name: django-static-volume-mount
+          persistentVolumeClaim:
+            claimName: django-static-pvc
