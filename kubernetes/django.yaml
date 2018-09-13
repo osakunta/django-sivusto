@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: django
+  labels:
+    app: django
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: django
+  template:
+    metadata:
+      labels:
+       app: django
+    spec:
+      containers:
+        - name: django
+          image: osakunta/django-sivusto
+          env:
+            - name: DJANGO_PRODUCTION
+              valueFrom:
+                secretKeyRef:
+                  name: django-secrets
+                  key: production
+            - name: DJANGO_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: django-secrets
+                  key: secret_key
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: django-secrets
+                  key: user
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: django-secrets
+                  key: password
+            - name: POSTGRES_HOST
+              value: postgres-service
+
+          ports:
+            - containerPort: 8010
+
+          volumeMounts:
+            - name: postgres-volume-mount
+              mountPath: /var/lib/busybox
+
+      volumes:
+        - name: postgres-volume-mount
+          persistentVolumeClaim:
+            claimName: postgres-pvc
