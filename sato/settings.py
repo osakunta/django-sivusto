@@ -12,7 +12,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # ====================
 
 # Use production settings if the environment variable is set
-if 'DJANGO_PRODUCTION' in os.environ:
+if 'DJANGO_PRODUCTION' in os.environ and os.getenv('DJANGO_PRODUCTION') == "1":
     # SECURITY WARNING: keep the secret key used in production secret!
     SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 
@@ -24,11 +24,11 @@ if 'DJANGO_PRODUCTION' in os.environ:
         'default': {
             'CONN_MAX_AGE': 0,
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'HOST': 'postgres',
-            'NAME': 'django',
-            'PASSWORD': os.environ['DJANGO_DB_PASSWORD'],
-            'PORT': '',
-            'USER': 'django'
+            'NAME': 'kubernetes_django',
+            'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
+            'USER': os.getenv('POSTGRES_USER'),
+            'HOST': os.getenv('POSTGRES_HOST'),
+            'PORT': os.getenv('POSTGRES_PORT', 5432)
         }
     }
 
@@ -54,65 +54,54 @@ if 'DJANGO_PRODUCTION' in os.environ:
 
     LOGGING = {
         'version': 1,
-        'disable_existing_loggers': True,
-        'root': {
-            'level': 'WARNING',
-            'handlers': ['sentry'],
+        'disable_existing_loggers': False,
+        'filters': {
+            'require_debug_false': {
+                '()': 'django.utils.log.RequireDebugFalse',
+            },
+            'require_debug_true': {
+                '()': 'django.utils.log.RequireDebugTrue',
+            },
         },
         'formatters': {
-            'verbose': {
-                'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
-            },
-            'generic': {
-                'format': '%(asctime)s [%(process)d] [%(levelname)s] %(message)s',
-                'datefmt': '%Y-%m-%d %H:%M:%S',
-                '()': 'logging.Formatter',
-            },
+            'django.server': {
+                '()': 'django.utils.log.ServerFormatter',
+                'format': '[%(server_time)s] %(message)s',
+            }
         },
         'handlers': {
             'console': {
-                'level': 'DEBUG',
+                'level': 'INFO',
+                'filters': ['require_debug_true'],
                 'class': 'logging.StreamHandler',
-                'formatter': 'verbose'
             },
-            'error_file': {
-                'class': 'logging.FileHandler',
-                'formatter': 'generic',
-                'filename': '/var/log/gunicorn/error.log',
+            'console_on_not_debug': {
+                'level': 'WARNING',
+                'filters': ['require_debug_false'],
+                'class': 'logging.StreamHandler',
             },
-            'access_file': {
-                'class': 'logging.FileHandler',
-                'formatter': 'generic',
-                'filename': '/var/log/gunicorn/access.log',
+            'django.server': {
+                'level': 'INFO',
+                'class': 'logging.StreamHandler',
+                'formatter': 'django.server',
             },
+            'mail_admins': {
+                'level': 'ERROR',
+                'filters': ['require_debug_false'],
+                'class': 'django.utils.log.AdminEmailHandler'
+            }
         },
         'loggers': {
-            'django.db.backends': {
-                'level': 'ERROR',
-                'handlers': ['console'],
-                'propagate': False,
-            },
-            'raven': {
-                'level': 'DEBUG',
-                'handlers': ['console'],
-                'propagate': False,
-            },
-            'sentry.errors': {
-                'level': 'DEBUG',
-                'handlers': ['console'],
-                'propagate': False,
-            },
-            'gunicorn.error': {
+            'django': {
+                'handlers': ['console', 'mail_admins', 'console_on_not_debug'],
                 'level': 'INFO',
-                'handlers': ['error_file'],
-                'propagate': True,
             },
-            'gunicorn.access': {
+            'django.server': {
+                'handlers': ['django.server'],
                 'level': 'INFO',
-                'handlers': ['access_file'],
                 'propagate': False,
             },
-        },
+        }
     }
 
 else:  # Development settings
@@ -145,7 +134,8 @@ else:  # Development settings
 ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost',
-    '.satakuntatalo.fi'
+    '.satakuntatalo.fi',
+    '*'
 ]
 
 # Application definition
