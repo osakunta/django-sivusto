@@ -17,6 +17,3 @@ psycopg2 = "*"
 [dev-packages]
 codacy-coverage = "*"
 coverage = "*"
-
-[requires]
-python_version = "3.6"
