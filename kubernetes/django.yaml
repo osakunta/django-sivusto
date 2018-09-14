@@ -40,15 +40,13 @@ spec:
                   key: password
             - name: POSTGRES_HOST
               value: postgres-service
-
           ports:
             - containerPort: 8010
-
           volumeMounts:
             - name: postgres-volume-mount
               mountPath: /var/lib/busybox
             - name: django-static-volume-mount
-              mountPath: /usr/src/app/sato/static
+              mountPath: /usr/src/app/static
 
       volumes:
         - name: postgres-volume-mount
