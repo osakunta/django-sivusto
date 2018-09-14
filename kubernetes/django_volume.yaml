@@ -11,4 +11,4 @@ spec:
   accessModes:
     - ReadWriteMany
   hostPath:
-    path: /data/kubernetes/django-static-pv
+    path: /mnt/kubernetes/django-static-pv
