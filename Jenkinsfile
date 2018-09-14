@@ -8,7 +8,7 @@ node {
 
         stage('Build container') {
             if (env.BRANCH_NAME == "master") {
-                sh "docker-compose up --build -d production"
+                sh "echo ''"
             } else {
                 sh "echo 'Skipping as branch was ${env.BRANCH_NAME} instead of master'"
             }
