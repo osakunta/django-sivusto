@@ -12,10 +12,11 @@ data:
     }
 
     http {
+      include conf/mime.types;
+
       server {
         listen 80;
         server_name _;
-        include conf/mime.types;
         root /usr/share/nginx/html;
 
         location /static {
