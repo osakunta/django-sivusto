@@ -16,6 +16,8 @@ def protected_serve(request, path, document_root=settings.MEDIA_ROOT + '/gallery
     return serve(request, path, document_root, show_indexes)
 
 
+handler404 = views.handler404
+handler500 = views.handler500
 admin.autodiscover()
 
 

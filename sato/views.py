@@ -1,5 +1,5 @@
 from django.http import *
-from django.shortcuts import render_to_response,redirect
+from django.shortcuts import render_to_response, render
 from django.template import RequestContext
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -31,3 +31,11 @@ def logout_user(request):
     logout(request)
 
     return HttpResponseRedirect('/')
+
+
+def handler404(request):
+    return render(request, '404.html', status=404)
+
+
+def handler500(request):
+    return render(request, '500.html', status=500)
