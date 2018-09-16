@@ -64,3 +64,4 @@ spec:
             claimName: django-media-pvc
         - name: django-smedia-volume-mount
           persistentVolumeClaim:
+            claimName: django-smedia-pvc
