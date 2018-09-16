@@ -306,7 +306,7 @@ CMS_STYLE_NAMES = (
     ('row', _("row")),
 )
 
-CMS_PERMISSION = True
+CMS_PERMISSION = False
 CMS_PLACEHOLDER_CONF = {}
 
 MIGRATION_MODULES = {}
