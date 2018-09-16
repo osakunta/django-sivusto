@@ -12,7 +12,7 @@
         {% if user.is_authenticated %}
         Olet kirjautunut sisään. Avaa <a href="">tämä sivu</a> incognito/private-tilassa, jos haluat lähettää nimettömän viestin.
         {% else %}
-        <a href="{% url 'django.contrib.auth.views.login' %}">Kirjaudu sisään</a>, jos haluat jättää kirjallisen aloitteen.
+        <a href="/login">Kirjaudu sisään</a>, jos haluat jättää kirjallisen aloitteen.
         {% endif %}
         </p>
 

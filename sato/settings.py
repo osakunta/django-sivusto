@@ -126,6 +126,7 @@ TEMPLATES = [
         'DIRS': [
             os.path.join(BASE_DIR, 'sato', 'templates'),
             os.path.join(BASE_DIR, 'gallery', 'templates'),
+            os.path.join(BASE_DIR, 'hallituspalaute', 'templates'),
         ],
         'OPTIONS': {
             'context_processors': [
