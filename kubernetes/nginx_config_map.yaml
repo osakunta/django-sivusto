@@ -17,8 +17,12 @@ data:
         server_name _;
         root /usr/share/nginx/html;
 
-        location /static {
+        location /static/ {
           alias /django/static/;
+        }
+
+        location /media/ {
+          alias /django/media/;
         }
 
         location / {

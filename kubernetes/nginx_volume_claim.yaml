@@ -12,3 +12,18 @@ spec:
     requests:
       storage: 1Gi
   volumeName: nginx-static-pv
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: nginx-media-pvc
+  labels:
+    type: local
+spec:
+  storageClassName: standard
+  accessModes:
+    - ReadOnlyMany
+  resources:
+    requests:
+      storage: 1Gi
+  volumeName: nginx-media-pv
