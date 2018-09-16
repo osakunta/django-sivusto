@@ -12,3 +12,33 @@ spec:
     requests:
       storage: 1Gi
   volumeName: django-static-pv
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: django-media-pvc
+  labels:
+    type: local
+spec:
+  storageClassName: standard
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
+  volumeName: django-media-pv
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: django-smedia-pvc
+  labels:
+    type: local
+spec:
+  storageClassName: standard
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
+  volumeName: django-smedia-pv

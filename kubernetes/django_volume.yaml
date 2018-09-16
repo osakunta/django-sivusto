@@ -12,3 +12,33 @@ spec:
     - ReadWriteMany
   hostPath:
     path: /data/django-static-pv
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: django-media-pv
+  labels:
+    type: local
+spec:
+  capacity:
+    storage: 1Gi
+  storageClassName: standard
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: /data/django-media-pv
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: django-smedia-pv
+  labels:
+    type: local
+spec:
+  capacity:
+    storage: 1Gi
+  storageClassName: standard
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: /data/django-smedia-pv
