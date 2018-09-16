@@ -1,0 +1,13 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: nginx-static-pvc
+  labels:
+    type: local
+spec:
+  accessModes:
+    - ReadMany
+  resources:
+    requests:
+      storage: 1Gi
+  volumeName: django-static-pv

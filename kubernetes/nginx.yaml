@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+spec:
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - image: nginx
+          name: nginx
+          volumeMounts:
+            - name: nginx-conf
+              mountPath: /etc/nginx
+              readOnly: true
+            - name: django-static-volume-mount
+              mountPath: /django/static
+      volumes:
+        - name: nginx-conf
+          configMap:
+            name: nginx-conf
+            items:
+            - key: nginx.conf
+              path: nginx.conf
+        - name: django-static-volume-mount
+          persistentVolumeClaim:
+            claimName: nginx-static-pvc
