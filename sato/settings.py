@@ -318,7 +318,6 @@ CKEDITOR_SETTINGS = {
         ['ShowBlocks'],
         ['Format', 'Styles'],
     ],
-    'skin': 'moono',
 }
 
 THUMBNAIL_BASEDIR = 'thumbs'
