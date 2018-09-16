@@ -194,6 +194,13 @@ INSTALLED_APPS = [
 
     # Raw HTML for quick fixes
     'cmsplugin_raw_html',
+    'cmsplugin_filer_image',
+    'cmsplugin_filer_file',
+    'cmsplugin_filer_folder',
+    'cmsplugin_filer_teaser',
+    'cmsplugin_filer_utils',
+    'cmsplugin_filer_video',
+    'djangocms_column',
 
     # For Aldryn blog
     'aldryn_apphooks_config',
@@ -286,7 +293,6 @@ CMS_TEMPLATES = (
     ('page.html', 'Page'),
     ('page_bare.html', 'Page without content wrapper'),
     ('feature.html', 'Page with Feature'),
-    ('gallery_list.html', 'List galleries'),
     ('specific-pages/homepage.html', 'Etusivun pohja'),
     ('specific-pages/calendar.html', 'Kalenterin pohja'),
     ('specific-pages/ajankohtaista.html', 'Artikkelipohja'),
