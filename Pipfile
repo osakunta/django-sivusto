@@ -6,7 +6,7 @@ name = "pypi"
 [packages]
 Django = "<2"
 django-cms = "*"
-django-registration = "*"
+django-registration = "<3"
 djangocms-file = "*"
 djangocms-style = "*"
 aldryn-bootstrap3 = "*"
