@@ -1,2 +1,12 @@
-{% extends "404.html" %}
+{% extends "base.html" %}
+{% load cms_tags staticfiles %}
 
+{% block title %} – Virhe!{% endblock title %}
+
+{% block content %}
+    <div class="content-bg gray1 text-center">
+        <h1>Sivulla tapahtui jokin virhe!</h1>
+        <br /><br />
+        <img src="{% static "img/bear/404-bear.png" %}" alt="404-karhu" />
+    </div>
+{% endblock content %}
