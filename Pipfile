@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-Django = "<1.10"
+Django = "<1.11"
 django-cms = "<3.4"
 django-registration = "<2.3"
 django-filer = "<1.3"
