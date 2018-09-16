@@ -4,17 +4,26 @@ metadata:
   name: nginx-conf
 data:
   nginx.conf: |
-    server {
-      listen 80;
-      server_name _;
-      root /usr/share/nginx/html;
+    user nginx;
+    worker_processes  3;
 
-      location /static {
-        alias /django/static/;
-      }
+    events {
+      worker_connections  10240;
+    }
 
-      location / {
-        include proxy_params;
-        proxy_pass http://django-service:8010;
+    http {
+      server {
+        listen 80;
+        server_name _;
+        root /usr/share/nginx/html;
+
+        location /static {
+          alias /django/static/;
+        }
+
+        location / {
+          include proxy_params;
+          proxy_pass http://django-service:8010;
+        }
       }
     }
