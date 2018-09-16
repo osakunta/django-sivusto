@@ -186,6 +186,7 @@ INSTALLED_APPS = [
     'djangocms_text_ckeditor',
     'djangocms_style',
     'filer',
+    'djangocms_file',
     'easy_thumbnails',
     'sato',
     'aldryn_bootstrap3',
