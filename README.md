@@ -9,13 +9,10 @@ Sisällysluettelo
 
 Vaatimukset
 -----------
-- Python 3.5
+- Python 3.6
 - Pip3
 - Virtualenv asennettuna
 
-TAI
-
-- Docker
 
 Ennen kehitysserverin käynnistystä
 ----------------------------------
@@ -25,25 +22,15 @@ Kopioi kehitystietokanta
 cp development.db.seed db.sqlite3
 ```
 
-Kehitysserverin käynnistys Dockerilla
--------------------------------------
-Aja seuraavat komennot repon hakemistossa:
-```
-sudo docker build -t sato-django .
-sudo docker run -it -p 8010:8010 -v `pwd`/:/usr/src/app --name django-dev sato-django
-```
-Nyt sinulla pitäisi olla Django-serveri pyörimässä Docker-kontissa, ja repon tiedostot synkronoituvat molempiin suuntiin, joten muutokset näkyvät serverillä.
-
-Kehitysserverin käynnistys perinteisesti
-----------------------------------------
+Kehitysserverin käynnistys
+--------------------------
 
 ### Virtualenv
 
-Luo Python 3.5 virtualenv
+Luo Python 3.6 virtualenv
 ```
-virtualenv -p /usr/bin/python3.5 venv
+virtualenv -p /usr/bin/python3.6 venv
 ```
-
 
 Varmista, että virtualenv on aktivoitu:
 ```
@@ -52,10 +39,11 @@ source venv/bin/activate
 
 ### Riippuvuudet
 
-Asenna kaikki tarvittavat Python-paketit, jotka on listattuna tiedostossa
-requirements.txt. Huomaa, että asentamiseen tarvitaan nimenomaan pip3:a.
+Projektissa käytetään riippuvuuksien hallintaan `pipenv`iä. Riippuvuudet saa
+asennettua seuraavasti:
 ```
-pip3 install -r requirements.txt
+pip install pipenv
+pipenv install -d
 ```
 
 Mikäli pakettien asennus ei onnistu, ja saat tällaisen tai vastaavan ilmoituksen:
@@ -66,11 +54,7 @@ Varmista, että seuraavassa komennossa olevat paketit on asennettu:
 sudo apt-get install -y python-lxml libxml2-dev libxslt1-dev libffi-dev
 ```
 
-Jos haluat päivittää paketteja, jotta ne ovat ajan tasalla requirements.txt:n
-kanssa, lisää `-U`-vipu.
-```
-pip3 install -U -r requirements.txt
-```
+
 #### Ilmo-applikaatio
 Repositorio sisältää [django-ilmo-app](https://github.com/osakunta/django-ilmo-app) Django-applikaation, joka on osana repositoriota submodulena.
 
@@ -136,14 +120,3 @@ css-tiedostoksi, joka kopioidaan Djangon staattisiin tiedostoihin hakemistosta
 `output/`.
 
 Jos et halua käyttää watch ominaisuutta, käytä `grunt build` komentoa.
-
-
-Docker-tunkkaus
----------------
-
-Import dump:
-```
-sudo docker exec -i django-postgres pg_restore --clean -U django -d django < [dump-file]
-```
-
-
