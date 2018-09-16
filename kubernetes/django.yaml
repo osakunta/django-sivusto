@@ -47,6 +47,10 @@ spec:
               mountPath: /var/lib/busybox
             - name: django-static-volume-mount
               mountPath: /usr/src/app/static
+            - name: django-media-volume-mount
+              mountPath: /usr/src/app/media
+            - name: django-smedia-volume-mount
+              mountPath: /usr/src/app/smedia
 
       volumes:
         - name: postgres-volume-mount
@@ -55,3 +59,8 @@ spec:
         - name: django-static-volume-mount
           persistentVolumeClaim:
             claimName: django-static-pvc
+        - name: django-media-volume-mount
+          persistentVolumeClaim:
+            claimName: django-media-pvc
+        - name: django-smedia-volume-mount
+          persistentVolumeClaim:
