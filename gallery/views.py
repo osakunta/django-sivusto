@@ -9,6 +9,12 @@ path="media/gallery-images"
 
 for_a_day = 60**2 * 24
 
+
+@login_required
+def na(request):
+    return render(request, 'na.html')
+
+
 @cache_page(for_a_day)
 @login_required
 def years(request):
