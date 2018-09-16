@@ -25,6 +25,16 @@ data:
           alias /django/media/;
         }
 
+        location /nginx_filer_private/ {
+          internal;
+          alias /django/smedia/filer_private/;
+        }
+
+        location /nginx_filer_private_thumbnails/ {
+          internal;
+          alias /django/smedia/filer_private_thumbnails/;
+        }
+
         location / {
           proxy_pass http://django-service:8010;
         }

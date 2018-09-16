@@ -23,6 +23,8 @@ spec:
               mountPath: /django/static
             - name: django-media-volume-mount
               mountPath: /django/media
+            - name: django-smedia-volume-mount
+              mountPath: /django/smedia
       volumes:
         - name: nginx-conf
           configMap:
@@ -36,3 +38,6 @@ spec:
         - name: django-media-volume-mount
           persistentVolumeClaim:
             claimName: nginx-media-pvc
+        - name: django-smedia-volume-mount
+          persistentVolumeClaim:
+            claimName: nginx-smedia-pvc
