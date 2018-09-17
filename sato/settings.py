@@ -52,6 +52,11 @@ if 'DJANGO_PRODUCTION' in os.environ and os.getenv('DJANGO_PRODUCTION') == "1":
         },
     }
 
+    # Email settings
+    EMAIL_HOST = 'smtp-relay.gmail.com'
+    EMAIL_PORT = 587
+    EMAIL_USE_TLS = True
+
 else:  # Development settings
     SECRET_KEY = 'verisecriit'
     DEBUG = True
