@@ -25,12 +25,12 @@ data:
           alias /django/media/;
         }
 
-        location /nginx_filer_private/ {
+        location /smedia/ {
           internal;
           alias /django/smedia/filer_private/;
         }
 
-        location /nginx_filer_private_thumbnails/ {
+        location /sthumbnails/ {
           internal;
           alias /django/smedia/filer_private_thumbnails/;
         }

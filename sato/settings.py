@@ -38,15 +38,15 @@ if 'DJANGO_PRODUCTION' in os.environ and os.getenv('DJANGO_PRODUCTION') == "1":
             'main': {
                 'ENGINE': 'filer.server.backends.nginx.NginxXAccelRedirectServer',
                 'OPTIONS': {
-                    'location': '/var/django/django-sivusto/smedia/filer_private',
-                    'nginx_location': '/nginx_filer_private',
+                    'location': '/usr/src/app/smedia/filer_private',
+                    'nginx_location': '/smedia',
                 },
             },
             'thumbnails': {
                 'ENGINE': 'filer.server.backends.nginx.NginxXAccelRedirectServer',
                 'OPTIONS': {
-                    'location': '/var/django/django-sivusto/smedia/filer_thumbnails_private',
-                    'nginx_location': '/nginx_filer_private_thumbnails',
+                    'location': '/usr/src/app/smedia/filer_thumbnails_private',
+                    'nginx_location': '/sthumbnails',
                 },
             },
         },
