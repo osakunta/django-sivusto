@@ -3,7 +3,7 @@ node {
         stage('Fetch repository') {
             checkout scm
 
-            # Pull ilmo_app submodule
+            // Pull ilmo_app submodule
             sh "cd ilmo_repo/ && git submodule init && git submodule update"
         }
 
