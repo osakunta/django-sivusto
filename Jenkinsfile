@@ -31,7 +31,10 @@ node {
 
             stage('Deploy to Kubernetes') {
                 //sh "kubectl set image deployment/django django=osakunta/django-sivusto:${env.BUILD_NUMBER}"
-                sh "kubectl get pods"
+
+                withKubeConfig([credentialsId: 'jenkins-deployer-credentials', serverUrl: 'localhost:8001']) {
+                  sh "kubectl get pods"
+                }
             }
         }
 
