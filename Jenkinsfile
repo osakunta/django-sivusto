@@ -1,16 +1,32 @@
 node {
     try {
-        checkout scm
+        stage('Fetch repository') {
+            checkout scm
+
+            # Pull ilmo_app submodule
+            sh "cd ilmo_repo/ && git submodule init && git submodule update"
+        }
 
         stage('Run tests') {
             sh "echo 'snake oil'"
         }
 
-        stage('Build container') {
-            if (env.BRANCH_NAME == "master") {
-                sh "echo ''"
-            } else {
-                sh "echo 'Skipping as branch was ${env.BRANCH_NAME} instead of master'"
+        if (env.BRANCH_NAME == "master") {
+            stage('Build image') {
+                app = docker.build("osakunta/django-sivusto")
+            }
+
+            stage('Test image') {
+                app.inside {
+                    sh 'echo "Tests passed"'
+                }
+            }
+
+            stage('Push image') {
+                docker.withRegistry('https://registry.hub.docker.com', 'dockerhub-credentials') {
+                    app.push("${env.BUILD_NUMBER}")
+                    app.push("latest")
+                }
             }
         }
 
