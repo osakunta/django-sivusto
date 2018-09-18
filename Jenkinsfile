@@ -30,10 +30,9 @@ node {
             }
 
             stage('Deploy to Kubernetes') {
-                sh "kubectl proxy &"
-
                 withKubeConfig([credentialsId: 'jenkins-deployer-credentials', serverUrl: 'localhost:8001']) {
-                  sh "kubectl set image deployment/django django=osakunta/django-sivusto:${env.BUILD_NUMBER}"
+                    sh "kubectl proxy &"
+                    sh "kubectl set image deployment/django django=osakunta/django-sivusto:${env.BUILD_NUMBER}"
                 }
             }
         }
