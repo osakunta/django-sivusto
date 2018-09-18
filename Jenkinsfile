@@ -30,7 +30,8 @@ node {
             }
 
             stage('Deploy to Kubernetes') {
-                sh "kubectl set image deployment/django django=osakunta/django-sivusto:${env.BUILD_NUMBER}"
+                //sh "kubectl set image deployment/django django=osakunta/django-sivusto:${env.BUILD_NUMBER}"
+                sh "kubectl get pods"
             }
         }
 
