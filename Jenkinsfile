@@ -30,10 +30,14 @@ node {
             }
 
             stage('Deploy to Kubernetes') {
-                //sh "kubectl set image deployment/django django=osakunta/django-sivusto:${env.BUILD_NUMBER}"
+                script{
+                    withEnv(['BUILD_ID=dontkill']) {
+                        sh "kubectl proxy"
+                    }
+                }
 
                 withKubeConfig([credentialsId: 'jenkins-deployer-credentials', serverUrl: 'localhost:8001']) {
-                  sh "kubectl get pods"
+                  sh "kubectl set image deployment/django django=osakunta/django-sivusto:${env.BUILD_NUMBER}"
                 }
             }
         }
