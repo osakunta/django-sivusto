@@ -42,3 +42,18 @@ spec:
     - ReadOnlyMany
   hostPath:
     path: /data/django-smedia-pv
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: nginx-gallery-pv
+  labels:
+    type: local
+spec:
+  capacity:
+    storage: 1Gi
+  storageClassName: standard
+  accessModes:
+    - ReadOnlyMany
+  hostPath:
+    path: /mnt/gallery
