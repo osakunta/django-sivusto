@@ -17,6 +17,10 @@ data:
         server_name _;
         root /usr/share/nginx/html;
 
+        location /gallery-images/ {
+          alias /django/gallery-images/;
+        }
+
         location /static/ {
           alias /django/static/;
         }

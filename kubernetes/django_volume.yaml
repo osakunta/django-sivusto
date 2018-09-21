@@ -42,3 +42,18 @@ spec:
     - ReadWriteMany
   hostPath:
     path: /data/django-smedia-pv
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: django-gallery-pv
+  labels:
+    type: local
+spec:
+  capacity:
+    storage: 1Gi
+  storageClassName: standard
+  accessModes:
+    - ReadOnlyMany
+  hostPath:
+    path: /mnt/gallery

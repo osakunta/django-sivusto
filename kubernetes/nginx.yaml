@@ -25,6 +25,8 @@ spec:
               mountPath: /django/media
             - name: django-smedia-volume-mount
               mountPath: /django/smedia
+            - name: django-gallery-volume-mount
+              mountPath: /django/gallery-images
       volumes:
         - name: nginx-conf
           configMap:
@@ -41,3 +43,6 @@ spec:
         - name: django-smedia-volume-mount
           persistentVolumeClaim:
             claimName: nginx-smedia-pvc
+        - name: django-gallery-volume-mount
+          persistentVolumeClaim:
+            claimName: nginx-gallery-pvc

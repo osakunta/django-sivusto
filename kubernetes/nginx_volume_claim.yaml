@@ -42,3 +42,18 @@ spec:
     requests:
       storage: 1Gi
   volumeName: nginx-smedia-pv
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: nginx-gallery-pvc
+  labels:
+    type: local
+spec:
+  storageClassName: standard
+  accessModes:
+    - ReadOnlyMany
+  resources:
+    requests:
+      storage: 1Gi
+  volumeName: nginx-gallery-pv

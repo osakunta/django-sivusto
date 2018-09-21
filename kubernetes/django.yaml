@@ -51,6 +51,8 @@ spec:
               mountPath: /usr/src/app/media
             - name: django-smedia-volume-mount
               mountPath: /usr/src/app/smedia
+            - name: django-gallery-volume-mount
+              mountPath: /usr/src/app/gallery-images
 
       volumes:
         - name: postgres-volume-mount
@@ -65,3 +67,6 @@ spec:
         - name: django-smedia-volume-mount
           persistentVolumeClaim:
             claimName: django-smedia-pvc
+        - name: django-gallery-volume-mount
+          persistentVolumeClaim:
+            claimName: django-gallery-pvc
