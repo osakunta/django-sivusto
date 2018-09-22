@@ -18,7 +18,11 @@
 
                     <ol class="breadcrumb" style="margin: 0; padding: 0;">
                         {% for breadcrumb in gallery.breadcrumbs %}
-                            <li><a href="{{ breadcrumb.path }}">{{ breadcrumb.name }}</a></li>
+                            {% if forloop.last %}
+                                <li class="active">{{ breadcrumb.name }}</li>
+                            {% else %}
+                                <li><a href="{{ breadcrumb.path }}">{{ breadcrumb.name }}</a></li>
+                            {% endif %}
                         {% endfor %}
                     </ol>
                 </div>
