@@ -1,25 +1,25 @@
 {% extends "base.html" %}
+{% load string_utils %}
 
 {% block content %}
     <div class="row">
         <div class="container">
             <h1>
-                {{ gallery }}
+                {{ gallery.name|strip_digits }}
                 {% if gallery.images %}
                     <span class="badge">
-                    {{ gallery.images|length }}
-                    <i class="fa fa-picture-o" aria-hidden="true"></i>
-                </span>
+                        {{ gallery.images|length }}
+                        <i class="fa fa-picture-o" aria-hidden="true"></i>
+                    </span>
                 {% endif %}
             </h1>
 
             <div class="panel panel-default">
                 <div class="panel-heading">
-
                     <ol class="breadcrumb" style="margin: 0; padding: 0;">
                         {% for breadcrumb in gallery.breadcrumbs %}
                             {% if forloop.last %}
-                                <li class="active">{{ breadcrumb.name }}</li>
+                                <li class="active">{{ breadcrumb.name|strip_digits }}</li>
                             {% else %}
                                 <li><a href="{{ breadcrumb.path }}">{{ breadcrumb.name }}</a></li>
                             {% endif %}
@@ -30,7 +30,11 @@
                 {% if gallery.subgalleries %}
                     <div class="panel-body">
                         {% for subgallery in gallery.subgalleries %}
-                            <h2><a href="{{ current_path }}{{ subgallery.name }}">{{ subgallery.name }}</a></h2>
+                            <h2>
+                                <a href="{{ current_path }}{{ subgallery.name }}">
+                                    {{ subgallery.name|strip_digits }}
+                                </a>
+                            </h2>
                         {% endfor %}
                     </div>
                 {% endif %}
@@ -39,7 +43,8 @@
             {% if gallery.images %}
                 {% for image in gallery.images %}
                     <a href="/{{ gallery.image_path }}{{ image.name }}" data-lightbox="gallery">
-                        <img src="/{{ gallery.thumb_path }}{{ image.name }}" alt="Kuva" class="thumbnail" style="display:inline-block;">
+                        <img src="/{{ gallery.thumb_path }}{{ image.name }}"
+                             alt="Kuva" class="thumbnail" style="display:inline-block;">
                     </a>
                 {% endfor %}
             {% endif %}

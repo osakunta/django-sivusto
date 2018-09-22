@@ -25,6 +25,12 @@ class Gallery:
     def thumb_path(self):
         return self.thumb_root + self.gallery_path
 
+    def name(self):
+        if self.gallery_path == "":
+            return "Galleria"
+        else:
+            return os.path.basename(os.path.dirname(self.image_path() + "/"))
+
     def __set_images_and_subgalleries(self, gallery_path):
         dir_entries = os.scandir(gallery_path)
 
@@ -39,9 +45,3 @@ class Gallery:
     def __sort_entries(self):
         self.images.sort(key=operator.attrgetter('name'))
         self.subgalleries.sort(key=operator.attrgetter('name'), reverse=True)
-
-    def __str__(self):
-        if self.gallery_path == "":
-            return "Galleria"
-        else:
-            return os.path.basename(os.path.dirname(self.image_path() + "/"))
