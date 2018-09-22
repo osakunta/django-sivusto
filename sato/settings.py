@@ -220,6 +220,7 @@ INSTALLED_APPS = [
 
     # In-house-apps
     'ilmo_app',
+    'gallery',
 ]
 
 LOGGING = {
