@@ -20,9 +20,11 @@
             </h1>
 
             {% if gallery.subgalleries %}
-                {% for subgallery in gallery.subgalleries %}
-                    <h2><a href="{{ current_path }}{{ subgallery.name }}">{{ subgallery.name }}</a></h2>
-                {% endfor %}
+                <div class="well">
+                    {% for subgallery in gallery.subgalleries %}
+                        <h2><a href="{{ current_path }}{{ subgallery.name }}">{{ subgallery.name }}</a></h2>
+                    {% endfor %}
+                </div>
             {% endif %}
 
             {% if gallery.images %}
