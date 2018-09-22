@@ -2,6 +2,12 @@
 
 {% block content %}
     <div class="row">
+        <ol class="breadcrumb">
+            {% for breadcrumb in gallery.breadcrumbs %}
+                <li><a href="{{ breadcrumb.path }}">{{ breadcrumb.name }}</a></li>
+            {% endfor %}
+        </ol>
+
         <h1>
             {{ gallery }}
             {% if gallery.images %}

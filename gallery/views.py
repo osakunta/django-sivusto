@@ -5,7 +5,7 @@ from .sample.gallery import Gallery
 
 @login_required
 def gallery_list(request, gallery_path):
-    gallery = Gallery(gallery_path)
+    gallery = Gallery(gallery_path, '/gallery/')
     current_path = request.path + '/' if not request.path.endswith('/') else request.path
     context = {'gallery': gallery, 'current_path': current_path}
 
