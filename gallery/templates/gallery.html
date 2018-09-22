@@ -2,34 +2,36 @@
 
 {% block content %}
     <div class="row">
-        <ol class="breadcrumb">
-            {% for breadcrumb in gallery.breadcrumbs %}
-                <li><a href="{{ breadcrumb.path }}">{{ breadcrumb.name }}</a></li>
-            {% endfor %}
-        </ol>
+        <div class="container">
+            <ol class="breadcrumb">
+                {% for breadcrumb in gallery.breadcrumbs %}
+                    <li><a href="{{ breadcrumb.path }}">{{ breadcrumb.name }}</a></li>
+                {% endfor %}
+            </ol>
 
-        <h1>
-            {{ gallery }}
-            {% if gallery.images %}
-                <span class="badge">
+            <h1>
+                {{ gallery }}
+                {% if gallery.images %}
+                    <span class="badge">
                     {{ gallery.images|length }}
                     <i class="fa fa-picture-o" aria-hidden="true"></i>
                 </span>
+                {% endif %}
+            </h1>
+
+            {% if gallery.subgalleries %}
+                {% for subgallery in gallery.subgalleries %}
+                    <h2><a href="{{ current_path }}{{ subgallery.name }}">{{ subgallery.name }}</a></h2>
+                {% endfor %}
             {% endif %}
-        </h1>
 
-        {% if gallery.subgalleries %}
-            {% for subgallery in gallery.subgalleries %}
-                <h2><a href="{{ current_path }}{{ subgallery.name }}">{{ subgallery.name }}</a></h2>
-            {% endfor %}
-        {% endif %}
-
-        {% if gallery.images %}
-            {% for image in gallery.images %}
-                <a href="/{{ gallery.image_path }}{{ image.name }}" data-lightbox="gallery">
-                    <img src="/{{ gallery.thumb_path }}{{ image.name }}" alt="Kuva" class="thumbnail" style="display:inline-block;">
-                </a>
-            {% endfor %}
-        {% endif %}
+            {% if gallery.images %}
+                {% for image in gallery.images %}
+                    <a href="/{{ gallery.image_path }}{{ image.name }}" data-lightbox="gallery">
+                        <img src="/{{ gallery.thumb_path }}{{ image.name }}" alt="Kuva" class="thumbnail" style="display:inline-block;">
+                    </a>
+                {% endfor %}
+            {% endif %}
+        </div>
     </div>
 {% endblock content %}
