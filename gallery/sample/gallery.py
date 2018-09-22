@@ -4,6 +4,9 @@ from .thumbnails import create_thumbnails
 from .breadcrumbs import create_breadcrumbs
 
 
+FILE_TYPES = ('.jpg', '.jpeg', '.png', '.gif')
+
+
 class Gallery:
     def __init__(self, gallery_path, gallery_web_path):
         self.image_root = "gallery-images/"
@@ -28,7 +31,7 @@ class Gallery:
         for dir_entry in dir_entries:
             if dir_entry.is_dir():
                 self.subgalleries.append(dir_entry)
-            elif dir_entry.is_file():
+            elif dir_entry.is_file() and dir_entry.name.endswith(FILE_TYPES):
                 self.images.append(dir_entry)
 
         self.__sort_entries()
