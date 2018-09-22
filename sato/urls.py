@@ -38,7 +38,7 @@ urlpatterns = protected_media + i18n_patterns(
     url(r'^logout/$', views.logout_user),
     url(r'^hallituspalaute/', include('hallituspalaute.urls')),
     url(r'^ilmo/', include('ilmo_app.urls')),
-    url(r'^gallery/', include('gallery.urls')),
+    url(r'^gallery/', include('gallery.urls'), name='gallery'),
     url(r'^', include('registration.backends.hmac.urls')),
     url(r'^', include('django.contrib.auth.urls')),
     url(r'^', include('filer.server.urls')),
