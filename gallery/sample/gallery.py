@@ -1,5 +1,6 @@
 import os
 import operator
+from .thumbnails import create_thumbnails
 
 
 class Gallery:
@@ -11,6 +12,7 @@ class Gallery:
         self.images = []
 
         self.__set_images_and_subgalleries(self.absolute_gallery_path())
+        create_thumbnails(self.images, self.absolute_gallery_thumbs())
 
     def absolute_gallery_path(self):
         return self.image_root + self.gallery_path

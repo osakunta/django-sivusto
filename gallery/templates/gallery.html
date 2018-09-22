@@ -1,22 +1,23 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="row">
-    </div>
+    {% if gallery.subgalleries %}
+        <div class="row">
+            {% for subgallery in gallery.subgalleries %}
+                <h2><a href="./{{ subgallery.name }}">{{ subgallery.name }}</a></h2>
+            {% endfor %}
+        </div>
+    {% endif %}
 
-    <div class="row">
-        {% for gallery in galleries %}
-            <h2><a href="./{{ gallery }}">{{ gallery }}</a></h2>
-        {% endfor %}
-    </div>
+    {% if gallery.images %}
+        <div class="row">
+            <h2>{{ gallery }} <span class="badge">{{ gallery.images|length }} <i class="fa fa-picture-o" aria-hidden="true"></i></span></h2>
 
-    <div class="row">
-        <h2>{{ gallery }} <span class="badge">{{ images|length }} <i class="fa fa-picture-o" aria-hidden="true"></i></span></h2>
-
-        {% for image in gallery.images %}
-            <a href="/{{ gallery.image_root }}{{ gallery.gallery_path }}{{ image.name }}" data-lightbox="gallery">
-                <img src="/{{ gallery.image_root }}{{ gallery.gallery_path }}{{ image.name }}" alt="Kuva" class="thumbnail" style="display:inline-block;">
-            </a>
-        {% endfor %}
-    </div>
+            {% for image in gallery.images %}
+                <a href="/{{ gallery.image_root }}{{ gallery.gallery_path }}{{ image.name }}" data-lightbox="gallery">
+                    <img src="/{{ gallery.thumb_root }}{{ gallery.gallery_path }}{{ image.name }}" alt="Kuva" class="thumbnail" style="display:inline-block;">
+                </a>
+            {% endfor %}
+        </div>
+    {% endif %}
 {% endblock content %}
