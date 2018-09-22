@@ -1,6 +1,7 @@
 .idea/
 assets/bower_components/
 assets/node_modules/
+gallery-images/
 media/
 smedia/
 /static/
