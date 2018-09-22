@@ -1,10 +1,11 @@
 import os
 import operator
 from .thumbnails import create_thumbnails
+from .breadcrumbs import create_breadcrumbs
 
 
 class Gallery:
-    def __init__(self, gallery_path):
+    def __init__(self, gallery_path, gallery_web_path):
         self.image_root = "gallery-images/"
         self.thumb_root = "media/gallery-thumbs/"
         self.gallery_path = gallery_path
@@ -12,6 +13,7 @@ class Gallery:
         self.images = []
 
         self.__set_images_and_subgalleries(self.image_path())
+        self.breadcrumbs = create_breadcrumbs(self.gallery_path, gallery_web_path)
         create_thumbnails(self.images, self.thumb_path())
 
     def image_path(self):
