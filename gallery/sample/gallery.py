@@ -1,4 +1,5 @@
 import os
+import operator
 
 
 class Gallery:
@@ -29,5 +30,5 @@ class Gallery:
         self.__sort_entries()
 
     def __sort_entries(self):
-        self.images.sort()
-        self.subgalleries.sort(reverse=True)
+        self.images.sort(key=operator.attrgetter('name'))
+        self.subgalleries.sort(key=operator.attrgetter('name'), reverse=True)
