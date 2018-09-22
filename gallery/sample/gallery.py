@@ -3,8 +3,8 @@ import os
 
 class Gallery:
     def __init__(self, gallery_path):
-        self.image_root = "/usr/src/app/gallery-images/"
-        self.thumb_root = "/usr/src/app/media/gallery-thumbs/"
+        self.image_root = "gallery-images/"
+        self.thumb_root = "media/gallery-thumbs/"
         self.gallery_path = gallery_path
         self.subgalleries = []
         self.images = []
@@ -25,3 +25,9 @@ class Gallery:
                 self.subgalleries.append(dir_entry)
             elif dir_entry.is_file():
                 self.images.append(dir_entry)
+
+        self.__sort_entries()
+
+    def __sort_entries(self):
+        self.images.sort()
+        self.subgalleries.sort(reverse=True)
