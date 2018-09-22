@@ -21,7 +21,7 @@
                             {% if forloop.last %}
                                 <li class="active">{{ breadcrumb.name|strip_digits }}</li>
                             {% else %}
-                                <li><a href="{{ breadcrumb.path }}">{{ breadcrumb.name }}</a></li>
+                                <li><a href="{{ breadcrumb.path }}">{{ breadcrumb.name|strip_digits }}</a></li>
                             {% endif %}
                         {% endfor %}
                     </ol>
