@@ -3,12 +3,6 @@
 {% block content %}
     <div class="row">
         <div class="container">
-            <ol class="breadcrumb">
-                {% for breadcrumb in gallery.breadcrumbs %}
-                    <li><a href="{{ breadcrumb.path }}">{{ breadcrumb.name }}</a></li>
-                {% endfor %}
-            </ol>
-
             <h1>
                 {{ gallery }}
                 {% if gallery.images %}
@@ -19,13 +13,24 @@
                 {% endif %}
             </h1>
 
-            {% if gallery.subgalleries %}
-                <div class="well">
-                    {% for subgallery in gallery.subgalleries %}
-                        <h2><a href="{{ current_path }}{{ subgallery.name }}">{{ subgallery.name }}</a></h2>
-                    {% endfor %}
+            <div class="panel panel-default">
+                <div class="panel-heading">
+
+                    <ol class="breadcrumb" style="margin: 0; padding: 0;">
+                        {% for breadcrumb in gallery.breadcrumbs %}
+                            <li><a href="{{ breadcrumb.path }}">{{ breadcrumb.name }}</a></li>
+                        {% endfor %}
+                    </ol>
                 </div>
-            {% endif %}
+
+                {% if gallery.subgalleries %}
+                    <div class="panel-body">
+                        {% for subgallery in gallery.subgalleries %}
+                            <h2><a href="{{ current_path }}{{ subgallery.name }}">{{ subgallery.name }}</a></h2>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
 
             {% if gallery.images %}
                 {% for image in gallery.images %}
