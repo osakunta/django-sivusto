@@ -10,20 +10,26 @@ from django.contrib.auth.decorators import login_required
 from django.views.static import serve
 from . import views
 
-
-@login_required
-def protected_serve(request, path, document_root=settings.MEDIA_ROOT + '/gallery-images/', show_indexes=False):
-    return serve(request, path, document_root, show_indexes)
-
-
+gallery_images = settings.BASE_DIR + '/gallery-images/'
+gallery_thumbs = settings.BASE_DIR + '/media/gallery-thumbs/'
 handler404 = views.handler404
 handler500 = views.handler500
 admin.autodiscover()
 
 
+@login_required
+def protected_image_serve(request, path, document_root=gallery_images, show_indexes=False):
+    return serve(request, path, document_root, show_indexes)
+
+
+@login_required
+def protected_thumb_serve(request, path, document_root=gallery_thumbs, show_indexes=False):
+    return serve(request, path, document_root, show_indexes)
+
+
 protected_media = [
-    url(r'^media/gallery-images/(?P<path>.*)$', protected_serve),
-    url(r'^media/media/gallery-images/(?P<path>.*)$', protected_serve),
+    url(r'^gallery-images/(?P<path>.*)$', protected_image_serve),
+    url(r'^media/gallery-thumbs/(?P<path>.*)$', protected_thumb_serve),
 ]
 
 urlpatterns = protected_media + i18n_patterns(
