@@ -11,13 +11,13 @@ class Gallery:
         self.subgalleries = []
         self.images = []
 
-        self.__set_images_and_subgalleries(self.absolute_gallery_path())
-        create_thumbnails(self.images, self.absolute_gallery_thumbs())
+        self.__set_images_and_subgalleries(self.image_path())
+        create_thumbnails(self.images, self.thumb_path())
 
-    def absolute_gallery_path(self):
+    def image_path(self):
         return self.image_root + self.gallery_path
 
-    def absolute_gallery_thumbs(self):
+    def thumb_path(self):
         return self.thumb_root + self.gallery_path
 
     def __set_images_and_subgalleries(self, gallery_path):
