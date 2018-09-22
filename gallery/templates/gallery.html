@@ -1,23 +1,29 @@
 {% extends "base.html" %}
 
 {% block content %}
-    {% if gallery.subgalleries %}
-        <div class="row">
+    <div class="row">
+        <h1>
+            {{ gallery }}
+            {% if gallery.images %}
+                <span class="badge">
+                    {{ gallery.images|length }}
+                    <i class="fa fa-picture-o" aria-hidden="true"></i>
+                </span>
+            {% endif %}
+        </h1>
+
+        {% if gallery.subgalleries %}
             {% for subgallery in gallery.subgalleries %}
                 <h2><a href="./{{ subgallery.name }}">{{ subgallery.name }}</a></h2>
             {% endfor %}
-        </div>
-    {% endif %}
+        {% endif %}
 
-    {% if gallery.images %}
-        <div class="row">
-            <h2>{{ gallery }} <span class="badge">{{ gallery.images|length }} <i class="fa fa-picture-o" aria-hidden="true"></i></span></h2>
-
+        {% if gallery.images %}
             {% for image in gallery.images %}
                 <a href="/{{ gallery.image_path }}{{ image.name }}" data-lightbox="gallery">
                     <img src="/{{ gallery.thumb_path }}{{ image.name }}" alt="Kuva" class="thumbnail" style="display:inline-block;">
                 </a>
             {% endfor %}
-        </div>
-    {% endif %}
+        {% endif %}
+    </div>
 {% endblock content %}
