@@ -34,3 +34,9 @@ class Gallery:
     def __sort_entries(self):
         self.images.sort(key=operator.attrgetter('name'))
         self.subgalleries.sort(key=operator.attrgetter('name'), reverse=True)
+
+    def __str__(self):
+        if self.gallery_path == "":
+            return "Galleria"
+        else:
+            return os.path.basename(os.path.dirname(self.image_path() + "/"))
