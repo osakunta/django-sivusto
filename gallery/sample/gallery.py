@@ -4,7 +4,7 @@ from .thumbnails import create_thumbnails
 from .breadcrumbs import create_breadcrumbs
 
 
-FILE_TYPES = ('.jpg', '.jpeg', '.png', '.gif')
+FILE_TYPES = ('.jpg', '.jpeg', '.png', '.gif', '.JPG', '.JPEG', '.PNG', '.GIF')
 
 
 class Gallery:
