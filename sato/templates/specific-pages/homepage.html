@@ -43,6 +43,7 @@
 
 {% block custom-js %}
 <script type='text/javascript'>
+    var eventOptions = new CalendarOptions(eventCalendars);
     eventOptions.defaultView = 'basicWeek';
     eventOptions.height = 'auto';
     eventOptions.header.left = '';
@@ -63,13 +64,11 @@
         if (ww > 768 && view.title !== 'basicWeek'){
             $('#calendar').fullCalendar('changeView', 'basicWeek');
         }
-    }
+    };
 
     // Kalenterin asetukset tiedostossa assets/input/js/calendar.js
     $(document).ready(function() {
         $('#calendar').fullCalendar(eventOptions);
-
-
         satoInstafeed.run();
     });
 </script>

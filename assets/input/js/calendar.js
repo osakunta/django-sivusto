@@ -55,6 +55,30 @@ function CalendarOptions(eventSources) {
     }
 }
 
+var eventCalendars = [
+    {
+        googleCalendarId: 'tqbg6bgc6r00hbs4p3bt6h1p4g@group.calendar.google.com',
+        className: 'gcal-sports'
+    }, {
+        googleCalendarId: 'c3f5fekmh2qfloegr4okfghk5k@group.calendar.google.com',
+        className: 'gcal-service'
+    }, {
+        googleCalendarId: 'boecmjgkjsuibnnj2op4c94ags@group.calendar.google.com',
+        className: 'gcal-events'
+    }, {
+        googleCalendarId: 'r151te2dmi4sfp130iahaj2vro@group.calendar.google.com',
+        className: 'gcal-reserves'
+    }
+];
+
+var meetingCalendar = [
+    {
+        googleCalendarId: 'aojklsb36n1vpmesl2tqv1gp6o@group.calendar.google.com',
+        className: 'gcal-meetings'
+    }
+];
+
+
 $(document).ready(function() {
     // Poistetaan tiedot, kun modal suljetaan (estää bugin, jossa näytetään
     // edellisen tapahtuman tiedot, jos tietoja ei ole lainkaan)
