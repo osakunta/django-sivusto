@@ -17,6 +17,7 @@ spec:
       containers:
         - name: django
           image: osakunta/django-sivusto
+          imagePullPolicy: Always
           env:
             - name: DJANGO_PRODUCTION
               valueFrom:
