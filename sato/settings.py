@@ -57,6 +57,8 @@ if 'DJANGO_PRODUCTION' in os.environ and os.getenv('DJANGO_PRODUCTION') == "1":
     EMAIL_PORT = 587
     EMAIL_USE_TLS = True
 
+    ADMINS = [('DjangoAdmin', os.getenv('DJANGO_ADMIN_EMAIL', 'localhost'))]
+
 else:  # Development settings
     SECRET_KEY = 'verisecriit'
     DEBUG = True

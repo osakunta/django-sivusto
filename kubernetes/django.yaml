@@ -28,6 +28,11 @@ spec:
                 secretKeyRef:
                   name: django-secrets
                   key: secret_key
+            - name: DJANGO_ADMIN_EMAIL
+              valueFrom:
+                secretKeyRef:
+                  name: django-secrets
+                  key: admin_email
             - name: POSTGRES_USER
               valueFrom:
                 secretKeyRef:
