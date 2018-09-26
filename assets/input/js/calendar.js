@@ -1,20 +1,21 @@
-var calendarOptions = {
-    googleCalendarApiKey: 'AIzaSyDrE8zbaHSOjVVcoOPe00n7pSEYLv_ZKQM',
-    locale: 'fi',
-    firstDay: 1,
-    timeFormat: 'HH:mm',
-    displayEventEnd: true,
-    nextDayThreshold: '00:00:00',
-    height: 'auto',
-    header: {
+function CalendarOptions(eventSources) {
+    this.eventSources = eventSources;
+    this.googleCalendarApiKey = 'AIzaSyDrE8zbaHSOjVVcoOPe00n7pSEYLv_ZKQM';
+    this.locale = 'fi';
+    this.firstDay = 1;
+    this.timeFormat = 'HH:mm';
+    this.displayEventEnd = true;
+    this.nextDayThreshold = '00:00:00';
+    this.height = 'auto';
+    this.header = {
         left:   'title',
         center: '',
         right:  'prev,next today'
-    },
+    };
 
     // Estää tapahtumaa klikatessa Google-kalenterin aukeamisen ja näyttää tapahtuman
     // Bootstrap 3 modalissa. Modalin template on sato/templates/specific-pages/calendar-modal.html
-    eventClick: function(event, jsEvent, view) {
+    this.eventClick = function(event, jsEvent, view) {
         var start        = moment(event.start),
             end          = moment(event.end),
             formatedDate = start.format('DD.MM.') + " klo " + start.format('HH:mm');
@@ -33,9 +34,9 @@ var calendarOptions = {
         $('#fc-event-date').html(formatedDate);
         $('#fullCalModal').modal();
         return false;
-    },
+    };
 
-    windowResize: function(view) {
+    this.windowResize = function(view) {
         var ww = $(window).width(),
             view = $('#calendar').fullCalendar('getView');
 
@@ -46,35 +47,13 @@ var calendarOptions = {
         if (ww > 768 && view.title !== 'month'){
             $('#calendar').fullCalendar('changeView', 'month');
         }
+    };
+
+
+    if ($(window).width() <= 768) {
+        this.defaultView = 'listMonth';
     }
-};
-
-var eventOptions = JSON.parse(JSON.stringify(calendarOptions));
-var meetingOptions = JSON.parse(JSON.stringify(calendarOptions));
-
-eventOptions.eventSources = [
-    {
-        googleCalendarId: 'tqbg6bgc6r00hbs4p3bt6h1p4g@group.calendar.google.com',
-        className: 'gcal-sports'
-    }, {
-        googleCalendarId: 'c3f5fekmh2qfloegr4okfghk5k@group.calendar.google.com',
-        className: 'gcal-service'
-    }, {
-        googleCalendarId: 'boecmjgkjsuibnnj2op4c94ags@group.calendar.google.com',
-        className: 'gcal-events'
-    }, {
-        googleCalendarId: 'r151te2dmi4sfp130iahaj2vro@group.calendar.google.com',
-        className: 'gcal-reserves'
-    }
-];
-
-meetingOptions.eventSources = [
-    {
-        googleCalendarId: 'aojklsb36n1vpmesl2tqv1gp6o@group.calendar.google.com',
-        className: 'gcal-meetings'
-    }
-];
-
+}
 
 $(document).ready(function() {
     // Poistetaan tiedot, kun modal suljetaan (estää bugin, jossa näytetään
