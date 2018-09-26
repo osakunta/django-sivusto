@@ -277,7 +277,9 @@ LOGGING = {
 }
 
 LANGUAGES = (
-    ('fi', gettext('fi')),
+    ('fi', gettext('suomi')),
+    ('sv', gettext('svenska')),
+    ('en', gettext('English')),
 )
 
 CMS_LANGUAGES = {
@@ -286,7 +288,19 @@ CMS_LANGUAGES = {
             'redirect_on_fallback': True,
             'code': 'fi',
             'hide_untranslated': False,
-            'name': gettext('fi'),
+            'name': gettext('suomi'),
+            'public': True,
+        },
+        {
+            'code': 'sv',
+            'name': gettext('svenska'),
+            'fallbacks': ['fi'],
+            'public': True,
+        },
+        {
+            'code': 'en',
+            'name': gettext('English'),
+            'fallbacks': ['fi'],
             'public': True,
         },
     ],
