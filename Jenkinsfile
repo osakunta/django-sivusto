@@ -4,7 +4,7 @@ node {
             checkout scm
 
             // Pull ilmo_app submodule
-            sh "cd ilmo_repo/ && git submodule init && git submodule update"
+            sh "git submodule init && git submodule update"
         }
 
         stage('Run tests') {
