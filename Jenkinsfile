@@ -4,7 +4,7 @@ node {
             checkout scm
 
             // Pull ilmo_app submodule
-            sh "git submodule init && git submodule update"
+            sh "git submodule sync && git submodule update --init --recursive"
         }
 
         stage('Run tests') {
