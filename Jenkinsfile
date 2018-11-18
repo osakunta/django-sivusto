@@ -13,7 +13,7 @@ node {
 
         if (env.BRANCH_NAME == "master") {
             stage('Build image') {
-                app = docker.build("osakunta/django-sivusto", "--no-cache")
+                app = docker.build("osakunta/django-sivusto --no-cache")
             }
 
             stage('Test image') {
