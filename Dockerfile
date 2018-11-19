@@ -6,6 +6,7 @@ COPY Pipfile* manage.py ./
 RUN pip install pipenv
 RUN pipenv install --system --deploy
 
+COPY .git/ .git/
 COPY cmsplugin_raw_html/ cmsplugin_raw_html/
 COPY hallituspalaute/ hallituspalaute/
 COPY gallery/ gallery/
