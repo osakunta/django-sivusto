@@ -57,6 +57,8 @@ if 'DJANGO_PRODUCTION' in os.environ and os.getenv('DJANGO_PRODUCTION') == "1":
     EMAIL_PORT = 587
     EMAIL_USE_TLS = True
 
+    SERVER_EMAIL = 'django@satakuntatalo.fi'
+    DEFAULT_FROM_EMAIL = 'noreply@satakuntatalo.fi'
     ADMINS = [('DjangoAdmin', os.getenv('DJANGO_ADMIN_EMAIL', 'localhost'))]
 
 else:  # Development settings
