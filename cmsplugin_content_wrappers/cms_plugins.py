@@ -1,9 +1,7 @@
 from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
-from django.template import Template
-from django.utils.safestring import mark_safe
 
-from .models import ContentArea
+from .models import ContentArea, ContentSection
 
 
 class CMSContentArea(CMSPluginBase):
@@ -13,4 +11,14 @@ class CMSContentArea(CMSPluginBase):
     allow_children = True
 
 
+class CMSContentSection(CMSPluginBase):
+    model = ContentSection
+    name = 'Content Section'
+    render_template = 'cmsplugin_content_wrappers/content_section.html'
+    allow_children = True
+    require_parent = True
+    parent_classes = ['CMSContentArea']
+
+
 plugin_pool.register_plugin(CMSContentArea)
+plugin_pool.register_plugin(CMSContentSection)

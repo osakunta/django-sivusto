@@ -14,3 +14,14 @@ class ContentArea(CMSPlugin):
 
     def __str__(self):
         return self.label
+
+
+@python_2_unicode_compatible
+class ContentSection(CMSPlugin):
+    label = models.CharField(
+        blank=True,
+        max_length=200,
+    )
+
+    def __str__(self):
+        return self.label
