@@ -3,6 +3,10 @@
 <div class="{% if instance.extra_classes %}{{ instance.extra_classes }}{% else %}col-md-8{% endif %}">
     {{ instance.main_content }}
 
+    {% for plugin in instance.child_plugin_instances %}
+        {% render_plugin plugin %}
+    {% endfor %}
+
     {% if instance.aligned_content %}
         <div class="hidden-md hidden-lg">
             {{ instance.aligned_content }}
