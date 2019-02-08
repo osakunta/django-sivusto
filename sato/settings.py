@@ -225,6 +225,7 @@ INSTALLED_APPS = [
     # In-house-apps
     'ilmo_app',
     'gallery',
+    'cmsplugin_content_wrappers',
 ]
 
 LOGGING = {
