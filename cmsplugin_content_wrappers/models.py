@@ -23,6 +23,20 @@ class ContentSection(CMSPlugin):
         max_length=200,
     )
 
+    def children_have_aligned_content(self):
+        aligned_content = False
+
+        for child in self.child_plugin_instances:
+            try:
+                if child.aligned_content:
+                    aligned_content = True
+                    break
+
+            except AttributeError:
+                continue
+
+        return aligned_content
+
     def __str__(self):
         return self.label
 
