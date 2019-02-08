@@ -1,5 +1,19 @@
 {% load cms_tags %}
 
-{% for plugin in instance.child_plugin_instances %}
-    {% render_plugin plugin %}
-{% endfor %}
+{% if instance.children_have_aligned_content %}
+    {% for plugin in instance.child_plugin_instances %}
+        <div class="row">
+            {% render_plugin plugin %}
+        </div>
+
+        <div class="row hidden-xs hidden-sm">
+            <div class="{% if plugin.extra_classes %}{{ plugin.extra_classes }}{% else %}col-md-8{% endif %}">
+                {{ plugin.aligned_content }}
+            </div>
+        </div>
+    {% endfor %}
+{% else %}
+    {% for plugin in instance.child_plugin_instances %}
+        {% render_plugin plugin %}
+    {% endfor %}
+{% endif %}
