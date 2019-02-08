@@ -337,11 +337,7 @@ MIGRATION_MODULES = {}
 
 CKEDITOR_SETTINGS = {
     'language': '{{ language }}',
-    'toolbar_HTMLField': [
-        ['Undo', 'Redo'],
-        ['ShowBlocks'],
-        ['Format', 'Styles'],
-    ],
+    'toolbar': 'CMS',
 }
 
 THUMBNAIL_BASEDIR = 'thumbs'
