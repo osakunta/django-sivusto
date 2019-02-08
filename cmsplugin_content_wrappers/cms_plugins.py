@@ -1,7 +1,7 @@
 from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
 
-from .models import ContentArea, ContentSection
+from .models import ContentArea, ContentSection, ContentColumn
 
 
 class CMSContentArea(CMSPluginBase):
@@ -20,5 +20,15 @@ class CMSContentSection(CMSPluginBase):
     parent_classes = ['CMSContentArea']
 
 
+class CMSContentColumn(CMSPluginBase):
+    model = ContentColumn
+    name = 'Content Column'
+    render_template = 'cmsplugin_content_wrappers/content_column.html'
+    allow_children = False
+    require_parent = True
+    parent_classes = ['CMSContentArea', 'CMSContentSection']
+
+
 plugin_pool.register_plugin(CMSContentArea)
 plugin_pool.register_plugin(CMSContentSection)
+plugin_pool.register_plugin(CMSContentColumn)
