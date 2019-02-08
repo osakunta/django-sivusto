@@ -24,7 +24,7 @@ class CMSContentColumn(CMSPluginBase):
     model = ContentColumn
     name = 'Content Column'
     render_template = 'cmsplugin_content_wrappers/content_column.html'
-    allow_children = False
+    allow_children = True
     require_parent = True
     parent_classes = ['CMSContentArea', 'CMSContentSection']
 
