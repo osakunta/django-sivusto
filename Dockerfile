@@ -8,6 +8,7 @@ RUN pipenv install --system --deploy
 
 COPY .git/ .git/
 COPY cmsplugin_raw_html/ cmsplugin_raw_html/
+COPY cmsplugin_content_wrappers/ cmsplugin_content_wrappers/
 COPY hallituspalaute/ hallituspalaute/
 COPY gallery/ gallery/
 COPY ilmo_app/ ilmo_app/
