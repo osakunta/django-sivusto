@@ -358,3 +358,7 @@ HALLITUSPALAUTE_SENDER = 'hallituspalaute@satakuntatalo.fi'
 HALLITUSPALAUTE_RECIPIENTS = [
     'hallitus@satakuntatalo.fi',
 ]
+
+# Ilmo
+ILMO_EMAIL_CONFIGURED = True
+ILMO_EMAIL_TEMPLATE_PATH = 'email'
