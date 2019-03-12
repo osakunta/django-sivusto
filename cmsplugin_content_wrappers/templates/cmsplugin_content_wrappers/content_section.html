@@ -1,19 +1,17 @@
 {% load cms_tags %}
 
-{% if instance.children_have_aligned_content %}
-    {% for plugin in instance.child_plugin_instances %}
-        <div class="row">
-            {% render_plugin plugin %}
-        </div>
-
-        <div class="row hidden-xs hidden-sm">
-            <div class="{% if plugin.extra_classes %}{{ plugin.extra_classes }}{% else %}col-md-8{% endif %}">
-                {{ plugin.aligned_content }}
-            </div>
-        </div>
-    {% endfor %}
-{% else %}
+<div class="row">
     {% for plugin in instance.child_plugin_instances %}
         {% render_plugin plugin %}
     {% endfor %}
+</div>
+
+{% if instance.children_have_aligned_content %}
+    <div class="row hidden-xs hidden-sm">
+        {% for plugin in instance.child_plugin_instances %}
+            <div class="{% if plugin.extra_classes %}{{ plugin.extra_classes }}{% else %}col-md-8{% endif %}">
+                {{ plugin.aligned_content }}
+            </div>
+        {% endfor %}
+    </div>
 {% endif %}
