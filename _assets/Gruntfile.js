@@ -23,7 +23,7 @@ module.exports = function (grunt) {
             dist: {
                 src: [
                     'bower_components/jquery/dist/jquery.js',
-                    'bower_components/bootstrap-sass/assets/javascripts/bootstrap.js',
+                    'bower_components/bootstrap-sass/_assets/javascripts/bootstrap.js',
                     'bower_components/moment/moment.js',
                     'bower_components/fullcalendar/dist/fullcalendar.js',
                     'bower_components/fullcalendar/dist/gcal.js',
@@ -41,7 +41,7 @@ module.exports = function (grunt) {
                 files: {
                     'output/js/app.js': [
                         'bower_components/jquery/dist/jquery.js',
-                        'bower_components/bootstrap-sass/assets/javascripts/bootstrap.js',
+                        'bower_components/bootstrap-sass/_assets/javascripts/bootstrap.js',
                         'bower_components/moment/moment.js',
                         'bower_components/fullcalendar/dist/fullcalendar.js',
                         'bower_components/fullcalendar/dist/gcal.js',
