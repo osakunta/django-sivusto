@@ -7,21 +7,17 @@ node {
             sh "git submodule sync && git submodule update --init --recursive"
         }
 
-        stage('Run tests') {
-            sh "echo 'snake oil'"
+        stage('Build image') {
+            app = docker.build("osakunta/django-sivusto")
+        }
+
+        stage('Test image') {
+            app.inside {
+                python manage.py test
+            }
         }
 
         if (env.BRANCH_NAME == "master") {
-            stage('Build image') {
-                app = docker.build("osakunta/django-sivusto")
-            }
-
-            stage('Test image') {
-                app.inside {
-                    sh 'echo "Tests passed"'
-                }
-            }
-
             stage('Push image') {
                 docker.withRegistry('https://registry.hub.docker.com', 'dockerhub-credentials') {
                     app.push("${env.BUILD_NUMBER}")
