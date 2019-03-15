@@ -13,7 +13,7 @@ node {
 
         stage('Test image') {
             app.inside {
-                python manage.py test
+                sh "python manage.py test"
             }
         }
 
