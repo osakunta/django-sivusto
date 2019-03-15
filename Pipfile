@@ -15,6 +15,7 @@ cmsplugin-filer = "*"
 djangocms-column = "*"
 gunicorn = "*"
 psycopg2 = "*"
+sqlparse = "*"
 
 [dev-packages]
 codacy-coverage = "*"
