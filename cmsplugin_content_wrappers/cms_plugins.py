@@ -17,7 +17,7 @@ class CMSContentSection(CMSPluginBase):
     render_template = 'cmsplugin_content_wrappers/content_section.html'
     allow_children = True
     require_parent = True
-    parent_classes = ['CMSContentArea', 'CMSContentSection']
+    parent_classes = ['CMSContentArea', 'CMSContentSection', 'CMSContentColumn']
 
 
 class CMSContentColumn(CMSPluginBase):
@@ -26,7 +26,7 @@ class CMSContentColumn(CMSPluginBase):
     render_template = 'cmsplugin_content_wrappers/content_column.html'
     allow_children = True
     require_parent = True
-    parent_classes = ['CMSContentArea', 'CMSContentSection']
+    parent_classes = ['CMSContentArea', 'CMSContentSection', 'CMSContentColumn']
 
 
 plugin_pool.register_plugin(CMSContentArea)
