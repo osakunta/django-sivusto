@@ -8,7 +8,7 @@ node {
         }
 
         stage('Build image') {
-            def app = docker.build("osakunta/django-sivusto")
+            app = docker.build("osakunta/django-sivusto")
         }
 
         stage('Test image') {
