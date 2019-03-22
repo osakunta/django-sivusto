@@ -8,7 +8,7 @@ node {
         }
 
         stage('Build image') {
-            app = docker.build("osakunta/django-sivusto")
+            def app = docker.build("osakunta/django-sivusto")
         }
 
         stage('Test image') {
@@ -37,8 +37,8 @@ node {
         echo "${err}"
         throw err
     } finally {
-        stage('Shutdown') {
-            sh "echo 'Shutdown'"
+        stage('Clean Workspace') {
+            cleanWs()
         }
     }
 }
