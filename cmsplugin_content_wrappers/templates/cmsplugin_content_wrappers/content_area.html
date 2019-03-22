@@ -1,7 +1,7 @@
 {% load cms_tags %}
 
 {% for plugin in instance.child_plugin_instances %}
-    <div class="container row{% cycle ' content-bg gray1' '' %}">
+    <div class="container row {{ instance.extra_classes }}{% cycle ' content-bg gray1' '' %}">
         {% render_plugin plugin %}
     </div>
 {% endfor %}
