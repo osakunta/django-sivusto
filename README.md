@@ -1,6 +1,7 @@
 Django-sivusto
 ==============
 
+[![Build Status](https://travis-ci.org/osakunta/django-sivusto.svg?branch=master)](https://travis-ci.org/osakunta/django-sivusto)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/cf01cdfce3604499b46cba91613fd123)](https://app.codacy.com/app/Osakunta/django-sivusto?utm_source=github.com&utm_medium=referral&utm_content=osakunta/django-sivusto&utm_campaign=Badge_Grade_Dashboard)
 
 Sisällysluettelo
