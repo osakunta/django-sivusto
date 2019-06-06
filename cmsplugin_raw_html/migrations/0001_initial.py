@@ -14,7 +14,17 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='RawHtmlPlugin',
             fields=[
-                ('cmsplugin_ptr', models.OneToOneField(parent_link=True, auto_created=True, to='cms.CMSPlugin', primary_key=True, serialize=False)),
+                (
+                    'cmsplugin_ptr',
+                    models.OneToOneField(
+                        parent_link=True,
+                        auto_created=True,
+                        to='cms.CMSPlugin',
+                        primary_key=True,
+                        serialize=False,
+                        on_delete=models.CASCADE
+                    )
+                ),
                 ('body', models.TextField(verbose_name='HTML')),
             ],
             options={
