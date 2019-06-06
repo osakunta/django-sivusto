@@ -14,3 +14,6 @@ deploy:
   script: make login push
   on:
     branch: master
+
+notifications:
+  slack: SLACK_TOKEN
