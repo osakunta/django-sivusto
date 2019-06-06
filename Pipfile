@@ -4,17 +4,16 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-Django = "<2"
+Django = "<3"
 django-cms = "*"
 django-registration = "<3"
 djangocms-file = "*"
 djangocms-style = "*"
-aldryn-bootstrap3 = "*"
 aldryn-newsblog = "*"
 cmsplugin-filer = "*"
 djangocms-column = "*"
 gunicorn = "*"
-psycopg2 = "*"
+psycopg2-binary = "*"
 sqlparse = "*"
 
 [dev-packages]
