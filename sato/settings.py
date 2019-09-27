@@ -154,7 +154,6 @@ TEMPLATES = [
             'loaders': [
                 'django.template.loaders.filesystem.Loader',
                 'django.template.loaders.app_directories.Loader',
-                'django.template.loaders.eggs.Loader',
                 'aldryn_boilerplates.template_loaders.AppDirectoriesLoader',  # For Aldryn blog
             ],
         },
@@ -162,7 +161,7 @@ TEMPLATES = [
 ]
 
 
-MIDDLEWARE_CLASSES = [
+MIDDLEWARE = [
     'cms.middleware.utils.ApphookReloadMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -175,7 +174,6 @@ MIDDLEWARE_CLASSES = [
     'cms.middleware.page.CurrentPageMiddleware',
     'cms.middleware.toolbar.ToolbarMiddleware',
     'cms.middleware.language.LanguageCookieMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware'
 ]
 
 INSTALLED_APPS = [
@@ -198,17 +196,10 @@ INSTALLED_APPS = [
     'djangocms_file',
     'easy_thumbnails',
     'sato',
-    'aldryn_bootstrap3',
     # 'django-registration', #(Should not be in installed apps if using HMAC, leaving for reminder)
 
     # Raw HTML for quick fixes
     'cmsplugin_raw_html',
-    'cmsplugin_filer_image',
-    'cmsplugin_filer_file',
-    'cmsplugin_filer_folder',
-    'cmsplugin_filer_teaser',
-    'cmsplugin_filer_utils',
-    'cmsplugin_filer_video',
     'djangocms_column',
 
     # For Aldryn blog

@@ -33,7 +33,7 @@ protected_media = [
 ]
 
 urlpatterns = protected_media + i18n_patterns(
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin/', admin.site.urls),
     url(r'^login/$', auth_views.login, {'template_name': 'auth/login.html'}, name='login'),
     url(r'^logout/$', views.logout_user),
     url(r'^hallituspalaute/', include('hallituspalaute.urls')),
