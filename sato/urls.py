@@ -5,7 +5,7 @@ from django.conf.urls import include, url
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-from django.contrib.auth import views as auth_views
+from django.contrib.auth.views import LoginView
 from django.contrib.auth.decorators import login_required
 from django.views.static import serve
 from . import views
@@ -34,7 +34,7 @@ protected_media = [
 
 urlpatterns = protected_media + i18n_patterns(
     url(r'^admin/', admin.site.urls),
-    url(r'^login/$', auth_views.login, {'template_name': 'auth/login.html'}, name='login'),
+    url(r'^login/$', LoginView.as_view(), name='login'),
     url(r'^logout/$', views.logout_user),
     url(r'^hallituspalaute/', include('hallituspalaute.urls')),
     url(r'^ilmo/', include('ilmo_app.urls')),
