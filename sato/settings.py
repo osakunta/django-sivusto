@@ -315,11 +315,11 @@ CMS_TEMPLATES = (
     ('specific-pages/yhteystiedot.html', 'Yhteystietojen pohja'),
 )
 
-CMS_STYLE_NAMES = (
-    ('content-bg', _("content-bg")),
-    ('container', _("container")),
-    ('row', _("row")),
-)
+DJANGOCMS_STYLE_CHOICES = [
+    'content-bg',
+    'container',
+    'row',
+]
 
 CMS_PERMISSION = True
 CMS_PLACEHOLDER_CONF = {}
