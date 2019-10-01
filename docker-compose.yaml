@@ -7,10 +7,12 @@ services:
       ports:
         - 8010:8010
       environment:
-        - DB_HOST=django-sivusto-db
-        - DB_NAME=postgres
-        - DB_USER=postgres
-        - DB_PASSWORD=postgres
+        - POSTGRES_HOST=django-sivusto-db
+        - POSTGRES_NAME=postgres
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=postgres
+        - DJANGO_PRODUCTION=1
+        - DJANGO_SECRET_KEY=secret
       volumes:
         - ./sato:/usr/src/app/sato
     django-sivusto-db:
