@@ -24,7 +24,7 @@ if 'DJANGO_PRODUCTION' in os.environ and os.getenv('DJANGO_PRODUCTION') == "1":
         'default': {
             'CONN_MAX_AGE': 0,
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'kubernetes_django',
+            'NAME': os.getenv('POSTGRES_NAME', 'kubernetes_django'),
             'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
             'USER': os.getenv('POSTGRES_USER'),
             'HOST': os.getenv('POSTGRES_HOST'),
