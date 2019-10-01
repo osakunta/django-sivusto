@@ -47,7 +47,4 @@ urlpatterns = protected_media + i18n_patterns(
 
 # This is only needed when using runserver.
 if settings.DEBUG:
-    urlpatterns = protected_media + [
-         url(r'^media/(?P<path>.*)$', serve,
-            {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
-    ] + staticfiles_urlpatterns() + urlpatterns
+    urlpatterns = protected_media + staticfiles_urlpatterns() + urlpatterns
