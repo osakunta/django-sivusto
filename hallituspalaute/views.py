@@ -30,7 +30,7 @@ def thanks(request):
 def index(request):
     user = request.user
     if request.method == 'POST':
-        if user.is_authenticated():
+        if user.is_authenticated:
             form = PalauteFormLogged(request.POST, initial={ 'email': user.email })
         else:
             form = PalauteForm(request.POST)
@@ -59,7 +59,7 @@ def index(request):
 
             return HttpResponseRedirect(reverse(thanks))
     else:
-        if user.is_authenticated():
+        if user.is_authenticated:
             form = PalauteFormLogged(initial={ 'email': user.email })
         else:
             form = PalauteForm()
