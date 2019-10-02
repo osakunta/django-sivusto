@@ -134,7 +134,8 @@ TEMPLATES = [
         'DIRS': [
             os.path.join(BASE_DIR, 'sato', 'templates'),
             os.path.join(BASE_DIR, 'gallery', 'templates'),
-            os.path.join(BASE_DIR, 'hallituspalaute', 'templates'),
+            os.path.join(BASE_DIR, 'palautteet', 'templates'),
+            os.path.join(BASE_DIR, 'palautteet', 'hallitus', 'templates'),
         ],
         'OPTIONS': {
             'context_processors': [
@@ -343,12 +344,6 @@ THUMBNAIL_PROCESSORS = (
 ALDRYN_BOILERPLATE_NAME='bootstrap3'
 
 FILER_ENABLE_PERMISSIONS = True
-
-# Hallituspalaute
-HALLITUSPALAUTE_SENDER = 'hallituspalaute@satakuntatalo.fi'
-HALLITUSPALAUTE_RECIPIENTS = [
-    'hallitus@satakuntatalo.fi',
-]
 
 # Ilmo
 ILMO_EMAIL_CONFIGURED = True
