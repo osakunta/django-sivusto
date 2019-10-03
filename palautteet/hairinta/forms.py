@@ -1,9 +1,10 @@
-from django.forms import Form
-from django.forms.fields import CharField, EmailField, BooleanField
-from django.forms.widgets import Textarea, CheckboxInput, HiddenInput, TextInput
+from django.forms.fields import CharField, BooleanField
+from django.forms.widgets import Textarea, CheckboxInput, TextInput
+
+from ..forms import ContactsForm
 
 
-class HairintaForm(Form):
+class HairintaForm(ContactsForm):
 
     class Media:
         js = ('js/conditional_fields.js',)
@@ -23,14 +24,7 @@ class HairintaForm(Form):
         widget=CheckboxInput(attrs=dict(onclick='contact_me("res", ["name", "email"])'))
     )
 
-    name = CharField(
-        label="Nimesi",
-        required=False,
-        widget=TextInput(attrs=dict(style='display: none'))
-    )
-
-    email = EmailField(
-        label="Sähköpostiosoitteesi",
-        required=False,
-        widget=TextInput(attrs=dict(style='display: none'))
-    )
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields.get('email').widget = TextInput(attrs=dict(style='display: none'))
+        self.fields.get('name').widget = TextInput(attrs=dict(style='display: none'))

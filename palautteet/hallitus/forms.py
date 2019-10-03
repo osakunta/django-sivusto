@@ -1,9 +1,10 @@
-from django.forms import Form
-from django.forms.fields import CharField, ChoiceField, EmailField
+from django.forms.fields import CharField, ChoiceField
 from django.forms.widgets import Textarea, RadioSelect
 
+from ..forms import ContactsForm
 
-class PalauteForm(Form):
+
+class PalauteForm(ContactsForm):
     msg = CharField(
         label='Mitä haluat sanoa?',
         widget=Textarea
@@ -13,16 +14,6 @@ class PalauteForm(Form):
         choices=[(True, 'Haluan'), (False, 'En halua')],
         label='Haluatko, että sinulle vastataan?',
         widget=RadioSelect
-    )
-
-    name = CharField(
-        label="Nimesi",
-        required=False
-    )
-
-    email = EmailField(
-        label="Sähköpostiosoitteesi",
-        required=False
     )
 
 

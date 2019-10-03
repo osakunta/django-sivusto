@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block head-extra %}
+  {{ form.media }}
+{% endblock %}
+
 {% block content %}
     <div class="container">
         <h2>{% block header %}{% endblock %}</h2>
@@ -11,12 +15,14 @@
                     </p>
 
                     {% for field in form %}
-                        <h3>{{ field.label_tag }}</h3>
-                        {{ field.errors }}
-                        <p>{{ field }}</p>
-                        {% if field.help_text %}
-                            <p class="help">{{ field.help_text|safe }}</p>
-                        {% endif %}
+                        <div name="field__{{ field.name }}" style="{{ field.field.widget.attrs.style }}">
+                            <h3>{{ field.label_tag }}</h3>
+                            {{ field.errors }}
+                            <p>{{ field }}</p>
+                            {% if field.help_text %}
+                                <p class="help">{{ field.help_text|safe }}</p>
+                            {% endif %}
+                        </div>
                     {% endfor %}
 
                     <input type="submit" class="btn btn-primary" value="Lähetä"/>

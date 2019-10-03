@@ -1,6 +1,6 @@
 from unittest import mock, TestCase
 
-from palautteet.hallitus.utils import get_palaute_form, construct_message
+from palautteet.hallitus.utils import get_palaute_form
 from palautteet.hallitus.forms import PalauteForm, PalauteFormLogged
 
 
@@ -25,12 +25,6 @@ class TestUtils(TestCase):
 
         res = get_palaute_form(user=user)
         self.assertEquals(value, res[field].initial)
-
-    def test_message_constructed(self):
-        data = dict(foo='bar', fizz='buzz')
-        res = construct_message(data)
-        expected = 'foo:\nbar\n\nfizz:\nbuzz'
-        self.assertEquals(expected, res)
 
 
 class TestForms(TestCase):
