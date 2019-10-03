@@ -32,4 +32,4 @@ class EmailService(AbstractEmailService):
 
     @staticmethod
     def _construct_message(data: Mapping[str, object]) -> str:
-        return '\n\n'.join(f'{k}:\n{v}' for k, v in data.items())
+        return '\n\n'.join(f'{k}:\n{v}' for k, v in data.items() if v)

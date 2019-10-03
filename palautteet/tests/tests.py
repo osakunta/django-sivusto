@@ -17,6 +17,12 @@ class TestEmail(TestCase):
         expected = 'foo:\nbar\n\nfizz:\nbuzz'
         self.assertEquals(expected, res)
 
+    def test_message_empty_fields_discarded(self):
+        data = dict(foo='bar', fizz=None)
+        res = EmailService._construct_message(data)
+        expected = 'foo:\nbar'
+        self.assertEquals(expected, res)
+
 
 class TestForm(TestCase):
     def test_email_name_at_the_end(self):
