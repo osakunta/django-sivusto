@@ -117,6 +117,7 @@ STATIC_ROOT = os.path.join(DATA_DIR, 'static')
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'sato', 'static'),
+    os.path.join(BASE_DIR, 'palautteet', 'hairinta', 'static'),
     #('gallery-images', '../gallery-images/')
 )
 
@@ -136,6 +137,7 @@ TEMPLATES = [
             os.path.join(BASE_DIR, 'gallery', 'templates'),
             os.path.join(BASE_DIR, 'palautteet', 'templates'),
             os.path.join(BASE_DIR, 'palautteet', 'hallitus', 'templates'),
+            os.path.join(BASE_DIR, 'palautteet', 'hairinta', 'templates'),
         ],
         'OPTIONS': {
             'context_processors': [
