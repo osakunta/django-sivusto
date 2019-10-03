@@ -1,9 +1,8 @@
+from unittest import TestCase
 from unittest.mock import MagicMock, patch
 
-from django.forms.fields import CharField
-from unittest import TestCase
-
 from django.http import HttpResponseBadRequest
+from django.forms.fields import CharField
 
 from palautteet.email import EmailService
 from palautteet.forms import ContactsForm
@@ -42,7 +41,7 @@ class TestViews(TestCase):
         request = MagicMock()
         service = MagicMock()
         submit_form(request, form, 'foo', service)
-        service.send.assert_called_once()
+        self.assertTrue(service.send.called)
 
     def test_invalid_form_responses_with_400(self):
         form = MagicMock()

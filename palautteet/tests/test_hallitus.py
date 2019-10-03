@@ -24,7 +24,7 @@ class TestUtils(TestCase):
         user.email = {field: value}
 
         res = get_palaute_form(user=user)
-        self.assertEquals(value, res[field].initial)
+        self.assertDictEqual({field: value}, res[field].initial)
 
 
 class TestForms(TestCase):
