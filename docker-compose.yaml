@@ -11,12 +11,13 @@ services:
         - POSTGRES_NAME=postgres
         - POSTGRES_USER=postgres
         - POSTGRES_PASSWORD=postgres
-        - DJANGO_PRODUCTION=1
+        - DJANGO_PRODUCTION=0
         - DJANGO_SECRET_KEY=secret
       volumes:
         - ./sato:/usr/src/app/sato
     django-sivusto-db:
       image: postgres
+      container_name: django-sivusto-db
       environment:
         - POSTGRES_PASSWORD=postgres
       volumes:

@@ -7,6 +7,20 @@ _ = lambda s: s
 DATA_DIR = os.path.dirname(os.path.dirname(__file__))
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+POSTGRES_DB = {
+    'CONN_MAX_AGE': 0,
+    'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    'NAME': os.getenv('POSTGRES_NAME', 'kubernetes_django'),
+    'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
+    'USER': os.getenv('POSTGRES_USER'),
+    'HOST': os.getenv('POSTGRES_HOST'),
+    'PORT': os.getenv('POSTGRES_PORT', 5432)
+}
+
+SQLITE_DB = {
+    'ENGINE': 'django.db.backends.sqlite3',
+    'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+}
 
 # ENVIRONMENT SETTINGS
 # ====================
@@ -21,15 +35,7 @@ if 'DJANGO_PRODUCTION' in os.environ and os.getenv('DJANGO_PRODUCTION') == "1":
     THUMBNAIL_DEBUG = False
 
     DATABASES = {
-        'default': {
-            'CONN_MAX_AGE': 0,
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': os.getenv('POSTGRES_NAME', 'kubernetes_django'),
-            'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
-            'USER': os.getenv('POSTGRES_USER'),
-            'HOST': os.getenv('POSTGRES_HOST'),
-            'PORT': os.getenv('POSTGRES_PORT', 5432)
-        }
+        'default': POSTGRES_DB
     }
 
     # Private filer files for Nginx
@@ -68,10 +74,7 @@ else:  # Development settings
 
     # Database
     DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        }
+        'default': POSTGRES_DB if 'POSTGRES_HOST' in os.environ else SQLITE_DB
     }
 
     DEFAULT_FILER_SERVERS = {
@@ -122,11 +125,11 @@ STATICFILES_DIRS = (
 )
 
 STATICFILES_FINDERS = [
-     # For Aldryn blog
-     'aldryn_boilerplates.staticfile_finders.AppDirectoriesFinder',
-     'django.contrib.staticfiles.finders.FileSystemFinder',
-     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
- ]
+    # For Aldryn blog
+    'aldryn_boilerplates.staticfile_finders.AppDirectoriesFinder',
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+]
 
 SITE_ID = 1
 TEMPLATES = [
