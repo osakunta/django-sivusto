@@ -21,7 +21,8 @@ class HairintaForm(ContactsForm):
 
     res = BooleanField(
         label='Haluan, että minulle vastataan.',
-        widget=CheckboxInput(attrs=dict(onclick='contactMe("res", ["name", "email"])'))
+        widget=CheckboxInput(attrs=dict(onclick='contactMe("res", ["name", "email"])')),
+        required=False
     )
 
     def __init__(self, *args, **kwargs):
