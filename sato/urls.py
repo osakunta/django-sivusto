@@ -36,7 +36,7 @@ urlpatterns = protected_media + i18n_patterns(
     url(r'^admin/', admin.site.urls),
     url(r'^login/$', LoginView.as_view(), name='login'),
     url(r'^logout/$', views.logout_user),
-    url(r'^hallituspalaute/', include('hallituspalaute.urls')),
+    url(r'^palautteet/', include('palautteet.urls')),
     url(r'^ilmo/', include('ilmo_app.urls')),
     url(r'^gallery/', include('gallery.urls'), name='gallery'),
     url(r'^', include('registration.backends.hmac.urls')),

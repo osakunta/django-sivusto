@@ -117,6 +117,7 @@ STATIC_ROOT = os.path.join(DATA_DIR, 'static')
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'sato', 'static'),
+    os.path.join(BASE_DIR, 'palautteet', 'hairinta', 'static'),
     #('gallery-images', '../gallery-images/')
 )
 
@@ -134,7 +135,9 @@ TEMPLATES = [
         'DIRS': [
             os.path.join(BASE_DIR, 'sato', 'templates'),
             os.path.join(BASE_DIR, 'gallery', 'templates'),
-            os.path.join(BASE_DIR, 'hallituspalaute', 'templates'),
+            os.path.join(BASE_DIR, 'palautteet', 'templates'),
+            os.path.join(BASE_DIR, 'palautteet', 'hallitus', 'templates'),
+            os.path.join(BASE_DIR, 'palautteet', 'hairinta', 'templates'),
         ],
         'OPTIONS': {
             'context_processors': [
@@ -343,12 +346,6 @@ THUMBNAIL_PROCESSORS = (
 ALDRYN_BOILERPLATE_NAME='bootstrap3'
 
 FILER_ENABLE_PERMISSIONS = True
-
-# Hallituspalaute
-HALLITUSPALAUTE_SENDER = 'hallituspalaute@satakuntatalo.fi'
-HALLITUSPALAUTE_RECIPIENTS = [
-    'hallitus@satakuntatalo.fi',
-]
 
 # Ilmo
 ILMO_EMAIL_CONFIGURED = True
