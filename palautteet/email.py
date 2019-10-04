@@ -3,7 +3,7 @@ from typing import Mapping, List
 
 from django.core.mail import EmailMessage
 
-DEFAULT_SENDER = 'noreply@satakuntalainenosakunta.fi'
+DEFAULT_SENDER = 'noreply@satakuntatalo.fi'
 
 
 class AbstractEmailService(ABC):
@@ -13,10 +13,7 @@ class AbstractEmailService(ABC):
 
 
 class EmailService(AbstractEmailService):
-    def __init__(self,
-                 subject: str,
-                 from_email: str,
-                 to_email: List[str]):
+    def __init__(self, subject: str, from_email: str, to_email: List[str]):
         self.subject = subject
         self.from_email = from_email
         self.to_email = to_email
