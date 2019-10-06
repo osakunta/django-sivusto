@@ -4,12 +4,6 @@ Django-sivusto
 [![Build Status](https://travis-ci.org/osakunta/django-sivusto.svg?branch=master)](https://travis-ci.org/osakunta/django-sivusto)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/cf01cdfce3604499b46cba91613fd123)](https://app.codacy.com/app/Osakunta/django-sivusto?utm_source=github.com&utm_medium=referral&utm_content=osakunta/django-sivusto&utm_campaign=Badge_Grade_Dashboard)
 
-Sisällysluettelo
-----------------
-- Vaatimukset
-- Kehitysserverin käynnistys
-- Front-endin muutokset
-
 Vaatimukset
 -----------
 - Python 3.7
@@ -30,9 +24,9 @@ Kehitysserverin käynnistys
 
 ### Virtualenv
 
-Luo Python 3.6 virtualenv
+Luo Python 3.7 virtualenv
 ```
-virtualenv -p /usr/bin/python3.6 venv
+virtualenv -p /usr/bin/python3.7 venv
 ```
 
 Varmista, että virtualenv on aktivoitu:
