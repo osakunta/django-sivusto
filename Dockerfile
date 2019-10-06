@@ -1,18 +1,13 @@
 FROM python:3.7
 
-WORKDIR /usr/src/app/
+WORKDIR /app
 
-COPY Pipfile* manage.py ./
-RUN pip install pipenv
-RUN pipenv install --system --deploy
+COPY Pipfile* ./
 
-COPY .git/ .git/
-COPY cmsplugin_raw_html/ cmsplugin_raw_html/
-COPY cmsplugin_content_wrappers/ cmsplugin_content_wrappers/
-COPY palautteet/ palautteet/
-COPY gallery/ gallery/
-COPY ilmo_app/ ilmo_app/
-COPY sato/ sato/
+RUN pip install pipenv && \
+    pipenv install --system --deploy
+
+COPY . .
 
 CMD exec gunicorn sato.wsgi:application \
     --bind 0.0.0.0:8010 \
