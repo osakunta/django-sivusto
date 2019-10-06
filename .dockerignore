@@ -1,0 +1,27 @@
+# dirs
+_assets/
+_kubernetes/
+_submodules/
+venv/
+
+# docker
+.dockerignore
+Dockerfile
+docker-compose.yaml
+
+# git
+.git/
+.gitignore
+.gitmodules
+
+# editors
+.idea/
+
+# documentation
+README.md
+
+# misc
+Makefile
+db.sqlite3
+development.db.seed
+.travis.yml
