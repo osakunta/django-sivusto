@@ -1,5 +1,5 @@
 NAME   := osakunta/django-sivusto
-TAG    := $$(git log -1 --pretty=%H)
+TAG    := $$(git log -1 --pretty=%h)
 IMG    := ${NAME}:${TAG}
 LATEST := ${NAME}:latest
 
