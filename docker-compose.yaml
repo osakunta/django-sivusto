@@ -14,7 +14,7 @@ services:
         - DJANGO_PRODUCTION=0
         - DJANGO_SECRET_KEY=secret
       volumes:
-        - ./sato:/usr/src/app/sato
+        - ./sato:/app/sato
     django-sivusto-db:
       image: postgres
       container_name: django-sivusto-db
