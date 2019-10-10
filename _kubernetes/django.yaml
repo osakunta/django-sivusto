@@ -52,13 +52,13 @@ spec:
             - name: postgres-volume-mount
               mountPath: /var/lib/busybox
             - name: django-static-volume-mount
-              mountPath: /usr/src/app/static
+              mountPath: /app/static
             - name: django-media-volume-mount
-              mountPath: /usr/src/app/media
+              mountPath: /app/media
             - name: django-smedia-volume-mount
-              mountPath: /usr/src/app/smedia
+              mountPath: /app/smedia
             - name: django-gallery-volume-mount
-              mountPath: /usr/src/app/gallery-images
+              mountPath: /app/gallery-images
 
       volumes:
         - name: postgres-volume-mount
