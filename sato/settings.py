@@ -59,12 +59,14 @@ if 'DJANGO_PRODUCTION' in os.environ and os.getenv('DJANGO_PRODUCTION') == "1":
     }
 
     # Email settings
-    EMAIL_HOST = 'smtp-relay.gmail.com'
+    EMAIL_HOST = 'smtp.eu.mailgun.org'
     EMAIL_PORT = 587
     EMAIL_USE_TLS = True
+    EMAIL_HOST_USER = os.getenv('EMAIL_USER')
+    EMAIL_HOST_PASSWORD = os.getenv('EMAIL_PASSWORD')
 
-    SERVER_EMAIL = 'django@satakuntatalo.fi'
-    DEFAULT_FROM_EMAIL = 'noreply@satakuntatalo.fi'
+    SERVER_EMAIL = 'django@mail.satakuntatalo.fi'
+    DEFAULT_FROM_EMAIL = 'noreply@mail.satakuntatalo.fi'
     ADMINS = [('DjangoAdmin', os.getenv('DJANGO_ADMIN_EMAIL', 'localhost'))]
 
 else:  # Development settings
