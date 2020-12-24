@@ -1,9 +1,0 @@
-{% extends "registration/registration_base.html" %}
-{% load i18n %}
-{% block title %} – {% trans "Activation complete" %}{% endblock %}
-{% block content %}
-{% url 'auth_login' as auth_login_url %}
-<div class="container">
-    <p>Aktivointi onnistui! Voit nyt <a href='{{ auth_login_url }}'>kirjautua sisään</a> tunnuksillasi.</p>
-</div>
-{% endblock %}

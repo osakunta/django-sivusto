@@ -204,7 +204,6 @@ INSTALLED_APPS = [
     'djangocms_file',
     'easy_thumbnails',
     'sato',
-    # 'django-registration', #(Should not be in installed apps if using HMAC, leaving for reminder)
 
     # Raw HTML for quick fixes
     'cmsplugin_raw_html',
