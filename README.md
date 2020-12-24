@@ -48,7 +48,7 @@ Mikäli pakettien asennus ei onnistu, ja saat tällaisen tai vastaavan ilmoituks
 
 Varmista, että seuraavassa komennossa olevat paketit on asennettu:
 ```
-sudo apt-get install -y python-lxml libxml2-dev libxslt1-dev libffi-dev
+sudo apt-get install -y python-lxml libxml2-dev libxslt1-dev libffi-dev libpq-dev
 ```
 
 
