@@ -6,7 +6,6 @@ name = "pypi"
 [packages]
 Django = "<3"
 django-cms = "*"
-django-registration = "<3"
 djangocms-file = "*"
 djangocms-style = "*"
 aldryn-newsblog = "*"
@@ -14,6 +13,9 @@ djangocms-column = "*"
 gunicorn = "*"
 psycopg2-binary = "*"
 sqlparse = "*"
+social-auth-app-django = "*"
+python-jose = "*"
+python-dotenv = "*"
 
 [dev-packages]
 codacy-coverage = "*"
