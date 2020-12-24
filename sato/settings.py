@@ -102,10 +102,24 @@ ALLOWED_HOSTS = [
 # Application definition
 ROOT_URLCONF = 'sato.urls'
 WSGI_APPLICATION = 'sato.wsgi.application'
-LOGIN_URL = '/login/'
+LOGIN_URL = '/login/auth0/'
 LOGIN_REDIRECT_URL = '/'
-# Used by django-registration to determine for how long accounts can be activated.
-ACCOUNT_ACTIVATION_DAYS = 7
+
+SOCIAL_AUTH_TRAILING_SLASH = True
+SOCIAL_AUTH_AUTH0_DOMAIN = 'osakunta.eu.auth0.com'
+SOCIAL_AUTH_AUTH0_KEY = '7BDybKqufcGKGszPSpTiSbs3oD044oD4'
+SOCIAL_AUTH_AUTH0_SECRET = os.getenv('AUTH0_CLIENT_SECRET')
+
+SOCIAL_AUTH_AUTH0_SCOPE = [
+    'openid',
+    'profile',
+    'email'
+]
+
+AUTHENTICATION_BACKENDS = {
+    'auth0login.auth0backend.Auth0',
+    'django.contrib.auth.backends.ModelBackend'
+}
 
 # Internationalization
 LANGUAGE_CODE = 'fi'
@@ -140,6 +154,7 @@ TEMPLATES = [
         'DIRS': [
             os.path.join(BASE_DIR, 'sato', 'templates'),
             os.path.join(BASE_DIR, 'gallery', 'templates'),
+            os.path.join(BASE_DIR, 'auth0login', 'templates'),
             os.path.join(BASE_DIR, 'palautteet', 'templates'),
             os.path.join(BASE_DIR, 'palautteet', 'hallitus', 'templates'),
             os.path.join(BASE_DIR, 'palautteet', 'hairinta', 'templates'),
@@ -203,7 +218,9 @@ INSTALLED_APPS = [
     'filer',
     'djangocms_file',
     'easy_thumbnails',
+    'social_django',
     'sato',
+    'auth0login',
 
     # Raw HTML for quick fixes
     'cmsplugin_raw_html',

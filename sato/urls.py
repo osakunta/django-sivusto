@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import, print_function, unicode_literals
 from django.conf import settings
-from django.conf.urls import include, url
+from django.urls import path, include
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
@@ -28,21 +28,18 @@ def protected_thumb_serve(request, path, document_root=gallery_thumbs, show_inde
 
 
 protected_media = [
-    url(r'^gallery-images/(?P<path>.*)$', protected_image_serve),
-    url(r'^media/gallery-thumbs/(?P<path>.*)$', protected_thumb_serve),
+    path('gallery-images/(?P<path>.*)$', protected_image_serve),
+    path('media/gallery-thumbs/(?P<path>.*)$', protected_thumb_serve),
 ]
 
 urlpatterns = protected_media + i18n_patterns(
-    url(r'^admin/', admin.site.urls),
-    url(r'^login/$', LoginView.as_view(), name='login'),
-    url(r'^logout/$', views.logout_user),
-    url(r'^palautteet/', include('palautteet.urls')),
-    url(r'^ilmo/', include('ilmo_app.urls')),
-    url(r'^gallery/', include('gallery.urls'), name='gallery'),
-    url(r'^', include('registration.backends.hmac.urls')),
-    url(r'^', include('django.contrib.auth.urls')),
-    url(r'^', include('filer.server.urls')),
-    url(r'^', include('cms.urls')),
+    path('admin/', admin.site.urls),
+    path('palautteet/', include('palautteet.urls')),
+    path('ilmo/', include('ilmo_app.urls')),
+    path('gallery/', include('gallery.urls'), name='gallery'),
+    path('', include('auth0login.urls')),
+    path('', include('filer.server.urls')),
+    path('', include('cms.urls')),
 )
 
 # This is only needed when using runserver.
