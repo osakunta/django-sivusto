@@ -7,6 +7,7 @@ smedia/
 /static/
 tmp/
 
+.envrc
 db.sqlite3
 
 *.pyc
