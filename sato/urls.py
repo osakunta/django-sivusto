@@ -16,6 +16,9 @@ handler404 = views.handler404
 handler500 = views.handler500
 admin.autodiscover()
 
+# Use Auth0 login in admin panel.
+admin.site.login = login_required(admin.site.login)
+
 
 @login_required
 def protected_image_serve(request, path, document_root=gallery_images, show_indexes=False):
