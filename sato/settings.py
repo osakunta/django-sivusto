@@ -390,4 +390,4 @@ FILER_ENABLE_PERMISSIONS = True
 # Ilmo
 ILMO_EMAIL_CONFIGURED = True
 ILMO_EMAIL_TEMPLATE_PATH = 'email'
-ILMO_EMAIL_CONFIRMATION_FROM = 'noreply@satakuntatalo.fi'
+ILMO_EMAIL_CONFIRMATION_FROM = 'noreply@mail.satakuntatalo.fi'
