@@ -101,7 +101,8 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost',
     'django-service',
-    'django.satakuntalainenosakunta.fi',
+    'satakuntalainenosakunta.fi',
+    'www.satakuntalainenosakunta.fi',
 ]
 
 # Application definition
