@@ -59,6 +59,7 @@ if 'DJANGO_PRODUCTION' in os.environ and os.getenv('DJANGO_PRODUCTION') == "1":
     }
 
     # Use HTTPS as the redirect protocol in production
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
     SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
 
     # Email settings
