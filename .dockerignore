@@ -1,6 +1,5 @@
 # dirs
 _assets/
-_kubernetes/
 venv/
 
 # docker
