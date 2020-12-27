@@ -4,14 +4,14 @@ services:
   - docker
 
 before_install:
-  - make build
+  - make login build
 
 script:
   - make test
 
 deploy:
   provider: script
-  script: make login push
+  script: make push
   on:
     branch: master
 
