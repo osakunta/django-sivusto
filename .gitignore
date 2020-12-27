@@ -1,7 +1,6 @@
 .idea/
 bower_components/
 node_modules/
-gallery-images/
 media/
 smedia/
 /static/
