@@ -156,7 +156,6 @@ STATIC_ROOT = os.path.join(DATA_DIR, 'static')
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'sato', 'static'),
     os.path.join(BASE_DIR, 'palautteet', 'hairinta', 'static'),
-    #('gallery-images', '../gallery-images/')
 )
 
 STATICFILES_FINDERS = [
@@ -172,7 +171,6 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             os.path.join(BASE_DIR, 'sato', 'templates'),
-            os.path.join(BASE_DIR, 'gallery', 'templates'),
             os.path.join(BASE_DIR, 'auth0login', 'templates'),
             os.path.join(BASE_DIR, 'palautteet', 'templates'),
             os.path.join(BASE_DIR, 'palautteet', 'hallitus', 'templates'),
@@ -258,7 +256,6 @@ INSTALLED_APPS = [
 
     # In-house-apps
     'ilmo_app',
-    'gallery',
     'cmsplugin_content_wrappers',
 ]
 
