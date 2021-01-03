@@ -10,22 +10,6 @@
     <div id="calendar"></div>
 </div>
 
-<div class="container">
-    <h1>Kokouskalenteri</h1>
-
-    <div id="meetings"></div>
-</div>
-
 {% include "specific-pages/calendar-modal.html" %}
 
 {% endblock content %}
-
-{% block custom-js %}
-<script type='text/javascript'>
-    // Kalenterin asetukset tiedostossa assets/input/js/calendar.js
-    $(document).ready(function() {
-        $('#calendar').fullCalendar(new CalendarOptions(eventCalendars));
-        $('#meetings').fullCalendar(new CalendarOptions(meetingCalendar));
-    });
-</script>
-{% endblock custom-js %}

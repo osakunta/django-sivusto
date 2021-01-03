@@ -24,7 +24,7 @@
             <div class="col-md-4">
                 <br><br>
                 <p>
-                    <a class="btn btn-primary btn-block" href="/osakunta/kalenteri">
+                    <a class="btn btn-primary btn-block" href="{% page_url "kalenteri" %}">
                         Tapahtumakalenteriin
                     </a>
                 </p>
@@ -40,36 +40,3 @@
         <div id="instafeed"></div>
     </div>
 {% endblock content %}
-
-{% block custom-js %}
-<script type='text/javascript'>
-    var eventOptions = new CalendarOptions(eventCalendars);
-    eventOptions.defaultView = 'basicWeek';
-    eventOptions.height = 'auto';
-    eventOptions.header.left = '';
-    eventOptions.header.right = '';
-
-    if ($(window).width() <= 768) {
-        eventOptions.defaultView = 'listWeek';
-    }
-
-    eventOptions.windowResize = function(view) {
-        var ww = $(window).width(),
-            view = $('#calendar').fullCalendar('getView');
-
-        if (ww <= 768 && view.title !== 'listWeek'){
-            $('#calendar').fullCalendar('changeView', 'listWeek');
-        }
-
-        if (ww > 768 && view.title !== 'basicWeek'){
-            $('#calendar').fullCalendar('changeView', 'basicWeek');
-        }
-    };
-
-    // Kalenterin asetukset tiedostossa assets/input/js/calendar.js
-    $(document).ready(function() {
-        $('#calendar').fullCalendar(eventOptions);
-        satoInstafeed.run();
-    });
-</script>
-{% endblock custom-js %}
