@@ -6,12 +6,33 @@
 {% block custom-js %}
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6qy4VnjQVmul3Isb5FYsM-ln84lgZ_Z0&callback=initMap" async defer></script>
 <script type='text/javascript'>
-    $(document).ready(function() {
-        $(function () {
-            $('[data-toggle="tooltip"]').tooltip({
-                'trigger': 'hover focus'
-            })
-        })
-    });
+    var map;
+
+    function initMap() {
+        var coords = {
+            lat: 60.1671291,
+            lng: 24.9252689
+        };
+
+        map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 15
+        });
+
+        var geocoder = new google.maps.Geocoder();
+        var address = "Lapinrinne 1 A 8, Helsinki";
+
+        geocoder.geocode({ 'address': address }, function (results, status) {
+            if (status === 'OK') {
+                map.setCenter(results[0].geometry.location);
+
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: results[0].geometry.location
+                });
+            } else {
+                console.error('Geocode was not successful for the following reason: ' + status);
+            }
+        });
+    }
 </script>
 {% endblock custom-js %}
