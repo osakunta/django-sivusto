@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import 'bootstrap-sass';
-import "@fortawesome/fontawesome-free/js/all.js";
+import "@fortawesome/fontawesome-free/js/all";
 import "@fortawesome/fontawesome-free/css/all.css";
 import "./sass/styles.sass";
 
