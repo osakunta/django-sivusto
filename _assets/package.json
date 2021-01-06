@@ -20,17 +20,20 @@
     "grunt-contrib-watch": "latest",
     "grunt-sass": "latest",
     "node-sass": "latest",
+    "sass": "^1.32.0",
+    "sass-loader": "^10.1.0",
     "source-map-loader": "^2.0.0",
     "style-loader": "^2.0.0",
     "webpack": "^5.11.1",
     "webpack-cli": "^4.3.1"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.1",
     "@fullcalendar/core": "^5.5.0",
     "@fullcalendar/daygrid": "^5.5.0",
     "@fullcalendar/google-calendar": "^5.5.0",
     "@fullcalendar/list": "^5.5.0",
-    "bootstrap": "^3.4.1",
+    "bootstrap-sass": "^3.4.1",
     "jquery": "^3.5.1"
   }
 }
