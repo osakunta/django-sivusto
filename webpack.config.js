@@ -27,10 +27,18 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        test: /\.(png|svg|jpg|jpeg|gif|ico)$/i,
         loader: 'file-loader',
         options: {
-          name: 'img/[name].[ext]',
+          name: '[name].[ext]',
+          outputPath: (url, resourcePath, context) => {
+            // For email backwards compatibility, logos must be in 'logos' directory.
+            if (/logos/.test(resourcePath)) {
+              return `img/logos/${url}`;
+            }
+
+            return `img/${url}`;
+          },
         },
       },
       {
