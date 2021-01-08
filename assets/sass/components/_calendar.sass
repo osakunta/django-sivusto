@@ -1,6 +1,3 @@
-// General styles
-// ==============
-
 .fc
     .fc-header-toolbar
         text-transform: capitalize
@@ -13,7 +10,7 @@
             &:hover:enabled
                 background-color: $blue2
 
-    .fc-col-header-cell-cushion, .fc-daygrid-day-number
+    .fc-col-header-cell-cushion, .fc-list-day-cushion a, .fc-daygrid-day-number
         color: #333333
         text-transform: uppercase
 
@@ -32,6 +29,16 @@
             .fc-event-main-frame
                 flex-direction: column
 
+    .fc-list
+        .fc-list-event-graphic
+            display: none
+
+        .fc-list-event-time
+            font-weight: bold
+
+        .fc-list-event
+            background: #ffffff
+
     .gcal-sports
         border-color: #05AA00
     .gcal-events
@@ -42,35 +49,3 @@
         border-color: $yellow3
     .gcal-meetings
         border-color: #B307BF
-
-// Week view styles
-// ================
-
-.fc .fc-basicWeek-view
-    table
-        border-collapse: separate
-
-    td, th
-        border: solid transparent
-        border-width: 0 2px 0 2px
-
-    th
-        border-color: #333
-        padding: 5px
-
-    .fc-head-container, .fc-widget-content
-        border: none
-
-    td.fc-today
-        border: 1px solid #BBB
-        border-bottom: 7px solid #333
-
-    .fc-day-grid-event
-        margin: 1px 1px 4px 1px
-
-    .fc-content-skeleton
-        padding-bottom: 10px
-
-    // Hotfix for missing dot in week view date format.
-    .fc-day-header::after
-        content: '.'
