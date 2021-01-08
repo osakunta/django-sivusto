@@ -4,6 +4,21 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import googleCalendarPlugin from '@fullcalendar/google-calendar';
 import listPlugin from '@fullcalendar/list';
 
+// Bootstrap 3 md breakpoint.
+const breakPoint = 992;
+
+function monthCalendarView() {
+  return window.innerWidth < breakPoint
+    ? 'listMonth'
+    : 'dayGridMonth';
+}
+
+function weekCalendarView() {
+  return window.innerWidth < breakPoint
+    ? 'listWeek'
+    : 'dayGridWeek';
+}
+
 const eventCalendars = [
   {
     googleCalendarId: 'tqbg6bgc6r00hbs4p3bt6h1p4g@group.calendar.google.com',
@@ -40,73 +55,29 @@ const baseCalendarOptions = {
   nextDayThreshold: '00:00:00',
   height: 'auto',
   eventDisplay: 'block',
-
-  // Estää tapahtumaa klikatessa Google-kalenterin aukeamisen ja näyttää tapahtuman
-  // Bootstrap 3 modalissa. Modalin template on sato/templates/specific-pages/calendar-modal.html
-  eventClick: function (event, jsEvent, view) {
-    var start = moment(event.start),
-      end = moment(event.end),
-      formatedDate = start.format('DD.MM.') + " klo " + start.format('HH:mm');
-
-    // Erilainen formaatti, jos päättymispäivä on sama kuin alkamispäivä.
-    if (start.format('DDMMYYYY') === end.format('DDMMYYYY')) {
-      formatedDate += "–" + end.format('HH:mm');
-    } else if (end.format('DDMMYYYY') !== 'Invalid date') {
-      formatedDate += " – " + end.format('DD.MM.') + " klo " + end.format('HH:mm');
-    }
-
-    // Lisätään tiedot Bootstrap 3 modaliin
-    $('#fc-event-title').html(event.title);
-    $('#fc-event-title').attr('href', event.url);
-    $('#fc-event-info').html(event.description);
-    $('#fc-event-date').html(formatedDate);
-    $('#fullCalModal').modal();
-    return false;
-  },
 }
 
 const monthCalendarOptions = {
   ...baseCalendarOptions,
+  initialView: monthCalendarView(),
   eventSources: [...eventCalendars, ...meetingCalendar],
   headerToolbar: {
     left: 'title',
     center: '',
     right: 'prev,next today'
   },
-  /*   windowResize: function (_) {
-      const ww = $(window).width();
-      const view = $('#calendar').fullCalendar('getView');
-  
-      if (ww <= 768 && view.title !== 'listMonth') {
-        $('#calendar').fullCalendar('changeView', 'listMonth');
-      }
-  
-      if (ww > 768 && view.title !== 'month') {
-        $('#calendar').fullCalendar('changeView', 'month');
-      }
-    }, */
+  windowResize: ({ view }) => view.calendar.changeView(monthCalendarView()),
 }
 
 const weekCalendarOptions = {
   ...baseCalendarOptions,
-  initialView: 'dayGridWeek',
+  initialView: weekCalendarView(),
   eventSources: eventCalendars,
   headerToolbar: {
     left: '',
     right: '',
   },
-  /*   windowResize: function (_) {
-      const ww = $(window).width();
-      const view = $('#calendar').fullCalendar('getView');
-    
-      if (ww <= 768 && view.title !== 'listWeek') {
-        $('#calendar').fullCalendar('changeView', 'listWeek');
-      }
-    
-      if (ww > 768 && view.title !== 'basicWeek') {
-        $('#calendar').fullCalendar('changeView', 'basicWeek');
-      }
-    }, */
+  windowResize: ({ view }) => view.calendar.changeView(weekCalendarView()),
 }
 
 export default function calendar(isWeekCalendar) {
