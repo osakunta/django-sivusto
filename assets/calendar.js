@@ -89,13 +89,4 @@ export default function calendar(isWeekCalendar) {
   );
 
   calendar.render();
-
-  // Poistetaan tiedot, kun modal suljetaan (estää bugin, jossa näytetään
-  // edellisen tapahtuman tiedot, jos tietoja ei ole lainkaan)
-  $('body').on('hidden.bs.modal', '.modal', function () {
-    $('#fc-event-title').contents().remove();
-    $('#fc-event-info').contents().remove();
-    $('#fc-event-date').contents().remove();
-    $('#fc-event-tile').removeAttr('href');
-  });
 }
