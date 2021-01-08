@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 
-module.exports = {
+const config = {
   entry: './assets/index.js',
   output: {
     filename: 'main.js',
@@ -57,5 +57,11 @@ module.exports = {
       jquery: 'jquery'
     }),
   ],
-  watch: true,
 };
+
+module.exports = (env, argv) => argv.mode === 'production'
+  ? config
+  : {
+    ...config,
+    watch: true,
+  }
