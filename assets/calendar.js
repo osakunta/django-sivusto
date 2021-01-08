@@ -19,35 +19,33 @@ function weekCalendarView() {
     : 'dayGridWeek';
 }
 
-const eventCalendars = [
+const googleCalendars = [
   {
     googleCalendarId: 'tqbg6bgc6r00hbs4p3bt6h1p4g@group.calendar.google.com',
-    className: 'gcal-sports'
+    className: 'gcal-sports',
   },
   {
     googleCalendarId: 'c3f5fekmh2qfloegr4okfghk5k@group.calendar.google.com',
-    className: 'gcal-service'
+    className: 'gcal-service',
   },
   {
     googleCalendarId: 'boecmjgkjsuibnnj2op4c94ags@group.calendar.google.com',
-    className: 'gcal-events'
+    className: 'gcal-events',
   },
   {
     googleCalendarId: 'r151te2dmi4sfp130iahaj2vro@group.calendar.google.com',
-    className: 'gcal-reserves'
-  }
-];
-
-const meetingCalendar = [
+    className: 'gcal-reserves',
+  },
   {
     googleCalendarId: 'aojklsb36n1vpmesl2tqv1gp6o@group.calendar.google.com',
-    className: 'gcal-meetings'
-  }
+    className: 'gcal-meetings',
+  },
 ];
 
 const baseCalendarOptions = {
   plugins: [dayGridPlugin, googleCalendarPlugin, listPlugin],
   googleCalendarApiKey: 'AIzaSyDrE8zbaHSOjVVcoOPe00n7pSEYLv_ZKQM',
+  eventSources: googleCalendars,
   locale: 'fi',
   firstDay: 1,
   eventTimeFormat: { hour12: false, hour: '2-digit', minute: '2-digit' },
@@ -60,7 +58,6 @@ const baseCalendarOptions = {
 const monthCalendarOptions = {
   ...baseCalendarOptions,
   initialView: monthCalendarView(),
-  eventSources: [...eventCalendars, ...meetingCalendar],
   headerToolbar: {
     left: 'title',
     center: '',
@@ -72,7 +69,6 @@ const monthCalendarOptions = {
 const weekCalendarOptions = {
   ...baseCalendarOptions,
   initialView: weekCalendarView(),
-  eventSources: eventCalendars,
   headerToolbar: {
     left: '',
     right: '',
