@@ -39,6 +39,7 @@ const baseCalendarOptions = {
   displayEventEnd: true,
   nextDayThreshold: '00:00:00',
   height: 'auto',
+  eventDisplay: 'block',
 
   // Estää tapahtumaa klikatessa Google-kalenterin aukeamisen ja näyttää tapahtuman
   // Bootstrap 3 modalissa. Modalin template on sato/templates/specific-pages/calendar-modal.html
