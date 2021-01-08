@@ -1,5 +1,6 @@
 # dirs
-_assets/
+assets/
+node_modules/
 venv/
 
 # docker
@@ -22,4 +23,7 @@ README.md
 Makefile
 db.sqlite3
 development.db.seed
+webpack.config.js
+package-lock.json
+package.json
 .travis.yml
