@@ -15,7 +15,6 @@ psycopg2-binary = "*"
 sqlparse = "*"
 social-auth-app-django = "*"
 python-jose = "*"
-python-dotenv = "*"
 djangocms-blog = "*"
 
 [dev-packages]
