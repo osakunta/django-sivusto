@@ -254,6 +254,15 @@ INSTALLED_APPS = [
     'sortedm2m',
     'taggit',
 
+    # For djangocms-blog
+    #'aldryn_apphooks_config',
+    #'parler',
+    #'taggit',
+    'taggit_autosuggest',
+    'meta',
+    #'sortedm2m',
+    'djangocms_blog',
+
     # In-house-apps
     'ilmo_app',
     'cmsplugin_content_wrappers',
@@ -381,6 +390,9 @@ THUMBNAIL_PROCESSORS = (
 
 # For Aldryn blog
 ALDRYN_BOILERPLATE_NAME='bootstrap3'
+META_SITE_PROTOCOL = 'http'
+META_USE_SITES = True
+
 
 FILER_ENABLE_PERMISSIONS = True
 

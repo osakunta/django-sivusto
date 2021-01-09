@@ -20,6 +20,7 @@ admin.site.login = login_required(admin.site.login)
 
 urlpatterns = i18n_patterns(
     path('admin/', admin.site.urls),
+    path('taggit_autosuggest/', include('taggit_autosuggest.urls')),
     path('palautteet/', include('palautteet.urls')),
     path('ilmo/', include('ilmo_app.urls')),
     path('', include('auth0login.urls')),
