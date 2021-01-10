@@ -6,6 +6,7 @@
         <title>Satakuntalainen Osakunta{% block title %}{% endblock title %}</title>
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <link rel="icon" href="{% static "img/favicon.ico" %}" type="image/x-icon" />
+        <script src="{% static "main.js" %}"></script>
         {% render_block "css" %}
 
         <script>
@@ -16,7 +17,6 @@
 
             ga('create', 'UA-83849033-1', 'auto');
             ga('send', 'pageview');
-
         </script>
 
         {% block head-extra %}{% endblock head-extra %}
@@ -38,7 +38,6 @@
 
         {% include "footer/footer.html" %}
 
-        <script src="{% static "main.js" %}"></script>
         {% render_block "js" %}
         {% block custom-js %}{% endblock custom-js %}
     </body>
