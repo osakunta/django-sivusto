@@ -4,6 +4,7 @@ import "@fortawesome/fontawesome-free/js/all";
 import "@fortawesome/fontawesome-free/css/all.css";
 import "./sass/styles.sass";
 import "./img/favicon.ico";
+import "./img/error-bear.png";
 import "./img/logos/main.png";
 import app from './app';
 import calendar from './calendar';
