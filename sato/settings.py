@@ -73,6 +73,9 @@ if 'DJANGO_PRODUCTION' in os.environ and os.getenv('DJANGO_PRODUCTION') == "1":
     DEFAULT_FROM_EMAIL = 'noreply@mail.satakuntatalo.fi'
     ADMINS = [('DjangoAdmin', os.getenv('DJANGO_ADMIN_EMAIL', 'localhost'))]
 
+    # Djangocms-blog
+    META_SITE_PROTOCOL = 'https'
+
 else:  # Development settings
     SECRET_KEY = 'verisecriit'
     DEBUG = True
@@ -93,6 +96,9 @@ else:  # Development settings
             }
         }
     }
+
+    # Djangocms-blog
+    META_SITE_PROTOCOL = 'http'
 
 # COMMON SETTINGS
 # ===============
@@ -390,9 +396,9 @@ THUMBNAIL_PROCESSORS = (
 
 # For Aldryn blog
 ALDRYN_BOILERPLATE_NAME='bootstrap3'
-META_SITE_PROTOCOL = 'http'
-META_USE_SITES = True
 
+# Djangocms-blog
+META_USE_SITES = True
 
 FILER_ENABLE_PERMISSIONS = True
 
