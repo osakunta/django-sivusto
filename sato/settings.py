@@ -165,8 +165,6 @@ STATICFILES_DIRS = (
 )
 
 STATICFILES_FINDERS = [
-    # For Aldryn blog
-    'aldryn_boilerplates.staticfile_finders.AppDirectoriesFinder',
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 ]
@@ -195,12 +193,10 @@ TEMPLATES = [
                 'django.template.context_processors.static',
                 'sekizai.context_processors.sekizai',
                 'cms.context_processors.cms_settings',
-                'aldryn_boilerplates.context_processors.boilerplate',  # For Aldryn blog
             ],
             'loaders': [
                 'django.template.loaders.filesystem.Loader',
                 'django.template.loaders.app_directories.Loader',
-                'aldryn_boilerplates.template_loaders.AppDirectoriesLoader',  # For Aldryn blog
             ],
         },
     },
@@ -249,24 +245,13 @@ INSTALLED_APPS = [
     'cmsplugin_raw_html',
     'djangocms_column',
 
-    # For Aldryn blog
-    'aldryn_apphooks_config',
-    'aldryn_boilerplates',
-    'aldryn_categories',
-    'aldryn_common',
-    'aldryn_newsblog',
-    'aldryn_people',
-    'parler',
-    'sortedm2m',
-    'taggit',
-
     # For djangocms-blog
-    #'aldryn_apphooks_config',
-    #'parler',
-    #'taggit',
+    'aldryn_apphooks_config',
+    'parler',
+    'taggit',
     'taggit_autosuggest',
     'meta',
-    #'sortedm2m',
+    'sortedm2m',
     'djangocms_blog',
 
     # In-house-apps
@@ -393,9 +378,6 @@ THUMBNAIL_PROCESSORS = (
     'filer.thumbnail_processors.scale_and_crop_with_subject_location',
     'easy_thumbnails.processors.filters'
 )
-
-# For Aldryn blog
-ALDRYN_BOILERPLATE_NAME='bootstrap3'
 
 # Djangocms-blog
 META_USE_SITES = True
