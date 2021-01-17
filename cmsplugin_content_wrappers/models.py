@@ -1,11 +1,9 @@
 # -*- coding: utf-8 -*-
 from django.db import models
-from django.utils.encoding import python_2_unicode_compatible
 from djangocms_text_ckeditor.fields import HTMLField
 from cms.models import CMSPlugin
 
 
-@python_2_unicode_compatible
 class ContentArea(CMSPlugin):
     label = models.CharField(
         blank=True,
@@ -21,7 +19,6 @@ class ContentArea(CMSPlugin):
         return self.label
 
 
-@python_2_unicode_compatible
 class ContentSection(CMSPlugin):
     label = models.CharField(
         blank=True,
@@ -51,7 +48,6 @@ class ContentSection(CMSPlugin):
         return self.label
 
 
-@python_2_unicode_compatible
 class ContentColumn(CMSPlugin):
     main_content = HTMLField(blank=True)
     aligned_content = HTMLField(blank=True)
