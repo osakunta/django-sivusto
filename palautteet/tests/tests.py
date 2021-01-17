@@ -14,13 +14,13 @@ class TestEmail(TestCase):
         data = dict(foo='bar', fizz='buzz')
         res = EmailService._construct_message(data)
         expected = 'foo:\nbar\n\nfizz:\nbuzz'
-        self.assertEquals(expected, res)
+        self.assertEqual(expected, res)
 
     def test_message_empty_fields_discarded(self):
         data = dict(foo='bar', fizz=None)
         res = EmailService._construct_message(data)
         expected = 'foo:\nbar'
-        self.assertEquals(expected, res)
+        self.assertEqual(expected, res)
 
 
 class TestForm(TestCase):
