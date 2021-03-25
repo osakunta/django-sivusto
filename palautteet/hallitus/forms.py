@@ -3,6 +3,7 @@ from django.forms.widgets import Textarea, RadioSelect
 
 from ..forms import ContactsForm
 
+from captcha.fields import ReCaptchaField
 
 class PalauteForm(ContactsForm):
     msg = CharField(
@@ -15,6 +16,8 @@ class PalauteForm(ContactsForm):
         label='Haluatko, että sinulle vastataan?',
         widget=RadioSelect
     )
+
+    captcha = ReCaptchaField()
 
 
 class PalauteFormLogged(PalauteForm):
