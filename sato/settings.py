@@ -76,6 +76,10 @@ if 'DJANGO_PRODUCTION' in os.environ and os.getenv('DJANGO_PRODUCTION') == "1":
     # Djangocms-blog
     META_SITE_PROTOCOL = 'https'
 
+    # Captcha
+    RECAPTCHA_PUBLIC_KEY = os.getenv('RECAPTCHA_PUBLIC_KEY')
+    RECAPTCHA_PRIVATE_KEY = os.getenv('RECAPTCHA_PRIVATE_KEY')
+
 else:  # Development settings
     SECRET_KEY = 'verisecriit'
     DEBUG = True
@@ -99,6 +103,9 @@ else:  # Development settings
 
     # Djangocms-blog
     META_SITE_PROTOCOL = 'http'
+
+    # We don't have prod captcha
+    SILENCED_SYSTEM_CHECKS = ['captcha.recaptcha_test_key_error']
 
 # COMMON SETTINGS
 # ===============
@@ -244,6 +251,9 @@ INSTALLED_APPS = [
     # Raw HTML for quick fixes
     'cmsplugin_raw_html',
     'djangocms_column',
+
+    # Antispam
+    'captcha',
 
     # For djangocms-blog
     'aldryn_apphooks_config',
