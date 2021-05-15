@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "b8dfaab8ec3ff3e4ddd72852a59516b023ad8864c078bce16b79b59f42a1f577"
+            "sha256": "346feb223d480a05d7075cf8d45430c31d72c51956193ae3f4ed2ac6b3495713"
         },
         "pipfile-spec": 6,
         "requires": {},
@@ -244,11 +244,11 @@
         },
         "django-treebeard": {
             "hashes": [
-                "sha256:7c2b1cdb1e9b46d595825186064a1228bc4d00dbbc186db5b0b9412357fba91c",
-                "sha256:80150017725239702054e5fa64dc66e383dc13ac262c8d47ee5a82cb005969da"
+                "sha256:214ae3ab331a7de11fb055a2015c201e34f3fa14255b667e1e07752231a7a398",
+                "sha256:f50e4eea146f7af6702decf7ef198ac1eee1fb9bb4af2c5dba276c3c48f76623"
             ],
-            "markers": "python_version >= '3.6'",
-            "version": "==4.5.1"
+            "index": "pypi",
+            "version": "==4.4"
         },
         "djangocms-admin-style": {
             "hashes": [
