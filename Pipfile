@@ -16,6 +16,8 @@ social-auth-app-django = "*"
 python-jose = "*"
 djangocms-blog = "*"
 django-recaptcha = "*"
+# Added because djano-cms 3.8 is incompatible with django-treebeard 4.5.1. Can be removed when this is fixed...
+django-treebeard = "==4.4"
 
 [dev-packages]
 codacy-coverage = "*"
