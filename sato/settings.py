@@ -118,6 +118,8 @@ ALLOWED_HOSTS = [
     'www.satakuntalainenosakunta.fi',
 ]
 
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
 # Application definition
 ROOT_URLCONF = 'sato.urls'
 WSGI_APPLICATION = 'sato.wsgi.application'
