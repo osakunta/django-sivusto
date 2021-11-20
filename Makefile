@@ -14,7 +14,7 @@ push:
 	docker push ${NAME}
 
 login:
-	docker login -u ${DOCKER_USER} -p ${DOCKER_PASS}
+	echo ${DOCKER_PASS} | docker login -u ${DOCKER_USER} --password-stdin
 
 populate:
 	cat ~/django_database_backup.sql | docker exec -i django-sivusto-db psql -U postgres -d postgres
