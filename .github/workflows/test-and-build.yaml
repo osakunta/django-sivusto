@@ -25,3 +25,7 @@ jobs:
 
       - name: Run tests
         run: make test
+
+      - name: Push image to Docker Hub
+        run: make login push
+        if: steps.extract_branch.outputs.branch == 'master'
