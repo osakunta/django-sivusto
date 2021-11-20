@@ -17,5 +17,8 @@ jobs:
       - name: Build assets
         run: npm run build
 
+      - name: Build docker image
+        run: make build
+
       - name: Run tests
         run: make test
