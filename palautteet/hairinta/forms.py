@@ -1,6 +1,8 @@
 from django.forms.fields import CharField, BooleanField
 from django.forms.widgets import Textarea, CheckboxInput, TextInput
 
+from captcha.fields import ReCaptchaField
+
 from ..forms import ContactsForm
 
 
@@ -25,7 +27,11 @@ class HairintaForm(ContactsForm):
         required=False
     )
 
+    captcha = ReCaptchaField()
+    
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields.get('email').widget = TextInput(attrs=dict(style='display: none'))
         self.fields.get('name').widget = TextInput(attrs=dict(style='display: none'))
+
+
