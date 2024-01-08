@@ -150,6 +150,8 @@ SOCIAL_AUTH_PIPELINE = (
     'social_core.pipeline.user.user_details',
 )
 
+SOCIAL_AUTH_RAISE_EXCEPTIONS = False
+
 AUTHENTICATION_BACKENDS = {
     'auth0login.auth0backend.Auth0',
     'django.contrib.auth.backends.ModelBackend'
